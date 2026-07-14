@@ -1,0 +1,2600 @@
+{
+  "1": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "node_id": "node_1",
+        "type": "decision_box",
+        "text": "Top Illuminator Circuit Breaker Switch [CB14]",
+        "metadata": {
+          "page": 1,
+          "bbox": [
+            251.5,
+            85.5,
+            365.0,
+            175.5
+          ]
+        }
+      },
+      {
+        "id": "node_2",
+        "node_id": "node_2",
+        "type": "process_box",
+        "text": "Switch Circuit Breaker to ON [CB14]",
+        "metadata": {
+          "page": 1,
+          "bbox": [
+            262.6000061035156,
+            204.69000244140625,
+            351.8500061035156,
+            272.6400146484375
+          ]
+        }
+      },
+      {
+        "id": "node_3",
+        "node_id": "node_3",
+        "type": "process_box",
+        "text": "Troubleshoot Relay/Short- circuited wiring. Repair as needed",
+        "metadata": {
+          "page": 1,
+          "bbox": [
+            408.20001220703125,
+            313.45001220703125,
+            497.45001220703125,
+            381.3999938964844
+          ]
+        }
+      },
+      {
+        "id": "node_4",
+        "node_id": "node_4",
+        "type": "process_box",
+        "text": "Troubleshoot Power Supply [PWS100]/open wiring. Repair as needed",
+        "metadata": {
+          "page": 1,
+          "bbox": [
+            407.0,
+            94.94000244140625,
+            496.25,
+            162.8900146484375
+          ]
+        }
+      },
+      {
+        "id": "node_5",
+        "node_id": "node_5",
+        "type": "decision_box",
+        "text": "Does [CB14] stay ON?",
+        "metadata": {
+          "page": 1,
+          "bbox": [
+            399.5,
+            210.94000244140625,
+            504.8999938964844,
+            284.0400085449219
+          ]
+        }
+      },
+      {
+        "id": "node_6",
+        "node_id": "node_6",
+        "type": "start_end_terminal",
+        "text": "Repeat Functionality Test",
+        "metadata": {
+          "page": 1,
+          "bbox": [
+            613.5,
+            335.0899963378906,
+            718.7000122070312,
+            362.739990234375
+          ]
+        }
+      }
+    ],
+    "edges": [
+      {
+        "from": "node_1",
+        "from_text": "Top Illuminator Circuit Breaker Switch [CB14]",
+        "to": "node_2",
+        "to_text": "Switch Circuit Breaker to ON [CB14]",
+        "label": "OFF"
+      },
+      {
+        "from": "node_1",
+        "from_text": "Top Illuminator Circuit Breaker Switch [CB14]",
+        "to": "node_4",
+        "to_text": "Troubleshoot Power Supply [PWS100]/open wiring. Repair as needed",
+        "label": ""
+      },
+      {
+        "from": "node_5",
+        "from_text": "Does [CB14] stay ON?",
+        "to": "node_3",
+        "to_text": "Troubleshoot Relay/Short- circuited wiring. Repair as needed",
+        "label": "NO"
+      },
+      {
+        "from": "node_2",
+        "from_text": "Switch Circuit Breaker to ON [CB14]",
+        "to": "node_5",
+        "to_text": "Does [CB14] stay ON?",
+        "label": ""
+      },
+      {
+        "from": "node_3",
+        "from_text": "Troubleshoot Relay/Short- circuited wiring. Repair as needed",
+        "to": "node_6",
+        "to_text": "Repeat Functionality Test",
+        "label": ""
+      },
+      {
+        "from": "node_4",
+        "from_text": "Troubleshoot Power Supply [PWS100]/open wiring. Repair as needed",
+        "to": "node_6",
+        "to_text": "Repeat Functionality Test",
+        "label": ""
+      },
+      {
+        "from": "node_5",
+        "from_text": "Does [CB14] stay ON?",
+        "to": "node_6",
+        "to_text": "Repeat Functionality Test",
+        "label": "YES"
+      }
+    ]
+  },
+  "2": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "node_id": "node_1",
+        "type": "start_end_terminal",
+        "text": "Start",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            341.1000061035156,
+            94.989990234375,
+            413.1000061035156,
+            118.739990234375
+          ]
+        }
+      },
+      {
+        "id": "node_2",
+        "node_id": "node_2",
+        "type": "decision_box",
+        "text": "Power Supply LED [G1,G2,G3]",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            324.6000061035156,
+            147.8900146484375,
+            430.0,
+            219.29000854492188
+          ]
+        }
+      },
+      {
+        "id": "node_3",
+        "node_id": "node_3",
+        "type": "decision_box",
+        "text": "Power Supply LED Color",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            324.6000061035156,
+            250.94000244140625,
+            430.0,
+            322.3399963378906
+          ]
+        }
+      },
+      {
+        "id": "node_4",
+        "node_id": "node_4",
+        "type": "decision_box",
+        "text": "Circuit Breaker/Main Switch [F11,F12,13]",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            506.5,
+            132.989990234375,
+            628.9000244140625,
+            235.489990234375
+          ]
+        }
+      },
+      {
+        "id": "node_5",
+        "node_id": "node_5",
+        "type": "process_box",
+        "text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            662.4000244140625,
+            150.19000244140625,
+            751.6500244140625,
+            218.1400146484375
+          ]
+        }
+      },
+      {
+        "id": "node_6",
+        "node_id": "node_6",
+        "type": "decision_box",
+        "text": "Does switch stay ON? YES",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            651.4000244140625,
+            245.489990234375,
+            756.7999877929688,
+            318.5899963378906
+          ]
+        }
+      },
+      {
+        "id": "node_7",
+        "node_id": "node_7",
+        "type": "process_box",
+        "text": "Switch Circuit Breaker/Main Switch [F11,F12,F13] to ON",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            531.0499877929688,
+            249.03997802734375,
+            620.2999877929688,
+            316.989990234375
+          ]
+        }
+      },
+      {
+        "id": "node_8",
+        "node_id": "node_8",
+        "type": "process_box",
+        "text": "Troubleshoot Power Supply/Short- circuited wiring. Repair as needed",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            660.9500122070312,
+            369.57000732421875,
+            750.2000122070312,
+            437.52001953125
+          ]
+        }
+      },
+      {
+        "id": "node_9",
+        "node_id": "node_9",
+        "type": "decision_box",
+        "text": "Circuit Breaker L[F111,F113,F115], R[F121,F123,F125], B[F131,F133,F135]",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            16.5,
+            297.5,
+            150.0,
+            399.5
+          ]
+        }
+      },
+      {
+        "id": "node_10",
+        "node_id": "node_10",
+        "type": "decision_box",
+        "text": "Is the LED flashing?",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            446.25,
+            335.489990234375,
+            551.6500244140625,
+            410.44000244140625
+          ]
+        }
+      },
+      {
+        "id": "node_11",
+        "node_id": "node_11",
+        "type": "process_box",
+        "text": "Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down.",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            568.2999877929688,
+            341.8800048828125,
+            657.5499877929688,
+            409.83001708984375
+          ]
+        }
+      },
+      {
+        "id": "node_12",
+        "node_id": "node_12",
+        "type": "start_end_terminal",
+        "text": "Repeat Functionality Test",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            654.7999877929688,
+            495.16998291015625,
+            760.0,
+            522.8200073242188
+          ]
+        }
+      },
+      {
+        "id": "node_13",
+        "node_id": "node_13",
+        "type": "process_box",
+        "text": "Troubleshoot Short-circuited wiring. Repair as needed",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            454.75,
+            425.1000061035156,
+            544.0,
+            493.04998779296875
+          ]
+        }
+      },
+      {
+        "id": "node_14",
+        "node_id": "node_14",
+        "type": "process_box",
+        "text": "Troubleshoot open wiring. Repair as needed",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            198.8000030517578,
+            316.0400085449219,
+            288.04998779296875,
+            383.989990234375
+          ]
+        }
+      },
+      {
+        "id": "node_15",
+        "node_id": "node_15",
+        "type": "process_box",
+        "text": "Switch Circuit OFF Breaker to ON",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            36.400001525878906,
+            413.70001220703125,
+            125.6500015258789,
+            481.6499938964844
+          ]
+        }
+      },
+      {
+        "id": "node_16",
+        "node_id": "node_16",
+        "type": "decision_box",
+        "text": "Does  it stay ON?",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            157.5,
+            418.0,
+            263.3999938964844,
+            479.0
+          ]
+        }
+      },
+      {
+        "id": "node_17",
+        "node_id": "node_17",
+        "type": "process_box",
+        "text": "Troubleshoot Troubleshoot Power Short-circuited Supply/Short- wiring. Repair as circuited wiring. needed Repair as needed",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            166.14999389648438,
+            503.9700012207031,
+            255.39999389648438,
+            571.9199829101562
+          ]
+        }
+      },
+      {
+        "id": "node_18",
+        "node_id": "node_18",
+        "type": "process_box",
+        "text": "Troubleshoot open wiring to Camera/Illumilator. Repair as needed",
+        "metadata": {
+          "page": 2,
+          "bbox": [
+            291.3999938964844,
+            503.66998291015625,
+            380.6499938964844,
+            571.6199951171875
+          ]
+        }
+      }
+    ],
+    "edges": [
+      {
+        "from": "node_2",
+        "from_text": "Power Supply LED [G1,G2,G3]",
+        "to": "node_3",
+        "to_text": "Power Supply LED Color",
+        "label": ""
+      },
+      {
+        "from": "node_1",
+        "from_text": "Start",
+        "to": "node_2",
+        "to_text": "Power Supply LED [G1,G2,G3]",
+        "label": ""
+      },
+      {
+        "from": "node_4",
+        "from_text": "Circuit Breaker/Main Switch [F11,F12,13]",
+        "to": "node_5",
+        "to_text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed",
+        "label": ""
+      },
+      {
+        "from": "node_7",
+        "from_text": "Switch Circuit Breaker/Main Switch [F11,F12,F13] to ON",
+        "to": "node_6",
+        "to_text": "Does switch stay ON? YES",
+        "label": ""
+      },
+      {
+        "from": "node_3",
+        "from_text": "Power Supply LED Color",
+        "to": "node_10",
+        "to_text": "Is the LED flashing?",
+        "label": "RED"
+      },
+      {
+        "from": "node_10",
+        "from_text": "Is the LED flashing?",
+        "to": "node_11",
+        "to_text": "Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down.",
+        "label": ""
+      },
+      {
+        "from": "node_5",
+        "from_text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed",
+        "to": "node_12",
+        "to_text": "Repeat Functionality Test",
+        "label": ""
+      },
+      {
+        "from": "node_6",
+        "from_text": "Does switch stay ON? YES",
+        "to": "node_5",
+        "to_text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed",
+        "label": ""
+      },
+      {
+        "from": "node_8",
+        "from_text": "Troubleshoot Power Supply/Short- circuited wiring. Repair as needed",
+        "to": "node_12",
+        "to_text": "Repeat Functionality Test",
+        "label": ""
+      },
+      {
+        "from": "node_10",
+        "from_text": "Is the LED flashing?",
+        "to": "node_13",
+        "to_text": "Troubleshoot Short-circuited wiring. Repair as needed",
+        "label": "NO"
+      },
+      {
+        "from": "node_15",
+        "from_text": "Switch Circuit OFF Breaker to ON",
+        "to": "node_16",
+        "to_text": "Does  it stay ON?",
+        "label": ""
+      },
+      {
+        "from": "node_16",
+        "from_text": "Does  it stay ON?",
+        "to": "node_17",
+        "to_text": "Troubleshoot Troubleshoot Power Short-circuited Supply/Short- wiring. Repair as circuited wiring. needed Repair as needed",
+        "label": "NO"
+      },
+      {
+        "from": "node_17",
+        "from_text": "Troubleshoot Troubleshoot Power Short-circuited Supply/Short- wiring. Repair as circuited wiring. needed Repair as needed",
+        "to": "node_12",
+        "to_text": "Repeat Functionality Test",
+        "label": ""
+      },
+      {
+        "from": "node_2",
+        "from_text": "Power Supply LED [G1,G2,G3]",
+        "to": "node_4",
+        "to_text": "Circuit Breaker/Main Switch [F11,F12,13]",
+        "label": ""
+      },
+      {
+        "from": "node_4",
+        "from_text": "Circuit Breaker/Main Switch [F11,F12,13]",
+        "to": "node_7",
+        "to_text": "Switch Circuit Breaker/Main Switch [F11,F12,F13] to ON",
+        "label": ""
+      },
+      {
+        "from": "node_3",
+        "from_text": "Power Supply LED Color",
+        "to": "node_9",
+        "to_text": "Circuit Breaker L[F111,F113,F115], R[F121,F123,F125], B[F131,F133,F135]",
+        "label": ""
+      },
+      {
+        "from": "node_9",
+        "from_text": "Circuit Breaker L[F111,F113,F115], R[F121,F123,F125], B[F131,F133,F135]",
+        "to": "node_14",
+        "to_text": "Troubleshoot open wiring. Repair as needed",
+        "label": ""
+      },
+      {
+        "from": "node_9",
+        "from_text": "Circuit Breaker L[F111,F113,F115], R[F121,F123,F125], B[F131,F133,F135]",
+        "to": "node_15",
+        "to_text": "Switch Circuit OFF Breaker to ON",
+        "label": ""
+      },
+      {
+        "from": "node_16",
+        "from_text": "Does  it stay ON?",
+        "to": "node_18",
+        "to_text": "Troubleshoot open wiring to Camera/Illumilator. Repair as needed",
+        "label": ""
+      },
+      {
+        "from": "node_6",
+        "from_text": "Does switch stay ON? YES",
+        "to": "node_8",
+        "to_text": "Troubleshoot Power Supply/Short- circuited wiring. Repair as needed",
+        "label": "NO"
+      }
+    ]
+  },
+  "3": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "node_id": "node_1",
+        "type": "start_end_terminal",
+        "text": "Start",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            481.5,
+            8.45001220703125,
+            553.5,
+            32.20001220703125
+          ]
+        }
+      },
+      {
+        "id": "node_2",
+        "node_id": "node_2",
+        "type": "decision_box",
+        "text": "Device Ready Light On?",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            465.0,
+            62.8499755859375,
+            570.4000244140625,
+            134.25
+          ]
+        }
+      },
+      {
+        "id": "node_3",
+        "node_id": "node_3",
+        "type": "decision_box",
+        "text": "Is service light illuminated?",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            461.5,
+            165.989990234375,
+            573.5,
+            237.3900146484375
+          ]
+        }
+      },
+      {
+        "id": "node_4",
+        "node_id": "node_4",
+        "type": "process_box",
+        "text": "Power cycle and watch illuminator during power up.",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            473.0,
+            258.45001220703125,
+            562.25,
+            326.3999938964844
+          ]
+        }
+      },
+      {
+        "id": "node_5",
+        "node_id": "node_5",
+        "type": "decision_box",
+        "text": "What does illuminator do?",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            464.0,
+            345.45001220703125,
+            569.4000244140625,
+            416.8500061035156
+          ]
+        }
+      },
+      {
+        "id": "node_6",
+        "node_id": "node_6",
+        "type": "decision_box",
+        "text": "Does light come on when system is triggered?",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            454.5,
+            435.989990234375,
+            580.0,
+            520.490966796875
+          ]
+        }
+      },
+      {
+        "id": "node_7",
+        "node_id": "node_7",
+        "type": "process_box",
+        "text": "Power Cycle and verify power. Replace if continues",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            626.0,
+            65.45001220703125,
+            715.25,
+            133.39999389648438
+          ]
+        }
+      },
+      {
+        "id": "node_8",
+        "node_id": "node_8",
+        "type": "process_box",
+        "text": "Replace Camera",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            625.0,
+            169.4000244140625,
+            714.25,
+            237.35000610351562
+          ]
+        }
+      },
+      {
+        "id": "node_9",
+        "node_id": "node_9",
+        "type": "process_box",
+        "text": "Verify Power connection and repeat test. Replace if still unresponsive.",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            623.5,
+            345.95001220703125,
+            712.75,
+            413.8999938964844
+          ]
+        }
+      },
+      {
+        "id": "node_10",
+        "node_id": "node_10",
+        "type": "process_box",
+        "text": "Verify/Correct CAN wiring and retest",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            623.5,
+            440.95001220703125,
+            712.75,
+            508.8999938964844
+          ]
+        }
+      },
+      {
+        "id": "node_11",
+        "node_id": "node_11",
+        "type": "process_box",
+        "text": "Verify illumination connection and repeat. Replace camera if light still stays on.",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            325.0,
+            347.0,
+            414.25,
+            414.95001220703125
+          ]
+        }
+      },
+      {
+        "id": "node_12",
+        "node_id": "node_12",
+        "type": "decision_box",
+        "text": "Does Result light flash when valid barcode facing camera? No",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            302.5,
+            432.989990234375,
+            435.5,
+            523.490966796875
+          ]
+        }
+      },
+      {
+        "id": "node_13",
+        "node_id": "node_13",
+        "type": "decision_box",
+        "text": "Do images get stored?",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            169.0,
+            442.989990234375,
+            274.3999938964844,
+            514.3909912109375
+          ]
+        }
+      },
+      {
+        "id": "node_14",
+        "node_id": "node_14",
+        "type": "process_box",
+        "text": "Power cycle and repeat test. Have programming verified if continues",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            324.0,
+            533.4910278320312,
+            413.25,
+            601.4409790039062
+          ]
+        }
+      },
+      {
+        "id": "node_15",
+        "node_id": "node_15",
+        "type": "process_box",
+        "text": "Verify Network connections",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            175.5,
+            533.4910278320312,
+            264.75,
+            601.4409790039062
+          ]
+        }
+      },
+      {
+        "id": "node_16",
+        "node_id": "node_16",
+        "type": "start_end_terminal",
+        "text": "Camera appears to be working. END",
+        "metadata": {
+          "page": 3,
+          "bbox": [
+            37.0,
+            462.489990234375,
+            125.5,
+            495.489990234375
+          ]
+        }
+      }
+    ],
+    "edges": [
+      {
+        "from": "node_2",
+        "from_text": "Device Ready Light On?",
+        "to": "node_3",
+        "to_text": "Is service light illuminated?",
+        "label": "Green"
+      },
+      {
+        "from": "node_1",
+        "from_text": "Start",
+        "to": "node_2",
+        "to_text": "Device Ready Light On?",
+        "label": ""
+      },
+      {
+        "from": "node_2",
+        "from_text": "Device Ready Light On?",
+        "to": "node_7",
+        "to_text": "Power Cycle and verify power. Replace if continues",
+        "label": "No/Red"
+      },
+      {
+        "from": "node_3",
+        "from_text": "Is service light illuminated?",
+        "to": "node_8",
+        "to_text": "Replace Camera",
+        "label": "Yes/flashing"
+      },
+      {
+        "from": "node_3",
+        "from_text": "Is service light illuminated?",
+        "to": "node_4",
+        "to_text": "Power cycle and watch illuminator during power up.",
+        "label": ""
+      },
+      {
+        "from": "node_4",
+        "from_text": "Power cycle and watch illuminator during power up.",
+        "to": "node_5",
+        "to_text": "What does illuminator do?",
+        "label": ""
+      },
+      {
+        "from": "node_5",
+        "from_text": "What does illuminator do?",
+        "to": "node_9",
+        "to_text": "Verify Power connection and repeat test. Replace if still unresponsive.",
+        "label": "Nothing"
+      },
+      {
+        "from": "node_5",
+        "from_text": "What does illuminator do?",
+        "to": "node_6",
+        "to_text": "Does light come on when system is triggered?",
+        "label": ""
+      },
+      {
+        "from": "node_6",
+        "from_text": "Does light come on when system is triggered?",
+        "to": "node_10",
+        "to_text": "Verify/Correct CAN wiring and retest",
+        "label": ""
+      },
+      {
+        "from": "node_5",
+        "from_text": "What does illuminator do?",
+        "to": "node_11",
+        "to_text": "Verify illumination connection and repeat. Replace camera if light still stays on.",
+        "label": "Stays lit"
+      },
+      {
+        "from": "node_6",
+        "from_text": "Does light come on when system is triggered?",
+        "to": "node_12",
+        "to_text": "Does Result light flash when valid barcode facing camera? No",
+        "label": "Yes"
+      },
+      {
+        "from": "node_12",
+        "from_text": "Does Result light flash when valid barcode facing camera? No",
+        "to": "node_14",
+        "to_text": "Power cycle and repeat test. Have programming verified if continues",
+        "label": ""
+      },
+      {
+        "from": "node_12",
+        "from_text": "Does Result light flash when valid barcode facing camera? No",
+        "to": "node_13",
+        "to_text": "Do images get stored?",
+        "label": "Yes"
+      },
+      {
+        "from": "node_13",
+        "from_text": "Do images get stored?",
+        "to": "node_16",
+        "to_text": "Camera appears to be working. END",
+        "label": "Yes"
+      },
+      {
+        "from": "node_13",
+        "from_text": "Do images get stored?",
+        "to": "node_15",
+        "to_text": "Verify Network connections",
+        "label": ""
+      }
+    ]
+  },
+  "4": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "node_id": "node_1",
+        "type": "decision_box",
+        "text": "X8 \u2013 CAN \u201cAct\u201d LED",
+        "metadata": {
+          "page": 4,
+          "bbox": [
+            232.5,
+            149.44000244140625,
+            337.8999938964844,
+            220.83999633789062
+          ]
+        }
+      },
+      {
+        "id": "node_2",
+        "node_id": "node_2",
+        "type": "start_end_terminal",
+        "text": "Start",
+        "metadata": {
+          "page": 4,
+          "bbox": [
+            248.5,
+            94.94000244140625,
+            320.5,
+            118.69000244140625
+          ]
+        }
+      },
+      {
+        "id": "node_3",
+        "node_id": "node_3",
+        "type": "decision_box",
+        "text": "Are 4 wires attached?",
+        "metadata": {
+          "page": 4,
+          "bbox": [
+            379.0,
+            250.54000854492188,
+            484.3999938964844,
+            321.94000244140625
+          ]
+        }
+      },
+      {
+        "id": "node_4",
+        "node_id": "node_4",
+        "type": "process_box",
+        "text": "Recheck Operation",
+        "metadata": {
+          "page": 4,
+          "bbox": [
+            239.5,
+            251.989990234375,
+            328.75,
+            319.94000244140625
+          ]
+        }
+      },
+      {
+        "id": "node_5",
+        "node_id": "node_5",
+        "type": "process_box",
+        "text": "Attached wires and test again",
+        "metadata": {
+          "page": 4,
+          "bbox": [
+            387.5,
+            353.0400085449219,
+            476.75,
+            420.989990234375
+          ]
+        }
+      },
+      {
+        "id": "node_6",
+        "node_id": "node_6",
+        "type": "decision_box",
+        "text": "Working Correctly?",
+        "metadata": {
+          "page": 4,
+          "bbox": [
+            380.5,
+            458.6400146484375,
+            485.8999938964844,
+            530.041015625
+          ]
+        }
+      },
+      {
+        "id": "node_7",
+        "node_id": "node_7",
+        "type": "start_end_terminal",
+        "text": "Resume Operation",
+        "metadata": {
+          "page": 4,
+          "bbox": [
+            529.0,
+            483.1400146484375,
+            625.5,
+            506.8900146484375
+          ]
+        }
+      },
+      {
+        "id": "node_8",
+        "node_id": "node_8",
+        "type": "process_box",
+        "text": "Check All CAN connection on all cameras and VMS. Connect cable or replace cable as needed",
+        "metadata": {
+          "page": 4,
+          "bbox": [
+            531.5,
+            254.03997802734375,
+            620.75,
+            321.989990234375
+          ]
+        }
+      },
+      {
+        "id": "node_9",
+        "node_id": "node_9",
+        "type": "decision_box",
+        "text": "Working correctly?",
+        "metadata": {
+          "page": 4,
+          "bbox": [
+            523.0,
+            344.6400146484375,
+            628.4000244140625,
+            416.6400146484375
+          ]
+        }
+      },
+      {
+        "id": "node_10",
+        "node_id": "node_10",
+        "type": "process_box",
+        "text": "Examine 4 CAN wires",
+        "metadata": {
+          "page": 4,
+          "bbox": [
+            387.5,
+            150.94000244140625,
+            476.75,
+            218.8900146484375
+          ]
+        }
+      },
+      {
+        "id": "node_11",
+        "node_id": "node_11",
+        "type": "process_box",
+        "text": "Replace the terminator for X8 - CAN",
+        "metadata": {
+          "page": 4,
+          "bbox": [
+            672.5,
+            346.55999755859375,
+            761.75,
+            414.510009765625
+          ]
+        }
+      }
+    ],
+    "edges": [
+      {
+        "from": "node_2",
+        "from_text": "Start",
+        "to": "node_1",
+        "to_text": "X8 \u2013 CAN \u201cAct\u201d LED",
+        "label": ""
+      },
+      {
+        "from": "node_1",
+        "from_text": "X8 \u2013 CAN \u201cAct\u201d LED",
+        "to": "node_4",
+        "to_text": "Recheck Operation",
+        "label": "Flicker during operation"
+      },
+      {
+        "from": "node_3",
+        "from_text": "Are 4 wires attached?",
+        "to": "node_5",
+        "to_text": "Attached wires and test again",
+        "label": "No"
+      },
+      {
+        "from": "node_5",
+        "from_text": "Attached wires and test again",
+        "to": "node_6",
+        "to_text": "Working Correctly?",
+        "label": ""
+      },
+      {
+        "from": "node_8",
+        "from_text": "Check All CAN connection on all cameras and VMS. Connect cable or replace cable as needed",
+        "to": "node_9",
+        "to_text": "Working correctly?",
+        "label": ""
+      },
+      {
+        "from": "node_10",
+        "from_text": "Examine 4 CAN wires",
+        "to": "node_3",
+        "to_text": "Are 4 wires attached?",
+        "label": ""
+      },
+      {
+        "from": "node_9",
+        "from_text": "Working correctly?",
+        "to": "node_7",
+        "to_text": "Resume Operation",
+        "label": "Yes"
+      },
+      {
+        "from": "node_1",
+        "from_text": "X8 \u2013 CAN \u201cAct\u201d LED",
+        "to": "node_10",
+        "to_text": "Examine 4 CAN wires",
+        "label": "Off"
+      },
+      {
+        "from": "node_3",
+        "from_text": "Are 4 wires attached?",
+        "to": "node_8",
+        "to_text": "Check All CAN connection on all cameras and VMS. Connect cable or replace cable as needed",
+        "label": "Yes"
+      },
+      {
+        "from": "node_6",
+        "from_text": "Working Correctly?",
+        "to": "node_7",
+        "to_text": "Resume Operation",
+        "label": "Yes"
+      },
+      {
+        "from": "node_9",
+        "from_text": "Working correctly?",
+        "to": "node_11",
+        "to_text": "Replace the terminator for X8 - CAN",
+        "label": "No"
+      },
+      {
+        "from": "node_6",
+        "from_text": "Working Correctly?",
+        "to": "node_11",
+        "to_text": "Replace the terminator for X8 - CAN",
+        "label": "No"
+      }
+    ]
+  },
+  "5": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "node_id": "node_1",
+        "type": "decision_box",
+        "text": "\u201cPower\u201d LED X2",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            287.3500061035156,
+            146.28997802734375,
+            392.75,
+            217.69000244140625
+          ]
+        }
+      },
+      {
+        "id": "node_2",
+        "node_id": "node_2",
+        "type": "start_end_terminal",
+        "text": "GOTO \u201cPower Supply TS\u201d",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            455.6000061035156,
+            162.8900146484375,
+            552.9000244140625,
+            197.989990234375
+          ]
+        }
+      },
+      {
+        "id": "node_3",
+        "node_id": "node_3",
+        "type": "start_end_terminal",
+        "text": "Start",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            303.3500061035156,
+            93.29998779296875,
+            375.3500061035156,
+            117.04998779296875
+          ]
+        }
+      },
+      {
+        "id": "node_4",
+        "node_id": "node_4",
+        "type": "decision_box",
+        "text": "\u201cDevice Ready\u201d LED",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            288.5,
+            249.59002685546875,
+            393.8999938964844,
+            320.989990234375
+          ]
+        }
+      },
+      {
+        "id": "node_5",
+        "node_id": "node_5",
+        "type": "process_box",
+        "text": "Cycle power to SIM Controller. If issue persists, replace Controller",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            459.0,
+            253.09002685546875,
+            548.25,
+            321.0400085449219
+          ]
+        }
+      },
+      {
+        "id": "node_6",
+        "node_id": "node_6",
+        "type": "decision_box",
+        "text": "\u201cSystem Ready\u201d LED",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            289.0,
+            352.19000244140625,
+            394.3999938964844,
+            423.5899963378906
+          ]
+        }
+      },
+      {
+        "id": "node_7",
+        "node_id": "node_7",
+        "type": "process_box",
+        "text": "CAN \u2013 Device is missing. Check CAN Connection/Device",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            459.5,
+            354.19000244140625,
+            548.75,
+            422.1400146484375
+          ]
+        }
+      },
+      {
+        "id": "node_8",
+        "node_id": "node_8",
+        "type": "process_box",
+        "text": "Device is busy. Application (SE & CE) will not run properly. Reboot system.",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            459.6499938964844,
+            451.03997802734375,
+            548.9000244140625,
+            518.989990234375
+          ]
+        }
+      },
+      {
+        "id": "node_9",
+        "node_id": "node_9",
+        "type": "decision_box",
+        "text": "\u201cFunction 1\u201d LED",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            288.6499938964844,
+            451.8900146484375,
+            394.04998779296875,
+            523.2900390625
+          ]
+        }
+      },
+      {
+        "id": "node_10",
+        "node_id": "node_10",
+        "type": "decision_box",
+        "text": "\u201cTrigger Input\u201d LED, X4 Input A",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            288.1499938964844,
+            552.1900024414062,
+            393.54998779296875,
+            623.5899658203125
+          ]
+        }
+      },
+      {
+        "id": "node_11",
+        "node_id": "node_11",
+        "type": "decision_box",
+        "text": "Yes Do both \u201cEncoder Input\u201d LEDs remain constantly on when the conveyor belt is running? X5",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            279.5,
+            643.0,
+            404.0,
+            749.5040283203125
+          ]
+        }
+      },
+      {
+        "id": "node_12",
+        "node_id": "node_12",
+        "type": "start_end_terminal",
+        "text": "GOTO \u201cTrigger Input TS\u201d",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            459.1499938964844,
+            569.2899780273438,
+            556.4500122070312,
+            604.3900146484375
+          ]
+        }
+      },
+      {
+        "id": "node_13",
+        "node_id": "node_13",
+        "type": "start_end_terminal",
+        "text": "GOTO \u201cEncoder Input TS\u201d",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            458.5,
+            680.0499877929688,
+            555.7999877929688,
+            715.1539916992188
+          ]
+        }
+      },
+      {
+        "id": "node_14",
+        "node_id": "node_14",
+        "type": "decision_box",
+        "text": "\u201cCAN\u201d LED X8-CAN",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            10.100000381469727,
+            310.70001220703125,
+            115.5,
+            382.1000061035156
+          ]
+        }
+      },
+      {
+        "id": "node_15",
+        "node_id": "node_15",
+        "type": "start_end_terminal",
+        "text": "GOTO \u201cCAN TS\u201d",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            180.60000610351562,
+            326.29998779296875,
+            277.8999938964844,
+            361.3999938964844
+          ]
+        }
+      },
+      {
+        "id": "node_16",
+        "node_id": "node_16",
+        "type": "decision_box",
+        "text": "\u201cETHERNET 1-4\u201d LEDs X9 \u2013 X12",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            10.100000381469727,
+            408.3999938964844,
+            115.5,
+            479.79998779296875
+          ]
+        }
+      },
+      {
+        "id": "node_17",
+        "node_id": "node_17",
+        "type": "process_box",
+        "text": "Check the physical Ethernet connection on both ends of the cables\u2019s connection points",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            179.6999969482422,
+            409.0999755859375,
+            268.95001220703125,
+            477.04998779296875
+          ]
+        }
+      },
+      {
+        "id": "node_18",
+        "node_id": "node_18",
+        "type": "decision_box",
+        "text": "Cameras light up when package enters tunnel",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            9.5,
+            506.5,
+            114.9000015258789,
+            614.0
+          ]
+        }
+      },
+      {
+        "id": "node_19",
+        "node_id": "node_19",
+        "type": "start_end_terminal",
+        "text": "GOTO \u201cCamera TS\u201d",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            146.6999969482422,
+            542.7999877929688,
+            244.0,
+            577.9000244140625
+          ]
+        }
+      },
+      {
+        "id": "node_20",
+        "node_id": "node_20",
+        "type": "start_end_terminal",
+        "text": "Repeat System Functionality Test",
+        "metadata": {
+          "page": 5,
+          "bbox": [
+            13.5,
+            747.8040161132812,
+            110.80000305175781,
+            782.9036254882812
+          ]
+        }
+      }
+    ],
+    "edges": [
+      {
+        "from": "node_3",
+        "from_text": "Start",
+        "to": "node_1",
+        "to_text": "\u201cPower\u201d LED X2",
+        "label": ""
+      },
+      {
+        "from": "node_1",
+        "from_text": "\u201cPower\u201d LED X2",
+        "to": "node_2",
+        "to_text": "GOTO \u201cPower Supply TS\u201d",
+        "label": "OFF"
+      },
+      {
+        "from": "node_4",
+        "from_text": "\u201cDevice Ready\u201d LED",
+        "to": "node_5",
+        "to_text": "Cycle power to SIM Controller. If issue persists, replace Controller",
+        "label": "OFF"
+      },
+      {
+        "from": "node_1",
+        "from_text": "\u201cPower\u201d LED X2",
+        "to": "node_4",
+        "to_text": "\u201cDevice Ready\u201d LED",
+        "label": "ON"
+      },
+      {
+        "from": "node_6",
+        "from_text": "\u201cSystem Ready\u201d LED",
+        "to": "node_7",
+        "to_text": "CAN \u2013 Device is missing. Check CAN Connection/Device",
+        "label": "OFF"
+      },
+      {
+        "from": "node_4",
+        "from_text": "\u201cDevice Ready\u201d LED",
+        "to": "node_6",
+        "to_text": "\u201cSystem Ready\u201d LED",
+        "label": "Green"
+      },
+      {
+        "from": "node_9",
+        "from_text": "\u201cFunction 1\u201d LED",
+        "to": "node_8",
+        "to_text": "Device is busy. Application (SE & CE) will not run properly. Reboot system.",
+        "label": "OFF"
+      },
+      {
+        "from": "node_6",
+        "from_text": "\u201cSystem Ready\u201d LED",
+        "to": "node_9",
+        "to_text": "\u201cFunction 1\u201d LED",
+        "label": "Green"
+      },
+      {
+        "from": "node_10",
+        "from_text": "\u201cTrigger Input\u201d LED, X4 Input A",
+        "to": "node_12",
+        "to_text": "GOTO \u201cTrigger Input TS\u201d",
+        "label": "OFF"
+      },
+      {
+        "from": "node_9",
+        "from_text": "\u201cFunction 1\u201d LED",
+        "to": "node_10",
+        "to_text": "\u201cTrigger Input\u201d LED, X4 Input A",
+        "label": "White"
+      },
+      {
+        "from": "node_11",
+        "from_text": "Yes Do both \u201cEncoder Input\u201d LEDs remain constantly on when the conveyor belt is running? X5",
+        "to": "node_13",
+        "to_text": "GOTO \u201cEncoder Input TS\u201d",
+        "label": "No"
+      },
+      {
+        "from": "node_14",
+        "from_text": "\u201cCAN\u201d LED X8-CAN",
+        "to": "node_15",
+        "to_text": "GOTO \u201cCAN TS\u201d",
+        "label": "OFF"
+      },
+      {
+        "from": "node_14",
+        "from_text": "\u201cCAN\u201d LED X8-CAN",
+        "to": "node_16",
+        "to_text": "\u201cETHERNET 1-4\u201d LEDs X9 \u2013 X12",
+        "label": "Flicker during operation"
+      },
+      {
+        "from": "node_16",
+        "from_text": "\u201cETHERNET 1-4\u201d LEDs X9 \u2013 X12",
+        "to": "node_17",
+        "to_text": "Check the physical Ethernet connection on both ends of the cables\u2019s connection points",
+        "label": "Any of"
+      },
+      {
+        "from": "node_16",
+        "from_text": "\u201cETHERNET 1-4\u201d LEDs X9 \u2013 X12",
+        "to": "node_18",
+        "to_text": "Cameras light up when package enters tunnel",
+        "label": "All Green"
+      },
+      {
+        "from": "node_18",
+        "from_text": "Cameras light up when package enters tunnel",
+        "to": "node_19",
+        "to_text": "GOTO \u201cCamera TS\u201d",
+        "label": "No"
+      },
+      {
+        "from": "node_5",
+        "from_text": "Cycle power to SIM Controller. If issue persists, replace Controller",
+        "to": "node_20",
+        "to_text": "Repeat System Functionality Test",
+        "label": ""
+      },
+      {
+        "from": "node_10",
+        "from_text": "\u201cTrigger Input\u201d LED, X4 Input A",
+        "to": "node_11",
+        "to_text": "Yes Do both \u201cEncoder Input\u201d LEDs remain constantly on when the conveyor belt is running? X5",
+        "label": "ON/OFF for every Package"
+      },
+      {
+        "from": "node_18",
+        "from_text": "Cameras light up when package enters tunnel",
+        "to": "node_20",
+        "to_text": "Repeat System Functionality Test",
+        "label": ""
+      }
+    ]
+  },
+  "6": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "node_id": "node_1",
+        "type": "start_end_terminal",
+        "text": "Start",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            341.1000061035156,
+            94.989990234375,
+            413.1000061035156,
+            118.739990234375
+          ]
+        }
+      },
+      {
+        "id": "node_2",
+        "node_id": "node_2",
+        "type": "decision_box",
+        "text": "Power Supply LED",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            324.6000061035156,
+            147.8900146484375,
+            430.0,
+            219.29000854492188
+          ]
+        }
+      },
+      {
+        "id": "node_3",
+        "node_id": "node_3",
+        "type": "decision_box",
+        "text": "Power Supply LED Color",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            324.6000061035156,
+            250.94000244140625,
+            430.0,
+            322.3399963378906
+          ]
+        }
+      },
+      {
+        "id": "node_4",
+        "node_id": "node_4",
+        "type": "decision_box",
+        "text": "Circuit Breaker/Main Switch [CB1]",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            523.2999877929688,
+            147.3900146484375,
+            628.7000122070312,
+            222.33999633789062
+          ]
+        }
+      },
+      {
+        "id": "node_5",
+        "node_id": "node_5",
+        "type": "process_box",
+        "text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            662.4000244140625,
+            150.19000244140625,
+            751.6500244140625,
+            218.1400146484375
+          ]
+        }
+      },
+      {
+        "id": "node_6",
+        "node_id": "node_6",
+        "type": "decision_box",
+        "text": "Does [CB1] stay ON? YES",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            651.4000244140625,
+            245.489990234375,
+            756.7999877929688,
+            318.5899963378906
+          ]
+        }
+      },
+      {
+        "id": "node_7",
+        "node_id": "node_7",
+        "type": "process_box",
+        "text": "Switch Circuit Breaker/Main Switch [CB1] to ON",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            531.0499877929688,
+            249.03997802734375,
+            620.2999877929688,
+            316.989990234375
+          ]
+        }
+      },
+      {
+        "id": "node_8",
+        "node_id": "node_8",
+        "type": "process_box",
+        "text": "Troubleshoot Power Supply/Short- circuited wiring. Repair as needed",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            660.9500122070312,
+            385.07000732421875,
+            750.2000122070312,
+            453.02001953125
+          ]
+        }
+      },
+      {
+        "id": "node_9",
+        "node_id": "node_9",
+        "type": "decision_box",
+        "text": "Circuit Breaker/ Camera Switch [CB10]",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            28.299999237060547,
+            315.489990234375,
+            133.6999969482422,
+            390.44000244140625
+          ]
+        }
+      },
+      {
+        "id": "node_10",
+        "node_id": "node_10",
+        "type": "decision_box",
+        "text": "Is the LED flashing?",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            446.25,
+            350.989990234375,
+            551.6500244140625,
+            425.94000244140625
+          ]
+        }
+      },
+      {
+        "id": "node_11",
+        "node_id": "node_11",
+        "type": "process_box",
+        "text": "Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down.",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            568.2999877929688,
+            357.3800048828125,
+            657.5499877929688,
+            425.33001708984375
+          ]
+        }
+      },
+      {
+        "id": "node_12",
+        "node_id": "node_12",
+        "type": "start_end_terminal",
+        "text": "Repeat Functionality Test",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            654.7999877929688,
+            510.66998291015625,
+            760.0,
+            538.3200073242188
+          ]
+        }
+      },
+      {
+        "id": "node_13",
+        "node_id": "node_13",
+        "type": "process_box",
+        "text": "Troubleshoot Short-circuited wiring. Repair as needed",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            454.75,
+            440.6000061035156,
+            544.0,
+            508.54998779296875
+          ]
+        }
+      },
+      {
+        "id": "node_14",
+        "node_id": "node_14",
+        "type": "process_box",
+        "text": "Troubleshoot Relay [CR100]. Repair as needed",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            163.3000030517578,
+            320.0400085449219,
+            252.5500030517578,
+            387.989990234375
+          ]
+        }
+      },
+      {
+        "id": "node_15",
+        "node_id": "node_15",
+        "type": "process_box",
+        "text": "Switch Circuit Breaker/Camera Switch [CB10] to ON",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            36.400001525878906,
+            419.69000244140625,
+            125.6500015258789,
+            487.6400146484375
+          ]
+        }
+      },
+      {
+        "id": "node_16",
+        "node_id": "node_16",
+        "type": "decision_box",
+        "text": "Does [CB10] stay ON?",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            157.85000610351562,
+            418.8599853515625,
+            263.25,
+            491.9599914550781
+          ]
+        }
+      },
+      {
+        "id": "node_17",
+        "node_id": "node_17",
+        "type": "process_box",
+        "text": "Troubleshoot Troubleshoot Power Relay/Short- Supply/Short- circuited wiring. circuited wiring. Repair as needed Repair as needed",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            166.14999389648438,
+            519.469970703125,
+            255.39999389648438,
+            587.4199829101562
+          ]
+        }
+      },
+      {
+        "id": "node_18",
+        "node_id": "node_18",
+        "type": "decision_box",
+        "text": "Fuse [FU122] Intact?",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            284.1000061035156,
+            418.96002197265625,
+            389.5,
+            492.05999755859375
+          ]
+        }
+      },
+      {
+        "id": "node_19",
+        "node_id": "node_19",
+        "type": "process_box",
+        "text": "Troubleshoot open wiring to SIM2000. Repair as needed",
+        "metadata": {
+          "page": 6,
+          "bbox": [
+            291.3999938964844,
+            519.1699829101562,
+            380.6499938964844,
+            587.1199951171875
+          ]
+        }
+      }
+    ],
+    "edges": [
+      {
+        "from": "node_2",
+        "from_text": "Power Supply LED",
+        "to": "node_3",
+        "to_text": "Power Supply LED Color",
+        "label": ""
+      },
+      {
+        "from": "node_1",
+        "from_text": "Start",
+        "to": "node_2",
+        "to_text": "Power Supply LED",
+        "label": ""
+      },
+      {
+        "from": "node_4",
+        "from_text": "Circuit Breaker/Main Switch [CB1]",
+        "to": "node_5",
+        "to_text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed",
+        "label": ""
+      },
+      {
+        "from": "node_4",
+        "from_text": "Circuit Breaker/Main Switch [CB1]",
+        "to": "node_7",
+        "to_text": "Switch Circuit Breaker/Main Switch [CB1] to ON",
+        "label": "OFF"
+      },
+      {
+        "from": "node_2",
+        "from_text": "Power Supply LED",
+        "to": "node_4",
+        "to_text": "Circuit Breaker/Main Switch [CB1]",
+        "label": "OFF"
+      },
+      {
+        "from": "node_7",
+        "from_text": "Switch Circuit Breaker/Main Switch [CB1] to ON",
+        "to": "node_6",
+        "to_text": "Does [CB1] stay ON? YES",
+        "label": ""
+      },
+      {
+        "from": "node_3",
+        "from_text": "Power Supply LED Color",
+        "to": "node_10",
+        "to_text": "Is the LED flashing?",
+        "label": "RED"
+      },
+      {
+        "from": "node_10",
+        "from_text": "Is the LED flashing?",
+        "to": "node_11",
+        "to_text": "Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down.",
+        "label": ""
+      },
+      {
+        "from": "node_6",
+        "from_text": "Does [CB1] stay ON? YES",
+        "to": "node_8",
+        "to_text": "Troubleshoot Power Supply/Short- circuited wiring. Repair as needed",
+        "label": "NO"
+      },
+      {
+        "from": "node_5",
+        "from_text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed",
+        "to": "node_12",
+        "to_text": "Repeat Functionality Test",
+        "label": ""
+      },
+      {
+        "from": "node_6",
+        "from_text": "Does [CB1] stay ON? YES",
+        "to": "node_5",
+        "to_text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed",
+        "label": ""
+      },
+      {
+        "from": "node_8",
+        "from_text": "Troubleshoot Power Supply/Short- circuited wiring. Repair as needed",
+        "to": "node_12",
+        "to_text": "Repeat Functionality Test",
+        "label": ""
+      },
+      {
+        "from": "node_3",
+        "from_text": "Power Supply LED Color",
+        "to": "node_9",
+        "to_text": "Circuit Breaker/ Camera Switch [CB10]",
+        "label": "GREEN"
+      },
+      {
+        "from": "node_10",
+        "from_text": "Is the LED flashing?",
+        "to": "node_13",
+        "to_text": "Troubleshoot Short-circuited wiring. Repair as needed",
+        "label": "NO"
+      },
+      {
+        "from": "node_9",
+        "from_text": "Circuit Breaker/ Camera Switch [CB10]",
+        "to": "node_14",
+        "to_text": "Troubleshoot Relay [CR100]. Repair as needed",
+        "label": ""
+      },
+      {
+        "from": "node_9",
+        "from_text": "Circuit Breaker/ Camera Switch [CB10]",
+        "to": "node_15",
+        "to_text": "Switch Circuit Breaker/Camera Switch [CB10] to ON",
+        "label": "OFF"
+      },
+      {
+        "from": "node_15",
+        "from_text": "Switch Circuit Breaker/Camera Switch [CB10] to ON",
+        "to": "node_16",
+        "to_text": "Does [CB10] stay ON?",
+        "label": ""
+      },
+      {
+        "from": "node_16",
+        "from_text": "Does [CB10] stay ON?",
+        "to": "node_18",
+        "to_text": "Fuse [FU122] Intact?",
+        "label": ""
+      },
+      {
+        "from": "node_16",
+        "from_text": "Does [CB10] stay ON?",
+        "to": "node_17",
+        "to_text": "Troubleshoot Troubleshoot Power Relay/Short- Supply/Short- circuited wiring. circuited wiring. Repair as needed Repair as needed",
+        "label": "NO"
+      },
+      {
+        "from": "node_18",
+        "from_text": "Fuse [FU122] Intact?",
+        "to": "node_13",
+        "to_text": "Troubleshoot Short-circuited wiring. Repair as needed",
+        "label": "NO"
+      },
+      {
+        "from": "node_18",
+        "from_text": "Fuse [FU122] Intact?",
+        "to": "node_19",
+        "to_text": "Troubleshoot open wiring to SIM2000. Repair as needed",
+        "label": ""
+      },
+      {
+        "from": "node_17",
+        "from_text": "Troubleshoot Troubleshoot Power Relay/Short- Supply/Short- circuited wiring. circuited wiring. Repair as needed Repair as needed",
+        "to": "node_12",
+        "to_text": "Repeat Functionality Test",
+        "label": ""
+      }
+    ]
+  },
+  "7": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "node_id": "node_1",
+        "type": "start_end_terminal",
+        "text": "Start",
+        "metadata": {
+          "page": 7,
+          "bbox": [
+            341.0,
+            95.44000244140625,
+            413.0,
+            119.19000244140625
+          ]
+        }
+      },
+      {
+        "id": "node_2",
+        "node_id": "node_2",
+        "type": "decision_box",
+        "text": "Check Speed display on Package Analytics (10.66.225.88:8080)",
+        "metadata": {
+          "page": 7,
+          "bbox": [
+            316.0,
+            148.489990234375,
+            439.0,
+            231.489990234375
+          ]
+        }
+      },
+      {
+        "id": "node_3",
+        "node_id": "node_3",
+        "type": "process_box",
+        "text": "Examine encoder cable",
+        "metadata": {
+          "page": 7,
+          "bbox": [
+            484.0,
+            155.94000244140625,
+            573.25,
+            223.8900146484375
+          ]
+        }
+      },
+      {
+        "id": "node_4",
+        "node_id": "node_4",
+        "type": "process_box",
+        "text": "Check encoder wheels contact/check any flat spot on wheels. Adjust wheel contact/Replace Encoder",
+        "metadata": {
+          "page": 7,
+          "bbox": [
+            642.0,
+            249.1500244140625,
+            731.25,
+            317.1000061035156
+          ]
+        }
+      },
+      {
+        "id": "node_5",
+        "node_id": "node_5",
+        "type": "process_box",
+        "text": "Clean encoder wheels",
+        "metadata": {
+          "page": 7,
+          "bbox": [
+            332.0,
+            280.04998779296875,
+            421.25,
+            348.0
+          ]
+        }
+      },
+      {
+        "id": "node_6",
+        "node_id": "node_6",
+        "type": "process_box",
+        "text": "Recheck operation",
+        "metadata": {
+          "page": 7,
+          "bbox": [
+            331.5,
+            389.54998779296875,
+            420.75,
+            457.5
+          ]
+        }
+      },
+      {
+        "id": "node_7",
+        "node_id": "node_7",
+        "type": "decision_box",
+        "text": "Is encoder cable damaged?",
+        "metadata": {
+          "page": 7,
+          "bbox": [
+            475.5,
+            245.04998779296875,
+            580.9000244140625,
+            317.04998779296875
+          ]
+        }
+      },
+      {
+        "id": "node_8",
+        "node_id": "node_8",
+        "type": "process_box",
+        "text": "Replace Cable and test again",
+        "metadata": {
+          "page": 7,
+          "bbox": [
+            484.0,
+            335.04998779296875,
+            573.25,
+            403.0
+          ]
+        }
+      },
+      {
+        "id": "node_9",
+        "node_id": "node_9",
+        "type": "decision_box",
+        "text": "Working Correctly?",
+        "metadata": {
+          "page": 7,
+          "bbox": [
+            477.0,
+            420.07000732421875,
+            582.4000244140625,
+            492.07000732421875
+          ]
+        }
+      },
+      {
+        "id": "node_10",
+        "node_id": "node_10",
+        "type": "process_box",
+        "text": "If cable and Encoder both replaced and the speed is still not correct, replace the SIM2000",
+        "metadata": {
+          "page": 7,
+          "bbox": [
+            486.0,
+            512.0670166015625,
+            575.25,
+            580.0170288085938
+          ]
+        }
+      },
+      {
+        "id": "node_11",
+        "node_id": "node_11",
+        "type": "decision_box",
+        "text": "Working correctly?",
+        "metadata": {
+          "page": 7,
+          "bbox": [
+            633.0,
+            334.04998779296875,
+            738.4000244140625,
+            406.04998779296875
+          ]
+        }
+      },
+      {
+        "id": "node_12",
+        "node_id": "node_12",
+        "type": "start_end_terminal",
+        "text": "Resume Operation",
+        "metadata": {
+          "page": 7,
+          "bbox": [
+            644.5,
+            444.52001953125,
+            729.0,
+            468.27001953125
+          ]
+        }
+      }
+    ],
+    "edges": [
+      {
+        "from": "node_1",
+        "from_text": "Start",
+        "to": "node_2",
+        "to_text": "Check Speed display on Package Analytics (10.66.225.88:8080)",
+        "label": ""
+      },
+      {
+        "from": "node_2",
+        "from_text": "Check Speed display on Package Analytics (10.66.225.88:8080)",
+        "to": "node_5",
+        "to_text": "Clean encoder wheels",
+        "label": "Speed off by < 30%"
+      },
+      {
+        "from": "node_3",
+        "from_text": "Examine encoder cable",
+        "to": "node_7",
+        "to_text": "Is encoder cable damaged?",
+        "label": ""
+      },
+      {
+        "from": "node_7",
+        "from_text": "Is encoder cable damaged?",
+        "to": "node_4",
+        "to_text": "Check encoder wheels contact/check any flat spot on wheels. Adjust wheel contact/Replace Encoder",
+        "label": "No"
+      },
+      {
+        "from": "node_7",
+        "from_text": "Is encoder cable damaged?",
+        "to": "node_8",
+        "to_text": "Replace Cable and test again",
+        "label": "Yes"
+      },
+      {
+        "from": "node_8",
+        "from_text": "Replace Cable and test again",
+        "to": "node_9",
+        "to_text": "Working Correctly?",
+        "label": ""
+      },
+      {
+        "from": "node_9",
+        "from_text": "Working Correctly?",
+        "to": "node_10",
+        "to_text": "If cable and Encoder both replaced and the speed is still not correct, replace the SIM2000",
+        "label": "No"
+      },
+      {
+        "from": "node_4",
+        "from_text": "Check encoder wheels contact/check any flat spot on wheels. Adjust wheel contact/Replace Encoder",
+        "to": "node_11",
+        "to_text": "Working correctly?",
+        "label": ""
+      },
+      {
+        "from": "node_11",
+        "from_text": "Working correctly?",
+        "to": "node_12",
+        "to_text": "Resume Operation",
+        "label": "Yes"
+      },
+      {
+        "from": "node_9",
+        "from_text": "Working Correctly?",
+        "to": "node_12",
+        "to_text": "Resume Operation",
+        "label": "Yes"
+      },
+      {
+        "from": "node_2",
+        "from_text": "Check Speed display on Package Analytics (10.66.225.88:8080)",
+        "to": "node_6",
+        "to_text": "Recheck operation",
+        "label": "Correct Speed"
+      },
+      {
+        "from": "node_2",
+        "from_text": "Check Speed display on Package Analytics (10.66.225.88:8080)",
+        "to": "node_3",
+        "to_text": "Examine encoder cable",
+        "label": "by > 30%"
+      },
+      {
+        "from": "node_11",
+        "from_text": "Working correctly?",
+        "to": "node_8",
+        "to_text": "Replace Cable and test again",
+        "label": "No"
+      }
+    ]
+  },
+  "8": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "node_id": "node_1",
+        "type": "start_end_terminal",
+        "text": "Start",
+        "metadata": {
+          "page": 8,
+          "bbox": [
+            235.89999389648438,
+            95.28997802734375,
+            307.8999938964844,
+            119.03997802734375
+          ]
+        }
+      },
+      {
+        "id": "node_2",
+        "node_id": "node_2",
+        "type": "decision_box",
+        "text": "Is the Green Light On?",
+        "metadata": {
+          "page": 8,
+          "bbox": [
+            219.39999389648438,
+            149.69000244140625,
+            324.79998779296875,
+            221.09002685546875
+          ]
+        }
+      },
+      {
+        "id": "node_3",
+        "node_id": "node_3",
+        "type": "process_box",
+        "text": "Check Wiring and fuses then retest",
+        "metadata": {
+          "page": 8,
+          "bbox": [
+            427.6000061035156,
+            151.8399658203125,
+            516.8499755859375,
+            219.78997802734375
+          ]
+        }
+      },
+      {
+        "id": "node_4",
+        "node_id": "node_4",
+        "type": "decision_box",
+        "text": "With the path to the reflector clear is the yellow light on?",
+        "metadata": {
+          "page": 8,
+          "bbox": [
+            215.0,
+            249.989990234375,
+            329.5,
+            342.989990234375
+          ]
+        }
+      },
+      {
+        "id": "node_5",
+        "node_id": "node_5",
+        "type": "process_box",
+        "text": "Check the reflector and the sensor",
+        "metadata": {
+          "page": 8,
+          "bbox": [
+            428.1000061035156,
+            262.1400146484375,
+            517.3499755859375,
+            330.0899963378906
+          ]
+        }
+      },
+      {
+        "id": "node_6",
+        "node_id": "node_6",
+        "type": "decision_box",
+        "text": "Does the yellow light go off when a package is present?",
+        "metadata": {
+          "page": 8,
+          "bbox": [
+            213.0,
+            372.5,
+            333.5,
+            455.0
+          ]
+        }
+      },
+      {
+        "id": "node_7",
+        "node_id": "node_7",
+        "type": "process_box",
+        "text": "Verify and correct alignment of sensor to reflector",
+        "metadata": {
+          "page": 8,
+          "bbox": [
+            429.04998779296875,
+            380.6500244140625,
+            518.2999877929688,
+            448.6000061035156
+          ]
+        }
+      },
+      {
+        "id": "node_8",
+        "node_id": "node_8",
+        "type": "decision_box",
+        "text": "Does SIM X4 \u2013 Input A 1 change state with the sensor?",
+        "metadata": {
+          "page": 8,
+          "bbox": [
+            217.5,
+            482.5,
+            332.0,
+            575.0
+          ]
+        }
+      },
+      {
+        "id": "node_9",
+        "node_id": "node_9",
+        "type": "process_box",
+        "text": "Teach sensitivity. Press Teach-in button >2s. Both LED indicators illuminate constantly.",
+        "metadata": {
+          "page": 8,
+          "bbox": [
+            427.04998779296875,
+            497.6000061035156,
+            516.2999877929688,
+            565.5499877929688
+          ]
+        }
+      },
+      {
+        "id": "node_10",
+        "node_id": "node_10",
+        "type": "process_box",
+        "text": "Test again. If it still not working correctly, replace the sensor",
+        "metadata": {
+          "page": 8,
+          "bbox": [
+            426.5,
+            603.25,
+            515.75,
+            671.2000122070312
+          ]
+        }
+      },
+      {
+        "id": "node_11",
+        "node_id": "node_11",
+        "type": "process_box",
+        "text": "Verify SIM programming / functionality. Replace if needed",
+        "metadata": {
+          "page": 8,
+          "bbox": [
+            229.64999389648438,
+            603.5499877929688,
+            318.8999938964844,
+            671.5
+          ]
+        }
+      },
+      {
+        "id": "node_12",
+        "node_id": "node_12",
+        "type": "process_box",
+        "text": "Troubleshoot and repair wiring",
+        "metadata": {
+          "page": 8,
+          "bbox": [
+            62.79999923706055,
+            495.8500061035156,
+            152.0500030517578,
+            563.7999877929688
+          ]
+        }
+      }
+    ],
+    "edges": [
+      {
+        "from": "node_1",
+        "from_text": "Start",
+        "to": "node_2",
+        "to_text": "Is the Green Light On?",
+        "label": ""
+      },
+      {
+        "from": "node_2",
+        "from_text": "Is the Green Light On?",
+        "to": "node_4",
+        "to_text": "With the path to the reflector clear is the yellow light on?",
+        "label": "Yes"
+      },
+      {
+        "from": "node_4",
+        "from_text": "With the path to the reflector clear is the yellow light on?",
+        "to": "node_6",
+        "to_text": "Does the yellow light go off when a package is present?",
+        "label": "Yes"
+      },
+      {
+        "from": "node_2",
+        "from_text": "Is the Green Light On?",
+        "to": "node_3",
+        "to_text": "Check Wiring and fuses then retest",
+        "label": "No"
+      },
+      {
+        "from": "node_4",
+        "from_text": "With the path to the reflector clear is the yellow light on?",
+        "to": "node_5",
+        "to_text": "Check the reflector and the sensor",
+        "label": "No / Blinking"
+      },
+      {
+        "from": "node_6",
+        "from_text": "Does the yellow light go off when a package is present?",
+        "to": "node_7",
+        "to_text": "Verify and correct alignment of sensor to reflector",
+        "label": "No"
+      },
+      {
+        "from": "node_6",
+        "from_text": "Does the yellow light go off when a package is present?",
+        "to": "node_8",
+        "to_text": "Does SIM X4 \u2013 Input A 1 change state with the sensor?",
+        "label": "Yes"
+      },
+      {
+        "from": "node_8",
+        "from_text": "Does SIM X4 \u2013 Input A 1 change state with the sensor?",
+        "to": "node_11",
+        "to_text": "Verify SIM programming / functionality. Replace if needed",
+        "label": "Yes"
+      },
+      {
+        "from": "node_8",
+        "from_text": "Does SIM X4 \u2013 Input A 1 change state with the sensor?",
+        "to": "node_12",
+        "to_text": "Troubleshoot and repair wiring",
+        "label": "No"
+      },
+      {
+        "from": "node_5",
+        "from_text": "Check the reflector and the sensor",
+        "to": "node_7",
+        "to_text": "Verify and correct alignment of sensor to reflector",
+        "label": ""
+      },
+      {
+        "from": "node_7",
+        "from_text": "Verify and correct alignment of sensor to reflector",
+        "to": "node_9",
+        "to_text": "Teach sensitivity. Press Teach-in button >2s. Both LED indicators illuminate constantly.",
+        "label": ""
+      },
+      {
+        "from": "node_9",
+        "from_text": "Teach sensitivity. Press Teach-in button >2s. Both LED indicators illuminate constantly.",
+        "to": "node_10",
+        "to_text": "Test again. If it still not working correctly, replace the sensor",
+        "label": ""
+      }
+    ]
+  }
+}

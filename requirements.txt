@@ -1,0 +1,7 @@
+Flask
+PyMuPDF
+flask-cors
+networkx
+chromadb
+sentence-transformers
+numpy

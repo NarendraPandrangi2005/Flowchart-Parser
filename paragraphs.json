@@ -1,0 +1,2435 @@
+[
+  {
+    "paragraph_id": "p_1_1",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "1",
+    "start_node": "node_1",
+    "end_node": "node_6",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Top Illuminator Circuit Breaker Switch [CB14]",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_2",
+        "text": "Switch Circuit Breaker to ON [CB14]",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_5",
+        "text": "Does [CB14] stay ON?",
+        "type": "Decision",
+        "transition": "NO"
+      },
+      {
+        "node_id": "node_3",
+        "text": "Troubleshoot Relay/Short- circuited wiring. Repair as needed",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_6",
+        "text": "Repeat Functionality Test",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 1, begin at the step 'Top Illuminator Circuit Breaker Switch [CB14]'. If the setting for 'Top Illuminator Circuit Breaker Switch CB14' is OFF, proceed to 'Switch Circuit Breaker to ON [CB14]'. From 'Switch Circuit Breaker to ON CB14', proceed to 'Does [CB14] stay ON?'. If CB14 does not stay ON, proceed to 'Troubleshoot Relay/Short- circuited wiring. Repair as needed'. From 'Troubleshoot Relay/Short- circuited wiring. Repair as needed', proceed to 'Repeat Functionality Test'."
+  },
+  {
+    "paragraph_id": "p_1_2",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "1",
+    "start_node": "node_1",
+    "end_node": "node_6",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Top Illuminator Circuit Breaker Switch [CB14]",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_2",
+        "text": "Switch Circuit Breaker to ON [CB14]",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_5",
+        "text": "Does [CB14] stay ON?",
+        "type": "Decision",
+        "transition": "YES"
+      },
+      {
+        "node_id": "node_6",
+        "text": "Repeat Functionality Test",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 1, begin at the step 'Top Illuminator Circuit Breaker Switch [CB14]'. If the setting for 'Top Illuminator Circuit Breaker Switch CB14' is OFF, proceed to 'Switch Circuit Breaker to ON [CB14]'. From 'Switch Circuit Breaker to ON CB14', proceed to 'Does [CB14] stay ON?'. If CB14 stays ON, proceed to 'Repeat Functionality Test'."
+  },
+  {
+    "paragraph_id": "p_1_3",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "1",
+    "start_node": "node_1",
+    "end_node": "node_6",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Top Illuminator Circuit Breaker Switch [CB14]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_4",
+        "text": "Troubleshoot Power Supply [PWS100]/open wiring. Repair as needed",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_6",
+        "text": "Repeat Functionality Test",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 1, begin at the step 'Top Illuminator Circuit Breaker Switch [CB14]'. From 'Top Illuminator Circuit Breaker Switch CB14', proceed to 'Troubleshoot Power Supply [PWS100]/open wiring. Repair as needed'. From 'Troubleshoot Power Supply PWS100/open wiring. Repair as needed', proceed to 'Repeat Functionality Test'."
+  },
+  {
+    "paragraph_id": "p_2_4",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "2",
+    "start_node": "node_1",
+    "end_node": "node_11",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED [G1,G2,G3]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_3",
+        "text": "Power Supply LED Color",
+        "type": "Decision",
+        "transition": "RED"
+      },
+      {
+        "node_id": "node_10",
+        "text": "Is the LED flashing?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_11",
+        "text": "Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down.",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 2, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED [G1,G2,G3]'. From 'Power Supply LED G1,G2,G3', proceed to 'Power Supply LED Color'. If the condition is 'RED' for 'Power Supply LED Color', proceed to 'Is the LED flashing?'. From 'Is the LED flashing', proceed to 'Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down'."
+  },
+  {
+    "paragraph_id": "p_2_5",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "2",
+    "start_node": "node_1",
+    "end_node": "node_12",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED [G1,G2,G3]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_3",
+        "text": "Power Supply LED Color",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_9",
+        "text": "Circuit Breaker L[F111,F113,F115], R[F121,F123,F125], B[F131,F133,F135]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_15",
+        "text": "Switch Circuit OFF Breaker to ON",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_16",
+        "text": "Does  it stay ON?",
+        "type": "Decision",
+        "transition": "NO"
+      },
+      {
+        "node_id": "node_17",
+        "text": "Troubleshoot Troubleshoot Power Short-circuited Supply/Short- wiring. Repair as circuited wiring. needed Repair as needed",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_12",
+        "text": "Repeat Functionality Test",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 2, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED [G1,G2,G3]'. From 'Power Supply LED G1,G2,G3', proceed to 'Power Supply LED Color'. From 'Power Supply LED Color', proceed to 'Circuit Breaker L[F111,F113,F115], R[F121,F123,F125], B[F131,F133,F135]'. From 'Circuit Breaker LF111,F113,F115, RF121,F123,F125, BF131,F133,F135', proceed to 'Switch Circuit OFF Breaker to ON'. From 'Switch Circuit OFF Breaker to ON', proceed to 'Does it stay ON?'. If it does not stay ON, proceed to 'Troubleshoot Troubleshoot Power Short-circuited Supply/Short- wiring. Repair as circuited wiring. needed Repair as needed'. From 'Troubleshoot Troubleshoot Power Short-circuited Supply/Short- wiring. Repair as circuited wiring. needed Repair as needed', proceed to 'Repeat Functionality Test'."
+  },
+  {
+    "paragraph_id": "p_2_6",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "2",
+    "start_node": "node_1",
+    "end_node": "node_12",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED [G1,G2,G3]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_4",
+        "text": "Circuit Breaker/Main Switch [F11,F12,13]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_5",
+        "text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_12",
+        "text": "Repeat Functionality Test",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 2, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED [G1,G2,G3]'. From 'Power Supply LED G1,G2,G3', proceed to 'Circuit Breaker/Main Switch [F11,F12,13]'. From 'Circuit Breaker/Main Switch F11,F12,13', proceed to 'Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed'. From 'Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed', proceed to 'Repeat Functionality Test'."
+  },
+  {
+    "paragraph_id": "p_2_7",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "2",
+    "start_node": "node_1",
+    "end_node": "node_12",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED [G1,G2,G3]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_4",
+        "text": "Circuit Breaker/Main Switch [F11,F12,13]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_7",
+        "text": "Switch Circuit Breaker/Main Switch [F11,F12,F13] to ON",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_6",
+        "text": "Does switch stay ON? YES",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_5",
+        "text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_12",
+        "text": "Repeat Functionality Test",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 2, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED [G1,G2,G3]'. From 'Power Supply LED G1,G2,G3', proceed to 'Circuit Breaker/Main Switch [F11,F12,13]'. From 'Circuit Breaker/Main Switch F11,F12,13', proceed to 'Switch Circuit Breaker/Main Switch [F11,F12,F13] to ON'. From 'Switch Circuit Breaker/Main Switch F11,F12,F13 to ON', proceed to 'Does switch stay ON? YES'. From 'Does switch stay ON? YES', proceed to 'Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed'. From 'Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed', proceed to 'Repeat Functionality Test'."
+  },
+  {
+    "paragraph_id": "p_2_8",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "2",
+    "start_node": "node_1",
+    "end_node": "node_12",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED [G1,G2,G3]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_4",
+        "text": "Circuit Breaker/Main Switch [F11,F12,13]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_7",
+        "text": "Switch Circuit Breaker/Main Switch [F11,F12,F13] to ON",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_6",
+        "text": "Does switch stay ON? YES",
+        "type": "Decision",
+        "transition": "NO"
+      },
+      {
+        "node_id": "node_8",
+        "text": "Troubleshoot Power Supply/Short- circuited wiring. Repair as needed",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_12",
+        "text": "Repeat Functionality Test",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 2, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED [G1,G2,G3]'. From 'Power Supply LED G1,G2,G3', proceed to 'Circuit Breaker/Main Switch [F11,F12,13]'. From 'Circuit Breaker/Main Switch F11,F12,13', proceed to 'Switch Circuit Breaker/Main Switch [F11,F12,F13] to ON'. From 'Switch Circuit Breaker/Main Switch F11,F12,F13 to ON', proceed to 'Does switch stay ON? YES'. If switch does not stay ON? YES, proceed to 'Troubleshoot Power Supply/Short- circuited wiring. Repair as needed'. From 'Troubleshoot Power Supply/Short- circuited wiring. Repair as needed', proceed to 'Repeat Functionality Test'."
+  },
+  {
+    "paragraph_id": "p_2_9",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "2",
+    "start_node": "node_1",
+    "end_node": "node_13",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED [G1,G2,G3]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_3",
+        "text": "Power Supply LED Color",
+        "type": "Decision",
+        "transition": "RED"
+      },
+      {
+        "node_id": "node_10",
+        "text": "Is the LED flashing?",
+        "type": "Decision",
+        "transition": "NO"
+      },
+      {
+        "node_id": "node_13",
+        "text": "Troubleshoot Short-circuited wiring. Repair as needed",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 2, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED [G1,G2,G3]'. From 'Power Supply LED G1,G2,G3', proceed to 'Power Supply LED Color'. If the condition is 'RED' for 'Power Supply LED Color', proceed to 'Is the LED flashing?'. If the LED flashing is not the case, proceed to 'Troubleshoot Short-circuited wiring. Repair as needed'."
+  },
+  {
+    "paragraph_id": "p_2_10",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "2",
+    "start_node": "node_1",
+    "end_node": "node_14",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED [G1,G2,G3]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_3",
+        "text": "Power Supply LED Color",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_9",
+        "text": "Circuit Breaker L[F111,F113,F115], R[F121,F123,F125], B[F131,F133,F135]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_14",
+        "text": "Troubleshoot open wiring. Repair as needed",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 2, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED [G1,G2,G3]'. From 'Power Supply LED G1,G2,G3', proceed to 'Power Supply LED Color'. From 'Power Supply LED Color', proceed to 'Circuit Breaker L[F111,F113,F115], R[F121,F123,F125], B[F131,F133,F135]'. From 'Circuit Breaker LF111,F113,F115, RF121,F123,F125, BF131,F133,F135', proceed to 'Troubleshoot open wiring. Repair as needed'."
+  },
+  {
+    "paragraph_id": "p_2_11",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "2",
+    "start_node": "node_1",
+    "end_node": "node_18",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED [G1,G2,G3]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_3",
+        "text": "Power Supply LED Color",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_9",
+        "text": "Circuit Breaker L[F111,F113,F115], R[F121,F123,F125], B[F131,F133,F135]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_15",
+        "text": "Switch Circuit OFF Breaker to ON",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_16",
+        "text": "Does  it stay ON?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_18",
+        "text": "Troubleshoot open wiring to Camera/Illumilator. Repair as needed",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 2, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED [G1,G2,G3]'. From 'Power Supply LED G1,G2,G3', proceed to 'Power Supply LED Color'. From 'Power Supply LED Color', proceed to 'Circuit Breaker L[F111,F113,F115], R[F121,F123,F125], B[F131,F133,F135]'. From 'Circuit Breaker LF111,F113,F115, RF121,F123,F125, BF131,F133,F135', proceed to 'Switch Circuit OFF Breaker to ON'. From 'Switch Circuit OFF Breaker to ON', proceed to 'Does it stay ON?'. From 'Does it stay ON', proceed to 'Troubleshoot open wiring to Camera/Illumilator. Repair as needed'."
+  },
+  {
+    "paragraph_id": "p_3_12",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "3",
+    "start_node": "node_1",
+    "end_node": "node_7",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Device Ready Light On?",
+        "type": "Decision",
+        "transition": "No/Red"
+      },
+      {
+        "node_id": "node_7",
+        "text": "Power Cycle and verify power. Replace if continues",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 3, begin at the step 'Start'. From 'Start', proceed to 'Device Ready Light On?'. If the condition is 'No/Red' for 'Device Ready Light On', proceed to 'Power Cycle and verify power. Replace if continues'."
+  },
+  {
+    "paragraph_id": "p_3_13",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "3",
+    "start_node": "node_1",
+    "end_node": "node_8",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Device Ready Light On?",
+        "type": "Decision",
+        "transition": "Green"
+      },
+      {
+        "node_id": "node_3",
+        "text": "Is service light illuminated?",
+        "type": "Decision",
+        "transition": "Yes/flashing"
+      },
+      {
+        "node_id": "node_8",
+        "text": "Replace Camera",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 3, begin at the step 'Start'. From 'Start', proceed to 'Device Ready Light On?'. If the condition is 'Green' for 'Device Ready Light On', proceed to 'Is service light illuminated?'. If the condition is 'Yes/flashing' for 'Is service light illuminated', proceed to 'Replace Camera'."
+  },
+  {
+    "paragraph_id": "p_3_14",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "3",
+    "start_node": "node_1",
+    "end_node": "node_9",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Device Ready Light On?",
+        "type": "Decision",
+        "transition": "Green"
+      },
+      {
+        "node_id": "node_3",
+        "text": "Is service light illuminated?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_4",
+        "text": "Power cycle and watch illuminator during power up.",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_5",
+        "text": "What does illuminator do?",
+        "type": "Decision",
+        "transition": "Nothing"
+      },
+      {
+        "node_id": "node_9",
+        "text": "Verify Power connection and repeat test. Replace if still unresponsive.",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 3, begin at the step 'Start'. From 'Start', proceed to 'Device Ready Light On?'. If the condition is 'Green' for 'Device Ready Light On', proceed to 'Is service light illuminated?'. From 'Is service light illuminated', proceed to 'Power cycle and watch illuminator during power up'. From 'Power cycle and watch illuminator during power up.', proceed to 'What does illuminator do?'. If the condition is 'Nothing' for 'What does illuminator do', proceed to 'Verify Power connection and repeat test. Replace if still unresponsive'."
+  },
+  {
+    "paragraph_id": "p_3_15",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "3",
+    "start_node": "node_1",
+    "end_node": "node_10",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Device Ready Light On?",
+        "type": "Decision",
+        "transition": "Green"
+      },
+      {
+        "node_id": "node_3",
+        "text": "Is service light illuminated?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_4",
+        "text": "Power cycle and watch illuminator during power up.",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_5",
+        "text": "What does illuminator do?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_6",
+        "text": "Does light come on when system is triggered?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_10",
+        "text": "Verify/Correct CAN wiring and retest",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 3, begin at the step 'Start'. From 'Start', proceed to 'Device Ready Light On?'. If the condition is 'Green' for 'Device Ready Light On', proceed to 'Is service light illuminated?'. From 'Is service light illuminated', proceed to 'Power cycle and watch illuminator during power up'. From 'Power cycle and watch illuminator during power up.', proceed to 'What does illuminator do?'. From 'What does illuminator do', proceed to 'Does light come on when system is triggered?'. From 'Does light come on when system is triggered', proceed to 'Verify/Correct CAN wiring and retest'."
+  },
+  {
+    "paragraph_id": "p_3_16",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "3",
+    "start_node": "node_1",
+    "end_node": "node_11",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Device Ready Light On?",
+        "type": "Decision",
+        "transition": "Green"
+      },
+      {
+        "node_id": "node_3",
+        "text": "Is service light illuminated?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_4",
+        "text": "Power cycle and watch illuminator during power up.",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_5",
+        "text": "What does illuminator do?",
+        "type": "Decision",
+        "transition": "Stays lit"
+      },
+      {
+        "node_id": "node_11",
+        "text": "Verify illumination connection and repeat. Replace camera if light still stays on.",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 3, begin at the step 'Start'. From 'Start', proceed to 'Device Ready Light On?'. If the condition is 'Green' for 'Device Ready Light On', proceed to 'Is service light illuminated?'. From 'Is service light illuminated', proceed to 'Power cycle and watch illuminator during power up'. From 'Power cycle and watch illuminator during power up.', proceed to 'What does illuminator do?'. If the condition is 'Stays lit' for 'What does illuminator do', proceed to 'Verify illumination connection and repeat. Replace camera if light still stays on'."
+  },
+  {
+    "paragraph_id": "p_3_17",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "3",
+    "start_node": "node_1",
+    "end_node": "node_14",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Device Ready Light On?",
+        "type": "Decision",
+        "transition": "Green"
+      },
+      {
+        "node_id": "node_3",
+        "text": "Is service light illuminated?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_4",
+        "text": "Power cycle and watch illuminator during power up.",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_5",
+        "text": "What does illuminator do?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_6",
+        "text": "Does light come on when system is triggered?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_12",
+        "text": "Does Result light flash when valid barcode facing camera? No",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_14",
+        "text": "Power cycle and repeat test. Have programming verified if continues",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 3, begin at the step 'Start'. From 'Start', proceed to 'Device Ready Light On?'. If the condition is 'Green' for 'Device Ready Light On', proceed to 'Is service light illuminated?'. From 'Is service light illuminated', proceed to 'Power cycle and watch illuminator during power up'. From 'Power cycle and watch illuminator during power up.', proceed to 'What does illuminator do?'. From 'What does illuminator do', proceed to 'Does light come on when system is triggered?'. If light comes on when system is triggered, proceed to 'Does Result light flash when valid barcode facing camera? No'. From 'Does Result light flash when valid barcode facing camera? No', proceed to 'Power cycle and repeat test. Have programming verified if continues'."
+  },
+  {
+    "paragraph_id": "p_3_18",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "3",
+    "start_node": "node_1",
+    "end_node": "node_15",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Device Ready Light On?",
+        "type": "Decision",
+        "transition": "Green"
+      },
+      {
+        "node_id": "node_3",
+        "text": "Is service light illuminated?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_4",
+        "text": "Power cycle and watch illuminator during power up.",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_5",
+        "text": "What does illuminator do?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_6",
+        "text": "Does light come on when system is triggered?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_12",
+        "text": "Does Result light flash when valid barcode facing camera? No",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_13",
+        "text": "Do images get stored?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_15",
+        "text": "Verify Network connections",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 3, begin at the step 'Start'. From 'Start', proceed to 'Device Ready Light On?'. If the condition is 'Green' for 'Device Ready Light On', proceed to 'Is service light illuminated?'. From 'Is service light illuminated', proceed to 'Power cycle and watch illuminator during power up'. From 'Power cycle and watch illuminator during power up.', proceed to 'What does illuminator do?'. From 'What does illuminator do', proceed to 'Does light come on when system is triggered?'. If light comes on when system is triggered, proceed to 'Does Result light flash when valid barcode facing camera? No'. If Result lights flash when valid barcode facing camera? No, proceed to 'Do images get stored?'. From 'Do images get stored', proceed to 'Verify Network connections'."
+  },
+  {
+    "paragraph_id": "p_3_19",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "3",
+    "start_node": "node_1",
+    "end_node": "node_16",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Device Ready Light On?",
+        "type": "Decision",
+        "transition": "Green"
+      },
+      {
+        "node_id": "node_3",
+        "text": "Is service light illuminated?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_4",
+        "text": "Power cycle and watch illuminator during power up.",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_5",
+        "text": "What does illuminator do?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_6",
+        "text": "Does light come on when system is triggered?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_12",
+        "text": "Does Result light flash when valid barcode facing camera? No",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_13",
+        "text": "Do images get stored?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_16",
+        "text": "Camera appears to be working. END",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 3, begin at the step 'Start'. From 'Start', proceed to 'Device Ready Light On?'. If the condition is 'Green' for 'Device Ready Light On', proceed to 'Is service light illuminated?'. From 'Is service light illuminated', proceed to 'Power cycle and watch illuminator during power up'. From 'Power cycle and watch illuminator during power up.', proceed to 'What does illuminator do?'. From 'What does illuminator do', proceed to 'Does light come on when system is triggered?'. If light comes on when system is triggered, proceed to 'Does Result light flash when valid barcode facing camera? No'. If Result lights flash when valid barcode facing camera? No, proceed to 'Do images get stored?'. If the answer to 'Do images get stored' is yes, proceed to 'Camera appears to be working. END'."
+  },
+  {
+    "paragraph_id": "p_4_20",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "4",
+    "start_node": "node_2",
+    "end_node": "node_4",
+    "decision_path": [
+      {
+        "node_id": "node_2",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_1",
+        "text": "X8 \u2013 CAN \u201cAct\u201d LED",
+        "type": "Decision",
+        "transition": "Flicker during operation"
+      },
+      {
+        "node_id": "node_4",
+        "text": "Recheck Operation",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 4, begin at the step 'Start'. From 'Start', proceed to 'X8 \u2013 CAN \u201cAct\u201d LED'. If the condition is 'Flicker during operation' for 'X8 \u2013 CAN \u201cAct\u201d LED', proceed to 'Recheck Operation'."
+  },
+  {
+    "paragraph_id": "p_4_21",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "4",
+    "start_node": "node_2",
+    "end_node": "node_7",
+    "decision_path": [
+      {
+        "node_id": "node_2",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_1",
+        "text": "X8 \u2013 CAN \u201cAct\u201d LED",
+        "type": "Decision",
+        "transition": "Off"
+      },
+      {
+        "node_id": "node_10",
+        "text": "Examine 4 CAN wires",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_3",
+        "text": "Are 4 wires attached?",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_5",
+        "text": "Attached wires and test again",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_6",
+        "text": "Working Correctly?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_7",
+        "text": "Resume Operation",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 4, begin at the step 'Start'. From 'Start', proceed to 'X8 \u2013 CAN \u201cAct\u201d LED'. If the setting for 'X8 \u2013 CAN \u201cAct\u201d LED' is OFF, proceed to 'Examine 4 CAN wires'. From 'Examine 4 CAN wires', proceed to 'Are 4 wires attached?'. If the answer to 'Are 4 wires attached' is no, proceed to 'Attached wires and test again'. From 'Attached wires and test again', proceed to 'Working Correctly?'. If the answer to 'Working Correctly' is yes, proceed to 'Resume Operation'."
+  },
+  {
+    "paragraph_id": "p_4_22",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "4",
+    "start_node": "node_2",
+    "end_node": "node_7",
+    "decision_path": [
+      {
+        "node_id": "node_2",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_1",
+        "text": "X8 \u2013 CAN \u201cAct\u201d LED",
+        "type": "Decision",
+        "transition": "Off"
+      },
+      {
+        "node_id": "node_10",
+        "text": "Examine 4 CAN wires",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_3",
+        "text": "Are 4 wires attached?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_8",
+        "text": "Check All CAN connection on all cameras and VMS. Connect cable or replace cable as needed",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_9",
+        "text": "Working correctly?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_7",
+        "text": "Resume Operation",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 4, begin at the step 'Start'. From 'Start', proceed to 'X8 \u2013 CAN \u201cAct\u201d LED'. If the setting for 'X8 \u2013 CAN \u201cAct\u201d LED' is OFF, proceed to 'Examine 4 CAN wires'. From 'Examine 4 CAN wires', proceed to 'Are 4 wires attached?'. If the answer to 'Are 4 wires attached' is yes, proceed to 'Check All CAN connection on all cameras and VMS. Connect cable or replace cable as needed'. From 'Check All CAN connection on all cameras and VMS. Connect cable or replace cable as needed', proceed to 'Working correctly?'. If the answer to 'Working correctly' is yes, proceed to 'Resume Operation'."
+  },
+  {
+    "paragraph_id": "p_4_23",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "4",
+    "start_node": "node_2",
+    "end_node": "node_11",
+    "decision_path": [
+      {
+        "node_id": "node_2",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_1",
+        "text": "X8 \u2013 CAN \u201cAct\u201d LED",
+        "type": "Decision",
+        "transition": "Off"
+      },
+      {
+        "node_id": "node_10",
+        "text": "Examine 4 CAN wires",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_3",
+        "text": "Are 4 wires attached?",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_5",
+        "text": "Attached wires and test again",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_6",
+        "text": "Working Correctly?",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_11",
+        "text": "Replace the terminator for X8 - CAN",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 4, begin at the step 'Start'. From 'Start', proceed to 'X8 \u2013 CAN \u201cAct\u201d LED'. If the setting for 'X8 \u2013 CAN \u201cAct\u201d LED' is OFF, proceed to 'Examine 4 CAN wires'. From 'Examine 4 CAN wires', proceed to 'Are 4 wires attached?'. If the answer to 'Are 4 wires attached' is no, proceed to 'Attached wires and test again'. From 'Attached wires and test again', proceed to 'Working Correctly?'. If the answer to 'Working Correctly' is no, proceed to 'Replace the terminator for X8 - CAN'."
+  },
+  {
+    "paragraph_id": "p_4_24",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "4",
+    "start_node": "node_2",
+    "end_node": "node_11",
+    "decision_path": [
+      {
+        "node_id": "node_2",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_1",
+        "text": "X8 \u2013 CAN \u201cAct\u201d LED",
+        "type": "Decision",
+        "transition": "Off"
+      },
+      {
+        "node_id": "node_10",
+        "text": "Examine 4 CAN wires",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_3",
+        "text": "Are 4 wires attached?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_8",
+        "text": "Check All CAN connection on all cameras and VMS. Connect cable or replace cable as needed",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_9",
+        "text": "Working correctly?",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_11",
+        "text": "Replace the terminator for X8 - CAN",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 4, begin at the step 'Start'. From 'Start', proceed to 'X8 \u2013 CAN \u201cAct\u201d LED'. If the setting for 'X8 \u2013 CAN \u201cAct\u201d LED' is OFF, proceed to 'Examine 4 CAN wires'. From 'Examine 4 CAN wires', proceed to 'Are 4 wires attached?'. If the answer to 'Are 4 wires attached' is yes, proceed to 'Check All CAN connection on all cameras and VMS. Connect cable or replace cable as needed'. From 'Check All CAN connection on all cameras and VMS. Connect cable or replace cable as needed', proceed to 'Working correctly?'. If the answer to 'Working correctly' is no, proceed to 'Replace the terminator for X8 - CAN'."
+  },
+  {
+    "paragraph_id": "p_5_25",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "5",
+    "start_node": "node_3",
+    "end_node": "node_2",
+    "decision_path": [
+      {
+        "node_id": "node_3",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_1",
+        "text": "\u201cPower\u201d LED X2",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_2",
+        "text": "GOTO \u201cPower Supply TS\u201d",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 5, begin at the step 'Start'. From 'Start', proceed to '\u201cPower\u201d LED X2'. If the setting for '\u201cPower\u201d LED X2' is OFF, proceed to 'GOTO \u201cPower Supply TS\u201d'."
+  },
+  {
+    "paragraph_id": "p_5_26",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "5",
+    "start_node": "node_3",
+    "end_node": "node_7",
+    "decision_path": [
+      {
+        "node_id": "node_3",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_1",
+        "text": "\u201cPower\u201d LED X2",
+        "type": "Decision",
+        "transition": "ON"
+      },
+      {
+        "node_id": "node_4",
+        "text": "\u201cDevice Ready\u201d LED",
+        "type": "Decision",
+        "transition": "Green"
+      },
+      {
+        "node_id": "node_6",
+        "text": "\u201cSystem Ready\u201d LED",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_7",
+        "text": "CAN \u2013 Device is missing. Check CAN Connection/Device",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 5, begin at the step 'Start'. From 'Start', proceed to '\u201cPower\u201d LED X2'. If the setting for '\u201cPower\u201d LED X2' is ON, proceed to '\u201cDevice Ready\u201d LED'. If the condition is 'Green' for '\u201cDevice Ready\u201d LED', proceed to '\u201cSystem Ready\u201d LED'. If the setting for '\u201cSystem Ready\u201d LED' is OFF, proceed to 'CAN \u2013 Device is missing. Check CAN Connection/Device'."
+  },
+  {
+    "paragraph_id": "p_5_27",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "5",
+    "start_node": "node_3",
+    "end_node": "node_8",
+    "decision_path": [
+      {
+        "node_id": "node_3",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_1",
+        "text": "\u201cPower\u201d LED X2",
+        "type": "Decision",
+        "transition": "ON"
+      },
+      {
+        "node_id": "node_4",
+        "text": "\u201cDevice Ready\u201d LED",
+        "type": "Decision",
+        "transition": "Green"
+      },
+      {
+        "node_id": "node_6",
+        "text": "\u201cSystem Ready\u201d LED",
+        "type": "Decision",
+        "transition": "Green"
+      },
+      {
+        "node_id": "node_9",
+        "text": "\u201cFunction 1\u201d LED",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_8",
+        "text": "Device is busy. Application (SE & CE) will not run properly. Reboot system.",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 5, begin at the step 'Start'. From 'Start', proceed to '\u201cPower\u201d LED X2'. If the setting for '\u201cPower\u201d LED X2' is ON, proceed to '\u201cDevice Ready\u201d LED'. If the condition is 'Green' for '\u201cDevice Ready\u201d LED', proceed to '\u201cSystem Ready\u201d LED'. If the condition is 'Green' for '\u201cSystem Ready\u201d LED', proceed to '\u201cFunction 1\u201d LED'. If the setting for '\u201cFunction 1\u201d LED' is OFF, proceed to 'Device is busy. Application (SE & CE) will not run properly. Reboot system'."
+  },
+  {
+    "paragraph_id": "p_5_28",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "5",
+    "start_node": "node_3",
+    "end_node": "node_12",
+    "decision_path": [
+      {
+        "node_id": "node_3",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_1",
+        "text": "\u201cPower\u201d LED X2",
+        "type": "Decision",
+        "transition": "ON"
+      },
+      {
+        "node_id": "node_4",
+        "text": "\u201cDevice Ready\u201d LED",
+        "type": "Decision",
+        "transition": "Green"
+      },
+      {
+        "node_id": "node_6",
+        "text": "\u201cSystem Ready\u201d LED",
+        "type": "Decision",
+        "transition": "Green"
+      },
+      {
+        "node_id": "node_9",
+        "text": "\u201cFunction 1\u201d LED",
+        "type": "Decision",
+        "transition": "White"
+      },
+      {
+        "node_id": "node_10",
+        "text": "\u201cTrigger Input\u201d LED, X4 Input A",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_12",
+        "text": "GOTO \u201cTrigger Input TS\u201d",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 5, begin at the step 'Start'. From 'Start', proceed to '\u201cPower\u201d LED X2'. If the setting for '\u201cPower\u201d LED X2' is ON, proceed to '\u201cDevice Ready\u201d LED'. If the condition is 'Green' for '\u201cDevice Ready\u201d LED', proceed to '\u201cSystem Ready\u201d LED'. If the condition is 'Green' for '\u201cSystem Ready\u201d LED', proceed to '\u201cFunction 1\u201d LED'. If the condition is 'White' for '\u201cFunction 1\u201d LED', proceed to '\u201cTrigger Input\u201d LED, X4 Input A'. If the setting for '\u201cTrigger Input\u201d LED, X4 Input A' is OFF, proceed to 'GOTO \u201cTrigger Input TS\u201d'."
+  },
+  {
+    "paragraph_id": "p_5_29",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "5",
+    "start_node": "node_3",
+    "end_node": "node_13",
+    "decision_path": [
+      {
+        "node_id": "node_3",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_1",
+        "text": "\u201cPower\u201d LED X2",
+        "type": "Decision",
+        "transition": "ON"
+      },
+      {
+        "node_id": "node_4",
+        "text": "\u201cDevice Ready\u201d LED",
+        "type": "Decision",
+        "transition": "Green"
+      },
+      {
+        "node_id": "node_6",
+        "text": "\u201cSystem Ready\u201d LED",
+        "type": "Decision",
+        "transition": "Green"
+      },
+      {
+        "node_id": "node_9",
+        "text": "\u201cFunction 1\u201d LED",
+        "type": "Decision",
+        "transition": "White"
+      },
+      {
+        "node_id": "node_10",
+        "text": "\u201cTrigger Input\u201d LED, X4 Input A",
+        "type": "Decision",
+        "transition": "ON/OFF for every Package"
+      },
+      {
+        "node_id": "node_11",
+        "text": "Yes Do both \u201cEncoder Input\u201d LEDs remain constantly on when the conveyor belt is running? X5",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_13",
+        "text": "GOTO \u201cEncoder Input TS\u201d",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 5, begin at the step 'Start'. From 'Start', proceed to '\u201cPower\u201d LED X2'. If the setting for '\u201cPower\u201d LED X2' is ON, proceed to '\u201cDevice Ready\u201d LED'. If the condition is 'Green' for '\u201cDevice Ready\u201d LED', proceed to '\u201cSystem Ready\u201d LED'. If the condition is 'Green' for '\u201cSystem Ready\u201d LED', proceed to '\u201cFunction 1\u201d LED'. If the condition is 'White' for '\u201cFunction 1\u201d LED', proceed to '\u201cTrigger Input\u201d LED, X4 Input A'. If the condition is 'ON/OFF for every Package' for '\u201cTrigger Input\u201d LED, X4 Input A', proceed to 'Yes Do both \u201cEncoder Input\u201d LEDs remain constantly on when the conveyor belt is running? X5'. If the answer to 'Yes Do both \u201cEncoder Input\u201d LEDs remain constantly on when the conveyor belt is running? X5' is no, proceed to 'GOTO \u201cEncoder Input TS\u201d'."
+  },
+  {
+    "paragraph_id": "p_5_30",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "5",
+    "start_node": "node_3",
+    "end_node": "node_20",
+    "decision_path": [
+      {
+        "node_id": "node_3",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_1",
+        "text": "\u201cPower\u201d LED X2",
+        "type": "Decision",
+        "transition": "ON"
+      },
+      {
+        "node_id": "node_4",
+        "text": "\u201cDevice Ready\u201d LED",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_5",
+        "text": "Cycle power to SIM Controller. If issue persists, replace Controller",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_20",
+        "text": "Repeat System Functionality Test",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 5, begin at the step 'Start'. From 'Start', proceed to '\u201cPower\u201d LED X2'. If the setting for '\u201cPower\u201d LED X2' is ON, proceed to '\u201cDevice Ready\u201d LED'. If the setting for '\u201cDevice Ready\u201d LED' is OFF, proceed to 'Cycle power to SIM Controller. If issue persists, replace Controller'. From 'Cycle power to SIM Controller. If issue persists, replace Controller', proceed to 'Repeat System Functionality Test'."
+  },
+  {
+    "paragraph_id": "p_5_31",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "5",
+    "start_node": "node_14",
+    "end_node": "node_15",
+    "decision_path": [
+      {
+        "node_id": "node_14",
+        "text": "\u201cCAN\u201d LED X8-CAN",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_15",
+        "text": "GOTO \u201cCAN TS\u201d",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 5, begin at the step '\u201cCAN\u201d LED X8-CAN'. If the setting for '\u201cCAN\u201d LED X8-CAN' is OFF, proceed to 'GOTO \u201cCAN TS\u201d'."
+  },
+  {
+    "paragraph_id": "p_5_32",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "5",
+    "start_node": "node_14",
+    "end_node": "node_17",
+    "decision_path": [
+      {
+        "node_id": "node_14",
+        "text": "\u201cCAN\u201d LED X8-CAN",
+        "type": "Decision",
+        "transition": "Flicker during operation"
+      },
+      {
+        "node_id": "node_16",
+        "text": "\u201cETHERNET 1-4\u201d LEDs X9 \u2013 X12",
+        "type": "Decision",
+        "transition": "Any of"
+      },
+      {
+        "node_id": "node_17",
+        "text": "Check the physical Ethernet connection on both ends of the cables\u2019s connection points",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 5, begin at the step '\u201cCAN\u201d LED X8-CAN'. If the condition is 'Flicker during operation' for '\u201cCAN\u201d LED X8-CAN', proceed to '\u201cETHERNET 1-4\u201d LEDs X9 \u2013 X12'. If the condition is 'Any of' for '\u201cETHERNET 1-4\u201d LEDs X9 \u2013 X12', proceed to 'Check the physical Ethernet connection on both ends of the cables\u2019s connection points'."
+  },
+  {
+    "paragraph_id": "p_5_33",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "5",
+    "start_node": "node_14",
+    "end_node": "node_19",
+    "decision_path": [
+      {
+        "node_id": "node_14",
+        "text": "\u201cCAN\u201d LED X8-CAN",
+        "type": "Decision",
+        "transition": "Flicker during operation"
+      },
+      {
+        "node_id": "node_16",
+        "text": "\u201cETHERNET 1-4\u201d LEDs X9 \u2013 X12",
+        "type": "Decision",
+        "transition": "All Green"
+      },
+      {
+        "node_id": "node_18",
+        "text": "Cameras light up when package enters tunnel",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_19",
+        "text": "GOTO \u201cCamera TS\u201d",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 5, begin at the step '\u201cCAN\u201d LED X8-CAN'. If the condition is 'Flicker during operation' for '\u201cCAN\u201d LED X8-CAN', proceed to '\u201cETHERNET 1-4\u201d LEDs X9 \u2013 X12'. If the condition is 'All Green' for '\u201cETHERNET 1-4\u201d LEDs X9 \u2013 X12', proceed to 'Cameras light up when package enters tunnel'. If the answer to 'Cameras light up when package enters tunnel' is no, proceed to 'GOTO \u201cCamera TS\u201d'."
+  },
+  {
+    "paragraph_id": "p_5_34",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "5",
+    "start_node": "node_14",
+    "end_node": "node_20",
+    "decision_path": [
+      {
+        "node_id": "node_14",
+        "text": "\u201cCAN\u201d LED X8-CAN",
+        "type": "Decision",
+        "transition": "Flicker during operation"
+      },
+      {
+        "node_id": "node_16",
+        "text": "\u201cETHERNET 1-4\u201d LEDs X9 \u2013 X12",
+        "type": "Decision",
+        "transition": "All Green"
+      },
+      {
+        "node_id": "node_18",
+        "text": "Cameras light up when package enters tunnel",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_20",
+        "text": "Repeat System Functionality Test",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 5, begin at the step '\u201cCAN\u201d LED X8-CAN'. If the condition is 'Flicker during operation' for '\u201cCAN\u201d LED X8-CAN', proceed to '\u201cETHERNET 1-4\u201d LEDs X9 \u2013 X12'. If the condition is 'All Green' for '\u201cETHERNET 1-4\u201d LEDs X9 \u2013 X12', proceed to 'Cameras light up when package enters tunnel'. From 'Cameras light up when package enters tunnel', proceed to 'Repeat System Functionality Test'."
+  },
+  {
+    "paragraph_id": "p_6_35",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "6",
+    "start_node": "node_1",
+    "end_node": "node_11",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_3",
+        "text": "Power Supply LED Color",
+        "type": "Decision",
+        "transition": "RED"
+      },
+      {
+        "node_id": "node_10",
+        "text": "Is the LED flashing?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_11",
+        "text": "Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down.",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 6, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED'. From 'Power Supply LED', proceed to 'Power Supply LED Color'. If the condition is 'RED' for 'Power Supply LED Color', proceed to 'Is the LED flashing?'. From 'Is the LED flashing', proceed to 'Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down'."
+  },
+  {
+    "paragraph_id": "p_6_36",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "6",
+    "start_node": "node_1",
+    "end_node": "node_12",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_3",
+        "text": "Power Supply LED Color",
+        "type": "Decision",
+        "transition": "GREEN"
+      },
+      {
+        "node_id": "node_9",
+        "text": "Circuit Breaker/ Camera Switch [CB10]",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_15",
+        "text": "Switch Circuit Breaker/Camera Switch [CB10] to ON",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_16",
+        "text": "Does [CB10] stay ON?",
+        "type": "Decision",
+        "transition": "NO"
+      },
+      {
+        "node_id": "node_17",
+        "text": "Troubleshoot Troubleshoot Power Relay/Short- Supply/Short- circuited wiring. circuited wiring. Repair as needed Repair as needed",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_12",
+        "text": "Repeat Functionality Test",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 6, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED'. From 'Power Supply LED', proceed to 'Power Supply LED Color'. If the condition is 'GREEN' for 'Power Supply LED Color', proceed to 'Circuit Breaker/ Camera Switch [CB10]'. If the setting for 'Circuit Breaker/ Camera Switch CB10' is OFF, proceed to 'Switch Circuit Breaker/Camera Switch [CB10] to ON'. From 'Switch Circuit Breaker/Camera Switch CB10 to ON', proceed to 'Does [CB10] stay ON?'. If CB10 does not stay ON, proceed to 'Troubleshoot Troubleshoot Power Relay/Short- Supply/Short- circuited wiring. circuited wiring. Repair as needed Repair as needed'. From 'Troubleshoot Troubleshoot Power Relay/Short- Supply/Short- circuited wiring. circuited wiring. Repair as needed Repair as needed', proceed to 'Repeat Functionality Test'."
+  },
+  {
+    "paragraph_id": "p_6_37",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "6",
+    "start_node": "node_1",
+    "end_node": "node_12",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_4",
+        "text": "Circuit Breaker/Main Switch [CB1]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_5",
+        "text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_12",
+        "text": "Repeat Functionality Test",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 6, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED'. If the setting for 'Power Supply LED' is OFF, proceed to 'Circuit Breaker/Main Switch [CB1]'. From 'Circuit Breaker/Main Switch CB1', proceed to 'Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed'. From 'Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed', proceed to 'Repeat Functionality Test'."
+  },
+  {
+    "paragraph_id": "p_6_38",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "6",
+    "start_node": "node_1",
+    "end_node": "node_12",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_4",
+        "text": "Circuit Breaker/Main Switch [CB1]",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_7",
+        "text": "Switch Circuit Breaker/Main Switch [CB1] to ON",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_6",
+        "text": "Does [CB1] stay ON? YES",
+        "type": "Decision",
+        "transition": "NO"
+      },
+      {
+        "node_id": "node_8",
+        "text": "Troubleshoot Power Supply/Short- circuited wiring. Repair as needed",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_12",
+        "text": "Repeat Functionality Test",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 6, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED'. If the setting for 'Power Supply LED' is OFF, proceed to 'Circuit Breaker/Main Switch [CB1]'. If the setting for 'Circuit Breaker/Main Switch CB1' is OFF, proceed to 'Switch Circuit Breaker/Main Switch [CB1] to ON'. From 'Switch Circuit Breaker/Main Switch CB1 to ON', proceed to 'Does [CB1] stay ON? YES'. If CB1 does not stay ON? YES, proceed to 'Troubleshoot Power Supply/Short- circuited wiring. Repair as needed'. From 'Troubleshoot Power Supply/Short- circuited wiring. Repair as needed', proceed to 'Repeat Functionality Test'."
+  },
+  {
+    "paragraph_id": "p_6_39",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "6",
+    "start_node": "node_1",
+    "end_node": "node_12",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_4",
+        "text": "Circuit Breaker/Main Switch [CB1]",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_7",
+        "text": "Switch Circuit Breaker/Main Switch [CB1] to ON",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_6",
+        "text": "Does [CB1] stay ON? YES",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_5",
+        "text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_12",
+        "text": "Repeat Functionality Test",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 6, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED'. If the setting for 'Power Supply LED' is OFF, proceed to 'Circuit Breaker/Main Switch [CB1]'. If the setting for 'Circuit Breaker/Main Switch CB1' is OFF, proceed to 'Switch Circuit Breaker/Main Switch [CB1] to ON'. From 'Switch Circuit Breaker/Main Switch CB1 to ON', proceed to 'Does [CB1] stay ON? YES'. From 'Does CB1 stay ON? YES', proceed to 'Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed'. From 'Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed', proceed to 'Repeat Functionality Test'."
+  },
+  {
+    "paragraph_id": "p_6_40",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "6",
+    "start_node": "node_1",
+    "end_node": "node_13",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_3",
+        "text": "Power Supply LED Color",
+        "type": "Decision",
+        "transition": "RED"
+      },
+      {
+        "node_id": "node_10",
+        "text": "Is the LED flashing?",
+        "type": "Decision",
+        "transition": "NO"
+      },
+      {
+        "node_id": "node_13",
+        "text": "Troubleshoot Short-circuited wiring. Repair as needed",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 6, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED'. From 'Power Supply LED', proceed to 'Power Supply LED Color'. If the condition is 'RED' for 'Power Supply LED Color', proceed to 'Is the LED flashing?'. If the LED flashing is not the case, proceed to 'Troubleshoot Short-circuited wiring. Repair as needed'."
+  },
+  {
+    "paragraph_id": "p_6_41",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "6",
+    "start_node": "node_1",
+    "end_node": "node_13",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_3",
+        "text": "Power Supply LED Color",
+        "type": "Decision",
+        "transition": "GREEN"
+      },
+      {
+        "node_id": "node_9",
+        "text": "Circuit Breaker/ Camera Switch [CB10]",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_15",
+        "text": "Switch Circuit Breaker/Camera Switch [CB10] to ON",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_16",
+        "text": "Does [CB10] stay ON?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_18",
+        "text": "Fuse [FU122] Intact?",
+        "type": "Decision",
+        "transition": "NO"
+      },
+      {
+        "node_id": "node_13",
+        "text": "Troubleshoot Short-circuited wiring. Repair as needed",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 6, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED'. From 'Power Supply LED', proceed to 'Power Supply LED Color'. If the condition is 'GREEN' for 'Power Supply LED Color', proceed to 'Circuit Breaker/ Camera Switch [CB10]'. If the setting for 'Circuit Breaker/ Camera Switch CB10' is OFF, proceed to 'Switch Circuit Breaker/Camera Switch [CB10] to ON'. From 'Switch Circuit Breaker/Camera Switch CB10 to ON', proceed to 'Does [CB10] stay ON?'. From 'Does CB10 stay ON', proceed to 'Fuse [FU122] Intact?'. If the answer to 'Fuse FU122 Intact' is no, proceed to 'Troubleshoot Short-circuited wiring. Repair as needed'."
+  },
+  {
+    "paragraph_id": "p_6_42",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "6",
+    "start_node": "node_1",
+    "end_node": "node_14",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_3",
+        "text": "Power Supply LED Color",
+        "type": "Decision",
+        "transition": "GREEN"
+      },
+      {
+        "node_id": "node_9",
+        "text": "Circuit Breaker/ Camera Switch [CB10]",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_14",
+        "text": "Troubleshoot Relay [CR100]. Repair as needed",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 6, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED'. From 'Power Supply LED', proceed to 'Power Supply LED Color'. If the condition is 'GREEN' for 'Power Supply LED Color', proceed to 'Circuit Breaker/ Camera Switch [CB10]'. From 'Circuit Breaker/ Camera Switch CB10', proceed to 'Troubleshoot Relay [CR100]. Repair as needed'."
+  },
+  {
+    "paragraph_id": "p_6_43",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "6",
+    "start_node": "node_1",
+    "end_node": "node_19",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Power Supply LED",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_3",
+        "text": "Power Supply LED Color",
+        "type": "Decision",
+        "transition": "GREEN"
+      },
+      {
+        "node_id": "node_9",
+        "text": "Circuit Breaker/ Camera Switch [CB10]",
+        "type": "Decision",
+        "transition": "OFF"
+      },
+      {
+        "node_id": "node_15",
+        "text": "Switch Circuit Breaker/Camera Switch [CB10] to ON",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_16",
+        "text": "Does [CB10] stay ON?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_18",
+        "text": "Fuse [FU122] Intact?",
+        "type": "Decision",
+        "transition": ""
+      },
+      {
+        "node_id": "node_19",
+        "text": "Troubleshoot open wiring to SIM2000. Repair as needed",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 6, begin at the step 'Start'. From 'Start', proceed to 'Power Supply LED'. From 'Power Supply LED', proceed to 'Power Supply LED Color'. If the condition is 'GREEN' for 'Power Supply LED Color', proceed to 'Circuit Breaker/ Camera Switch [CB10]'. If the setting for 'Circuit Breaker/ Camera Switch CB10' is OFF, proceed to 'Switch Circuit Breaker/Camera Switch [CB10] to ON'. From 'Switch Circuit Breaker/Camera Switch CB10 to ON', proceed to 'Does [CB10] stay ON?'. From 'Does CB10 stay ON', proceed to 'Fuse [FU122] Intact?'. From 'Fuse FU122 Intact', proceed to 'Troubleshoot open wiring to SIM2000. Repair as needed'."
+  },
+  {
+    "paragraph_id": "p_7_44",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "7",
+    "start_node": "node_1",
+    "end_node": "node_5",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Check Speed display on Package Analytics (10.66.225.88:8080)",
+        "type": "Decision",
+        "transition": "Speed off by < 30%"
+      },
+      {
+        "node_id": "node_5",
+        "text": "Clean encoder wheels",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 7, begin at the step 'Start'. From 'Start', proceed to 'Check Speed display on Package Analytics (10.66.225.88:8080)'. If the condition is 'Speed off by < 30%' for 'Check Speed display on Package Analytics (10.66.225.88:8080)', proceed to 'Clean encoder wheels'."
+  },
+  {
+    "paragraph_id": "p_7_45",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "7",
+    "start_node": "node_1",
+    "end_node": "node_6",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Check Speed display on Package Analytics (10.66.225.88:8080)",
+        "type": "Decision",
+        "transition": "Correct Speed"
+      },
+      {
+        "node_id": "node_6",
+        "text": "Recheck operation",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 7, begin at the step 'Start'. From 'Start', proceed to 'Check Speed display on Package Analytics (10.66.225.88:8080)'. If the condition is 'Correct Speed' for 'Check Speed display on Package Analytics (10.66.225.88:8080)', proceed to 'Recheck operation'."
+  },
+  {
+    "paragraph_id": "p_7_46",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "7",
+    "start_node": "node_1",
+    "end_node": "node_10",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Check Speed display on Package Analytics (10.66.225.88:8080)",
+        "type": "Decision",
+        "transition": "by > 30%"
+      },
+      {
+        "node_id": "node_3",
+        "text": "Examine encoder cable",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_7",
+        "text": "Is encoder cable damaged?",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_4",
+        "text": "Check encoder wheels contact/check any flat spot on wheels. Adjust wheel contact/Replace Encoder",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_11",
+        "text": "Working correctly?",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_8",
+        "text": "Replace Cable and test again",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_9",
+        "text": "Working Correctly?",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_10",
+        "text": "If cable and Encoder both replaced and the speed is still not correct, replace the SIM2000",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 7, begin at the step 'Start'. From 'Start', proceed to 'Check Speed display on Package Analytics (10.66.225.88:8080)'. If the condition is 'by > 30%' for 'Check Speed display on Package Analytics (10.66.225.88:8080)', proceed to 'Examine encoder cable'. From 'Examine encoder cable', proceed to 'Is encoder cable damaged?'. If encoder cable damaged is not the case, proceed to 'Check encoder wheels contact/check any flat spot on wheels. Adjust wheel contact/Replace Encoder'. From 'Check encoder wheels contact/check any flat spot on wheels. Adjust wheel contact/Replace Encoder', proceed to 'Working correctly?'. If the answer to 'Working correctly' is no, proceed to 'Replace Cable and test again'. From 'Replace Cable and test again', proceed to 'Working Correctly?'. If the answer to 'Working Correctly' is no, proceed to 'If cable and Encoder both replaced and the speed is still not correct, replace the SIM2000'."
+  },
+  {
+    "paragraph_id": "p_7_47",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "7",
+    "start_node": "node_1",
+    "end_node": "node_10",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Check Speed display on Package Analytics (10.66.225.88:8080)",
+        "type": "Decision",
+        "transition": "by > 30%"
+      },
+      {
+        "node_id": "node_3",
+        "text": "Examine encoder cable",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_7",
+        "text": "Is encoder cable damaged?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_8",
+        "text": "Replace Cable and test again",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_9",
+        "text": "Working Correctly?",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_10",
+        "text": "If cable and Encoder both replaced and the speed is still not correct, replace the SIM2000",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 7, begin at the step 'Start'. From 'Start', proceed to 'Check Speed display on Package Analytics (10.66.225.88:8080)'. If the condition is 'by > 30%' for 'Check Speed display on Package Analytics (10.66.225.88:8080)', proceed to 'Examine encoder cable'. From 'Examine encoder cable', proceed to 'Is encoder cable damaged?'. If encoder cable damaged, proceed to 'Replace Cable and test again'. From 'Replace Cable and test again', proceed to 'Working Correctly?'. If the answer to 'Working Correctly' is no, proceed to 'If cable and Encoder both replaced and the speed is still not correct, replace the SIM2000'."
+  },
+  {
+    "paragraph_id": "p_7_48",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "7",
+    "start_node": "node_1",
+    "end_node": "node_12",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Check Speed display on Package Analytics (10.66.225.88:8080)",
+        "type": "Decision",
+        "transition": "by > 30%"
+      },
+      {
+        "node_id": "node_3",
+        "text": "Examine encoder cable",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_7",
+        "text": "Is encoder cable damaged?",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_4",
+        "text": "Check encoder wheels contact/check any flat spot on wheels. Adjust wheel contact/Replace Encoder",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_11",
+        "text": "Working correctly?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_12",
+        "text": "Resume Operation",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 7, begin at the step 'Start'. From 'Start', proceed to 'Check Speed display on Package Analytics (10.66.225.88:8080)'. If the condition is 'by > 30%' for 'Check Speed display on Package Analytics (10.66.225.88:8080)', proceed to 'Examine encoder cable'. From 'Examine encoder cable', proceed to 'Is encoder cable damaged?'. If encoder cable damaged is not the case, proceed to 'Check encoder wheels contact/check any flat spot on wheels. Adjust wheel contact/Replace Encoder'. From 'Check encoder wheels contact/check any flat spot on wheels. Adjust wheel contact/Replace Encoder', proceed to 'Working correctly?'. If the answer to 'Working correctly' is yes, proceed to 'Resume Operation'."
+  },
+  {
+    "paragraph_id": "p_7_49",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "7",
+    "start_node": "node_1",
+    "end_node": "node_12",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Check Speed display on Package Analytics (10.66.225.88:8080)",
+        "type": "Decision",
+        "transition": "by > 30%"
+      },
+      {
+        "node_id": "node_3",
+        "text": "Examine encoder cable",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_7",
+        "text": "Is encoder cable damaged?",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_4",
+        "text": "Check encoder wheels contact/check any flat spot on wheels. Adjust wheel contact/Replace Encoder",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_11",
+        "text": "Working correctly?",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_8",
+        "text": "Replace Cable and test again",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_9",
+        "text": "Working Correctly?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_12",
+        "text": "Resume Operation",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 7, begin at the step 'Start'. From 'Start', proceed to 'Check Speed display on Package Analytics (10.66.225.88:8080)'. If the condition is 'by > 30%' for 'Check Speed display on Package Analytics (10.66.225.88:8080)', proceed to 'Examine encoder cable'. From 'Examine encoder cable', proceed to 'Is encoder cable damaged?'. If encoder cable damaged is not the case, proceed to 'Check encoder wheels contact/check any flat spot on wheels. Adjust wheel contact/Replace Encoder'. From 'Check encoder wheels contact/check any flat spot on wheels. Adjust wheel contact/Replace Encoder', proceed to 'Working correctly?'. If the answer to 'Working correctly' is no, proceed to 'Replace Cable and test again'. From 'Replace Cable and test again', proceed to 'Working Correctly?'. If the answer to 'Working Correctly' is yes, proceed to 'Resume Operation'."
+  },
+  {
+    "paragraph_id": "p_7_50",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "7",
+    "start_node": "node_1",
+    "end_node": "node_12",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Check Speed display on Package Analytics (10.66.225.88:8080)",
+        "type": "Decision",
+        "transition": "by > 30%"
+      },
+      {
+        "node_id": "node_3",
+        "text": "Examine encoder cable",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_7",
+        "text": "Is encoder cable damaged?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_8",
+        "text": "Replace Cable and test again",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_9",
+        "text": "Working Correctly?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_12",
+        "text": "Resume Operation",
+        "type": "Start/End"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 7, begin at the step 'Start'. From 'Start', proceed to 'Check Speed display on Package Analytics (10.66.225.88:8080)'. If the condition is 'by > 30%' for 'Check Speed display on Package Analytics (10.66.225.88:8080)', proceed to 'Examine encoder cable'. From 'Examine encoder cable', proceed to 'Is encoder cable damaged?'. If encoder cable damaged, proceed to 'Replace Cable and test again'. From 'Replace Cable and test again', proceed to 'Working Correctly?'. If the answer to 'Working Correctly' is yes, proceed to 'Resume Operation'."
+  },
+  {
+    "paragraph_id": "p_8_51",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "8",
+    "start_node": "node_1",
+    "end_node": "node_3",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Is the Green Light On?",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_3",
+        "text": "Check Wiring and fuses then retest",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 8, begin at the step 'Start'. From 'Start', proceed to 'Is the Green Light On?'. If the Green Light On is not the case, proceed to 'Check Wiring and fuses then retest'."
+  },
+  {
+    "paragraph_id": "p_8_52",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "8",
+    "start_node": "node_1",
+    "end_node": "node_10",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Is the Green Light On?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_4",
+        "text": "With the path to the reflector clear is the yellow light on?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_6",
+        "text": "Does the yellow light go off when a package is present?",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_7",
+        "text": "Verify and correct alignment of sensor to reflector",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_9",
+        "text": "Teach sensitivity. Press Teach-in button >2s. Both LED indicators illuminate constantly.",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_10",
+        "text": "Test again. If it still not working correctly, replace the sensor",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 8, begin at the step 'Start'. From 'Start', proceed to 'Is the Green Light On?'. If the Green Light On, proceed to 'With the path to the reflector clear is the yellow light on?'. If the answer to 'With the path to the reflector clear is the yellow light on' is yes, proceed to 'Does the yellow light go off when a package is present?'. If the does not yellow light go off when a package is present, proceed to 'Verify and correct alignment of sensor to reflector'. From 'Verify and correct alignment of sensor to reflector', proceed to 'Teach sensitivity. Press Teach-in button >2s. Both LED indicators illuminate constantly'. From 'Teach sensitivity. Press Teach-in button >2s. Both LED indicators illuminate constantly.', proceed to 'Test again. If it still not working correctly, replace the sensor'."
+  },
+  {
+    "paragraph_id": "p_8_53",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "8",
+    "start_node": "node_1",
+    "end_node": "node_10",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Is the Green Light On?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_4",
+        "text": "With the path to the reflector clear is the yellow light on?",
+        "type": "Decision",
+        "transition": "No / Blinking"
+      },
+      {
+        "node_id": "node_5",
+        "text": "Check the reflector and the sensor",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_7",
+        "text": "Verify and correct alignment of sensor to reflector",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_9",
+        "text": "Teach sensitivity. Press Teach-in button >2s. Both LED indicators illuminate constantly.",
+        "type": "Process",
+        "transition": ""
+      },
+      {
+        "node_id": "node_10",
+        "text": "Test again. If it still not working correctly, replace the sensor",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 8, begin at the step 'Start'. From 'Start', proceed to 'Is the Green Light On?'. If the Green Light On, proceed to 'With the path to the reflector clear is the yellow light on?'. If the condition is 'No / Blinking' for 'With the path to the reflector clear is the yellow light on', proceed to 'Check the reflector and the sensor'. From 'Check the reflector and the sensor', proceed to 'Verify and correct alignment of sensor to reflector'. From 'Verify and correct alignment of sensor to reflector', proceed to 'Teach sensitivity. Press Teach-in button >2s. Both LED indicators illuminate constantly'. From 'Teach sensitivity. Press Teach-in button >2s. Both LED indicators illuminate constantly.', proceed to 'Test again. If it still not working correctly, replace the sensor'."
+  },
+  {
+    "paragraph_id": "p_8_54",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "8",
+    "start_node": "node_1",
+    "end_node": "node_11",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Is the Green Light On?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_4",
+        "text": "With the path to the reflector clear is the yellow light on?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_6",
+        "text": "Does the yellow light go off when a package is present?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_8",
+        "text": "Does SIM X4 \u2013 Input A 1 change state with the sensor?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_11",
+        "text": "Verify SIM programming / functionality. Replace if needed",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 8, begin at the step 'Start'. From 'Start', proceed to 'Is the Green Light On?'. If the Green Light On, proceed to 'With the path to the reflector clear is the yellow light on?'. If the answer to 'With the path to the reflector clear is the yellow light on' is yes, proceed to 'Does the yellow light go off when a package is present?'. If the yellows light go off when a package is present, proceed to 'Does SIM X4 \u2013 Input A 1 change state with the sensor?'. If SIM X4s \u2013 Input A 1 change state with the sensor, proceed to 'Verify SIM programming / functionality. Replace if needed'."
+  },
+  {
+    "paragraph_id": "p_8_55",
+    "manual_name": "sample.pdf",
+    "flowchart_id": "8",
+    "start_node": "node_1",
+    "end_node": "node_12",
+    "decision_path": [
+      {
+        "node_id": "node_1",
+        "text": "Start",
+        "type": "Start/End",
+        "transition": ""
+      },
+      {
+        "node_id": "node_2",
+        "text": "Is the Green Light On?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_4",
+        "text": "With the path to the reflector clear is the yellow light on?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_6",
+        "text": "Does the yellow light go off when a package is present?",
+        "type": "Decision",
+        "transition": "Yes"
+      },
+      {
+        "node_id": "node_8",
+        "text": "Does SIM X4 \u2013 Input A 1 change state with the sensor?",
+        "type": "Decision",
+        "transition": "No"
+      },
+      {
+        "node_id": "node_12",
+        "text": "Troubleshoot and repair wiring",
+        "type": "Process"
+      }
+    ],
+    "text": "To start troubleshooting the flowchart for page 8, begin at the step 'Start'. From 'Start', proceed to 'Is the Green Light On?'. If the Green Light On, proceed to 'With the path to the reflector clear is the yellow light on?'. If the answer to 'With the path to the reflector clear is the yellow light on' is yes, proceed to 'Does the yellow light go off when a package is present?'. If the yellows light go off when a package is present, proceed to 'Does SIM X4 \u2013 Input A 1 change state with the sensor?'. If SIM does not X4 \u2013 Input A 1 change state with the sensor, proceed to 'Troubleshoot and repair wiring'."
+  }
+]

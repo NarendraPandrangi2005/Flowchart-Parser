@@ -1,0 +1,13 @@
+# Python compiler caches
+__pycache__/
+*.pyc
+
+# Local Vector Database
+chroma_db/
+
+# Locally generated data outputs (re-created by running parser.py)
+text.json
+shapes.json
+decision_graph.json
+simplified_decision_graph.json
+paragraphs.json

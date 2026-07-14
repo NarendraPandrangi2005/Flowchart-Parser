@@ -1,0 +1,1220 @@
+{
+  "1": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "type": "Decision",
+        "text": "Top Illuminator Circuit Breaker Switch [CB14]"
+      },
+      {
+        "id": "node_2",
+        "type": "Process",
+        "text": "Switch Circuit Breaker to ON [CB14]"
+      },
+      {
+        "id": "node_3",
+        "type": "Process",
+        "text": "Troubleshoot Relay/Short- circuited wiring. Repair as needed"
+      },
+      {
+        "id": "node_4",
+        "type": "Process",
+        "text": "Troubleshoot Power Supply [PWS100]/open wiring. Repair as needed"
+      },
+      {
+        "id": "node_5",
+        "type": "Decision",
+        "text": "Does [CB14] stay ON?"
+      },
+      {
+        "id": "node_6",
+        "type": "Start/End",
+        "text": "Repeat Functionality Test"
+      }
+    ],
+    "edges": [
+      {
+        "source": "node_1",
+        "destination": "node_2",
+        "condition": "OFF"
+      },
+      {
+        "source": "node_1",
+        "destination": "node_4",
+        "condition": ""
+      },
+      {
+        "source": "node_5",
+        "destination": "node_3",
+        "condition": "NO"
+      },
+      {
+        "source": "node_2",
+        "destination": "node_5",
+        "condition": ""
+      },
+      {
+        "source": "node_3",
+        "destination": "node_6",
+        "condition": ""
+      },
+      {
+        "source": "node_4",
+        "destination": "node_6",
+        "condition": ""
+      },
+      {
+        "source": "node_5",
+        "destination": "node_6",
+        "condition": "YES"
+      }
+    ]
+  },
+  "2": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "type": "Start/End",
+        "text": "Start"
+      },
+      {
+        "id": "node_2",
+        "type": "Decision",
+        "text": "Power Supply LED [G1,G2,G3]"
+      },
+      {
+        "id": "node_3",
+        "type": "Decision",
+        "text": "Power Supply LED Color"
+      },
+      {
+        "id": "node_4",
+        "type": "Decision",
+        "text": "Circuit Breaker/Main Switch [F11,F12,13]"
+      },
+      {
+        "id": "node_5",
+        "type": "Process",
+        "text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed"
+      },
+      {
+        "id": "node_6",
+        "type": "Decision",
+        "text": "Does switch stay ON? YES"
+      },
+      {
+        "id": "node_7",
+        "type": "Process",
+        "text": "Switch Circuit Breaker/Main Switch [F11,F12,F13] to ON"
+      },
+      {
+        "id": "node_8",
+        "type": "Process",
+        "text": "Troubleshoot Power Supply/Short- circuited wiring. Repair as needed"
+      },
+      {
+        "id": "node_9",
+        "type": "Decision",
+        "text": "Circuit Breaker L[F111,F113,F115], R[F121,F123,F125], B[F131,F133,F135]"
+      },
+      {
+        "id": "node_10",
+        "type": "Decision",
+        "text": "Is the LED flashing?"
+      },
+      {
+        "id": "node_11",
+        "type": "Process",
+        "text": "Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down."
+      },
+      {
+        "id": "node_12",
+        "type": "Start/End",
+        "text": "Repeat Functionality Test"
+      },
+      {
+        "id": "node_13",
+        "type": "Process",
+        "text": "Troubleshoot Short-circuited wiring. Repair as needed"
+      },
+      {
+        "id": "node_14",
+        "type": "Process",
+        "text": "Troubleshoot open wiring. Repair as needed"
+      },
+      {
+        "id": "node_15",
+        "type": "Process",
+        "text": "Switch Circuit OFF Breaker to ON"
+      },
+      {
+        "id": "node_16",
+        "type": "Decision",
+        "text": "Does  it stay ON?"
+      },
+      {
+        "id": "node_17",
+        "type": "Process",
+        "text": "Troubleshoot Troubleshoot Power Short-circuited Supply/Short- wiring. Repair as circuited wiring. needed Repair as needed"
+      },
+      {
+        "id": "node_18",
+        "type": "Process",
+        "text": "Troubleshoot open wiring to Camera/Illumilator. Repair as needed"
+      }
+    ],
+    "edges": [
+      {
+        "source": "node_2",
+        "destination": "node_3",
+        "condition": ""
+      },
+      {
+        "source": "node_1",
+        "destination": "node_2",
+        "condition": ""
+      },
+      {
+        "source": "node_4",
+        "destination": "node_5",
+        "condition": ""
+      },
+      {
+        "source": "node_7",
+        "destination": "node_6",
+        "condition": ""
+      },
+      {
+        "source": "node_3",
+        "destination": "node_10",
+        "condition": "RED"
+      },
+      {
+        "source": "node_10",
+        "destination": "node_11",
+        "condition": ""
+      },
+      {
+        "source": "node_5",
+        "destination": "node_12",
+        "condition": ""
+      },
+      {
+        "source": "node_6",
+        "destination": "node_5",
+        "condition": ""
+      },
+      {
+        "source": "node_8",
+        "destination": "node_12",
+        "condition": ""
+      },
+      {
+        "source": "node_10",
+        "destination": "node_13",
+        "condition": "NO"
+      },
+      {
+        "source": "node_15",
+        "destination": "node_16",
+        "condition": ""
+      },
+      {
+        "source": "node_16",
+        "destination": "node_17",
+        "condition": "NO"
+      },
+      {
+        "source": "node_17",
+        "destination": "node_12",
+        "condition": ""
+      },
+      {
+        "source": "node_2",
+        "destination": "node_4",
+        "condition": ""
+      },
+      {
+        "source": "node_4",
+        "destination": "node_7",
+        "condition": ""
+      },
+      {
+        "source": "node_3",
+        "destination": "node_9",
+        "condition": ""
+      },
+      {
+        "source": "node_9",
+        "destination": "node_14",
+        "condition": ""
+      },
+      {
+        "source": "node_9",
+        "destination": "node_15",
+        "condition": ""
+      },
+      {
+        "source": "node_16",
+        "destination": "node_18",
+        "condition": ""
+      },
+      {
+        "source": "node_6",
+        "destination": "node_8",
+        "condition": "NO"
+      }
+    ]
+  },
+  "3": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "type": "Start/End",
+        "text": "Start"
+      },
+      {
+        "id": "node_2",
+        "type": "Decision",
+        "text": "Device Ready Light On?"
+      },
+      {
+        "id": "node_3",
+        "type": "Decision",
+        "text": "Is service light illuminated?"
+      },
+      {
+        "id": "node_4",
+        "type": "Process",
+        "text": "Power cycle and watch illuminator during power up."
+      },
+      {
+        "id": "node_5",
+        "type": "Decision",
+        "text": "What does illuminator do?"
+      },
+      {
+        "id": "node_6",
+        "type": "Decision",
+        "text": "Does light come on when system is triggered?"
+      },
+      {
+        "id": "node_7",
+        "type": "Process",
+        "text": "Power Cycle and verify power. Replace if continues"
+      },
+      {
+        "id": "node_8",
+        "type": "Process",
+        "text": "Replace Camera"
+      },
+      {
+        "id": "node_9",
+        "type": "Process",
+        "text": "Verify Power connection and repeat test. Replace if still unresponsive."
+      },
+      {
+        "id": "node_10",
+        "type": "Process",
+        "text": "Verify/Correct CAN wiring and retest"
+      },
+      {
+        "id": "node_11",
+        "type": "Process",
+        "text": "Verify illumination connection and repeat. Replace camera if light still stays on."
+      },
+      {
+        "id": "node_12",
+        "type": "Decision",
+        "text": "Does Result light flash when valid barcode facing camera? No"
+      },
+      {
+        "id": "node_13",
+        "type": "Decision",
+        "text": "Do images get stored?"
+      },
+      {
+        "id": "node_14",
+        "type": "Process",
+        "text": "Power cycle and repeat test. Have programming verified if continues"
+      },
+      {
+        "id": "node_15",
+        "type": "Process",
+        "text": "Verify Network connections"
+      },
+      {
+        "id": "node_16",
+        "type": "Start/End",
+        "text": "Camera appears to be working. END"
+      }
+    ],
+    "edges": [
+      {
+        "source": "node_2",
+        "destination": "node_3",
+        "condition": "Green"
+      },
+      {
+        "source": "node_1",
+        "destination": "node_2",
+        "condition": ""
+      },
+      {
+        "source": "node_2",
+        "destination": "node_7",
+        "condition": "No/Red"
+      },
+      {
+        "source": "node_3",
+        "destination": "node_8",
+        "condition": "Yes/flashing"
+      },
+      {
+        "source": "node_3",
+        "destination": "node_4",
+        "condition": ""
+      },
+      {
+        "source": "node_4",
+        "destination": "node_5",
+        "condition": ""
+      },
+      {
+        "source": "node_5",
+        "destination": "node_9",
+        "condition": "Nothing"
+      },
+      {
+        "source": "node_5",
+        "destination": "node_6",
+        "condition": ""
+      },
+      {
+        "source": "node_6",
+        "destination": "node_10",
+        "condition": ""
+      },
+      {
+        "source": "node_5",
+        "destination": "node_11",
+        "condition": "Stays lit"
+      },
+      {
+        "source": "node_6",
+        "destination": "node_12",
+        "condition": "Yes"
+      },
+      {
+        "source": "node_12",
+        "destination": "node_14",
+        "condition": ""
+      },
+      {
+        "source": "node_12",
+        "destination": "node_13",
+        "condition": "Yes"
+      },
+      {
+        "source": "node_13",
+        "destination": "node_16",
+        "condition": "Yes"
+      },
+      {
+        "source": "node_13",
+        "destination": "node_15",
+        "condition": ""
+      }
+    ]
+  },
+  "4": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "type": "Decision",
+        "text": "X8 \u2013 CAN \u201cAct\u201d LED"
+      },
+      {
+        "id": "node_2",
+        "type": "Start/End",
+        "text": "Start"
+      },
+      {
+        "id": "node_3",
+        "type": "Decision",
+        "text": "Are 4 wires attached?"
+      },
+      {
+        "id": "node_4",
+        "type": "Process",
+        "text": "Recheck Operation"
+      },
+      {
+        "id": "node_5",
+        "type": "Process",
+        "text": "Attached wires and test again"
+      },
+      {
+        "id": "node_6",
+        "type": "Decision",
+        "text": "Working Correctly?"
+      },
+      {
+        "id": "node_7",
+        "type": "Start/End",
+        "text": "Resume Operation"
+      },
+      {
+        "id": "node_8",
+        "type": "Process",
+        "text": "Check All CAN connection on all cameras and VMS. Connect cable or replace cable as needed"
+      },
+      {
+        "id": "node_9",
+        "type": "Decision",
+        "text": "Working correctly?"
+      },
+      {
+        "id": "node_10",
+        "type": "Process",
+        "text": "Examine 4 CAN wires"
+      },
+      {
+        "id": "node_11",
+        "type": "Process",
+        "text": "Replace the terminator for X8 - CAN"
+      }
+    ],
+    "edges": [
+      {
+        "source": "node_2",
+        "destination": "node_1",
+        "condition": ""
+      },
+      {
+        "source": "node_1",
+        "destination": "node_4",
+        "condition": "Flicker during operation"
+      },
+      {
+        "source": "node_3",
+        "destination": "node_5",
+        "condition": "No"
+      },
+      {
+        "source": "node_5",
+        "destination": "node_6",
+        "condition": ""
+      },
+      {
+        "source": "node_8",
+        "destination": "node_9",
+        "condition": ""
+      },
+      {
+        "source": "node_10",
+        "destination": "node_3",
+        "condition": ""
+      },
+      {
+        "source": "node_9",
+        "destination": "node_7",
+        "condition": "Yes"
+      },
+      {
+        "source": "node_1",
+        "destination": "node_10",
+        "condition": "Off"
+      },
+      {
+        "source": "node_3",
+        "destination": "node_8",
+        "condition": "Yes"
+      },
+      {
+        "source": "node_6",
+        "destination": "node_7",
+        "condition": "Yes"
+      },
+      {
+        "source": "node_9",
+        "destination": "node_11",
+        "condition": "No"
+      },
+      {
+        "source": "node_6",
+        "destination": "node_11",
+        "condition": "No"
+      }
+    ]
+  },
+  "5": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "type": "Decision",
+        "text": "\u201cPower\u201d LED X2"
+      },
+      {
+        "id": "node_2",
+        "type": "Start/End",
+        "text": "GOTO \u201cPower Supply TS\u201d"
+      },
+      {
+        "id": "node_3",
+        "type": "Start/End",
+        "text": "Start"
+      },
+      {
+        "id": "node_4",
+        "type": "Decision",
+        "text": "\u201cDevice Ready\u201d LED"
+      },
+      {
+        "id": "node_5",
+        "type": "Process",
+        "text": "Cycle power to SIM Controller. If issue persists, replace Controller"
+      },
+      {
+        "id": "node_6",
+        "type": "Decision",
+        "text": "\u201cSystem Ready\u201d LED"
+      },
+      {
+        "id": "node_7",
+        "type": "Process",
+        "text": "CAN \u2013 Device is missing. Check CAN Connection/Device"
+      },
+      {
+        "id": "node_8",
+        "type": "Process",
+        "text": "Device is busy. Application (SE & CE) will not run properly. Reboot system."
+      },
+      {
+        "id": "node_9",
+        "type": "Decision",
+        "text": "\u201cFunction 1\u201d LED"
+      },
+      {
+        "id": "node_10",
+        "type": "Decision",
+        "text": "\u201cTrigger Input\u201d LED, X4 Input A"
+      },
+      {
+        "id": "node_11",
+        "type": "Decision",
+        "text": "Yes Do both \u201cEncoder Input\u201d LEDs remain constantly on when the conveyor belt is running? X5"
+      },
+      {
+        "id": "node_12",
+        "type": "Start/End",
+        "text": "GOTO \u201cTrigger Input TS\u201d"
+      },
+      {
+        "id": "node_13",
+        "type": "Start/End",
+        "text": "GOTO \u201cEncoder Input TS\u201d"
+      },
+      {
+        "id": "node_14",
+        "type": "Decision",
+        "text": "\u201cCAN\u201d LED X8-CAN"
+      },
+      {
+        "id": "node_15",
+        "type": "Start/End",
+        "text": "GOTO \u201cCAN TS\u201d"
+      },
+      {
+        "id": "node_16",
+        "type": "Decision",
+        "text": "\u201cETHERNET 1-4\u201d LEDs X9 \u2013 X12"
+      },
+      {
+        "id": "node_17",
+        "type": "Process",
+        "text": "Check the physical Ethernet connection on both ends of the cables\u2019s connection points"
+      },
+      {
+        "id": "node_18",
+        "type": "Decision",
+        "text": "Cameras light up when package enters tunnel"
+      },
+      {
+        "id": "node_19",
+        "type": "Start/End",
+        "text": "GOTO \u201cCamera TS\u201d"
+      },
+      {
+        "id": "node_20",
+        "type": "Start/End",
+        "text": "Repeat System Functionality Test"
+      }
+    ],
+    "edges": [
+      {
+        "source": "node_3",
+        "destination": "node_1",
+        "condition": ""
+      },
+      {
+        "source": "node_1",
+        "destination": "node_2",
+        "condition": "OFF"
+      },
+      {
+        "source": "node_4",
+        "destination": "node_5",
+        "condition": "OFF"
+      },
+      {
+        "source": "node_1",
+        "destination": "node_4",
+        "condition": "ON"
+      },
+      {
+        "source": "node_6",
+        "destination": "node_7",
+        "condition": "OFF"
+      },
+      {
+        "source": "node_4",
+        "destination": "node_6",
+        "condition": "Green"
+      },
+      {
+        "source": "node_9",
+        "destination": "node_8",
+        "condition": "OFF"
+      },
+      {
+        "source": "node_6",
+        "destination": "node_9",
+        "condition": "Green"
+      },
+      {
+        "source": "node_10",
+        "destination": "node_12",
+        "condition": "OFF"
+      },
+      {
+        "source": "node_9",
+        "destination": "node_10",
+        "condition": "White"
+      },
+      {
+        "source": "node_11",
+        "destination": "node_13",
+        "condition": "No"
+      },
+      {
+        "source": "node_14",
+        "destination": "node_15",
+        "condition": "OFF"
+      },
+      {
+        "source": "node_14",
+        "destination": "node_16",
+        "condition": "Flicker during operation"
+      },
+      {
+        "source": "node_16",
+        "destination": "node_17",
+        "condition": "Any of"
+      },
+      {
+        "source": "node_16",
+        "destination": "node_18",
+        "condition": "All Green"
+      },
+      {
+        "source": "node_18",
+        "destination": "node_19",
+        "condition": "No"
+      },
+      {
+        "source": "node_5",
+        "destination": "node_20",
+        "condition": ""
+      },
+      {
+        "source": "node_10",
+        "destination": "node_11",
+        "condition": "ON/OFF for every Package"
+      },
+      {
+        "source": "node_18",
+        "destination": "node_20",
+        "condition": ""
+      }
+    ]
+  },
+  "6": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "type": "Start/End",
+        "text": "Start"
+      },
+      {
+        "id": "node_2",
+        "type": "Decision",
+        "text": "Power Supply LED"
+      },
+      {
+        "id": "node_3",
+        "type": "Decision",
+        "text": "Power Supply LED Color"
+      },
+      {
+        "id": "node_4",
+        "type": "Decision",
+        "text": "Circuit Breaker/Main Switch [CB1]"
+      },
+      {
+        "id": "node_5",
+        "type": "Process",
+        "text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed"
+      },
+      {
+        "id": "node_6",
+        "type": "Decision",
+        "text": "Does [CB1] stay ON? YES"
+      },
+      {
+        "id": "node_7",
+        "type": "Process",
+        "text": "Switch Circuit Breaker/Main Switch [CB1] to ON"
+      },
+      {
+        "id": "node_8",
+        "type": "Process",
+        "text": "Troubleshoot Power Supply/Short- circuited wiring. Repair as needed"
+      },
+      {
+        "id": "node_9",
+        "type": "Decision",
+        "text": "Circuit Breaker/ Camera Switch [CB10]"
+      },
+      {
+        "id": "node_10",
+        "type": "Decision",
+        "text": "Is the LED flashing?"
+      },
+      {
+        "id": "node_11",
+        "type": "Process",
+        "text": "Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down."
+      },
+      {
+        "id": "node_12",
+        "type": "Start/End",
+        "text": "Repeat Functionality Test"
+      },
+      {
+        "id": "node_13",
+        "type": "Process",
+        "text": "Troubleshoot Short-circuited wiring. Repair as needed"
+      },
+      {
+        "id": "node_14",
+        "type": "Process",
+        "text": "Troubleshoot Relay [CR100]. Repair as needed"
+      },
+      {
+        "id": "node_15",
+        "type": "Process",
+        "text": "Switch Circuit Breaker/Camera Switch [CB10] to ON"
+      },
+      {
+        "id": "node_16",
+        "type": "Decision",
+        "text": "Does [CB10] stay ON?"
+      },
+      {
+        "id": "node_17",
+        "type": "Process",
+        "text": "Troubleshoot Troubleshoot Power Relay/Short- Supply/Short- circuited wiring. circuited wiring. Repair as needed Repair as needed"
+      },
+      {
+        "id": "node_18",
+        "type": "Decision",
+        "text": "Fuse [FU122] Intact?"
+      },
+      {
+        "id": "node_19",
+        "type": "Process",
+        "text": "Troubleshoot open wiring to SIM2000. Repair as needed"
+      }
+    ],
+    "edges": [
+      {
+        "source": "node_2",
+        "destination": "node_3",
+        "condition": ""
+      },
+      {
+        "source": "node_1",
+        "destination": "node_2",
+        "condition": ""
+      },
+      {
+        "source": "node_4",
+        "destination": "node_5",
+        "condition": ""
+      },
+      {
+        "source": "node_4",
+        "destination": "node_7",
+        "condition": "OFF"
+      },
+      {
+        "source": "node_2",
+        "destination": "node_4",
+        "condition": "OFF"
+      },
+      {
+        "source": "node_7",
+        "destination": "node_6",
+        "condition": ""
+      },
+      {
+        "source": "node_3",
+        "destination": "node_10",
+        "condition": "RED"
+      },
+      {
+        "source": "node_10",
+        "destination": "node_11",
+        "condition": ""
+      },
+      {
+        "source": "node_6",
+        "destination": "node_8",
+        "condition": "NO"
+      },
+      {
+        "source": "node_5",
+        "destination": "node_12",
+        "condition": ""
+      },
+      {
+        "source": "node_6",
+        "destination": "node_5",
+        "condition": ""
+      },
+      {
+        "source": "node_8",
+        "destination": "node_12",
+        "condition": ""
+      },
+      {
+        "source": "node_3",
+        "destination": "node_9",
+        "condition": "GREEN"
+      },
+      {
+        "source": "node_10",
+        "destination": "node_13",
+        "condition": "NO"
+      },
+      {
+        "source": "node_9",
+        "destination": "node_14",
+        "condition": ""
+      },
+      {
+        "source": "node_9",
+        "destination": "node_15",
+        "condition": "OFF"
+      },
+      {
+        "source": "node_15",
+        "destination": "node_16",
+        "condition": ""
+      },
+      {
+        "source": "node_16",
+        "destination": "node_18",
+        "condition": ""
+      },
+      {
+        "source": "node_16",
+        "destination": "node_17",
+        "condition": "NO"
+      },
+      {
+        "source": "node_18",
+        "destination": "node_13",
+        "condition": "NO"
+      },
+      {
+        "source": "node_18",
+        "destination": "node_19",
+        "condition": ""
+      },
+      {
+        "source": "node_17",
+        "destination": "node_12",
+        "condition": ""
+      }
+    ]
+  },
+  "7": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "type": "Start/End",
+        "text": "Start"
+      },
+      {
+        "id": "node_2",
+        "type": "Decision",
+        "text": "Check Speed display on Package Analytics (10.66.225.88:8080)"
+      },
+      {
+        "id": "node_3",
+        "type": "Process",
+        "text": "Examine encoder cable"
+      },
+      {
+        "id": "node_4",
+        "type": "Process",
+        "text": "Check encoder wheels contact/check any flat spot on wheels. Adjust wheel contact/Replace Encoder"
+      },
+      {
+        "id": "node_5",
+        "type": "Process",
+        "text": "Clean encoder wheels"
+      },
+      {
+        "id": "node_6",
+        "type": "Process",
+        "text": "Recheck operation"
+      },
+      {
+        "id": "node_7",
+        "type": "Decision",
+        "text": "Is encoder cable damaged?"
+      },
+      {
+        "id": "node_8",
+        "type": "Process",
+        "text": "Replace Cable and test again"
+      },
+      {
+        "id": "node_9",
+        "type": "Decision",
+        "text": "Working Correctly?"
+      },
+      {
+        "id": "node_10",
+        "type": "Process",
+        "text": "If cable and Encoder both replaced and the speed is still not correct, replace the SIM2000"
+      },
+      {
+        "id": "node_11",
+        "type": "Decision",
+        "text": "Working correctly?"
+      },
+      {
+        "id": "node_12",
+        "type": "Start/End",
+        "text": "Resume Operation"
+      }
+    ],
+    "edges": [
+      {
+        "source": "node_1",
+        "destination": "node_2",
+        "condition": ""
+      },
+      {
+        "source": "node_2",
+        "destination": "node_5",
+        "condition": "Speed off by < 30%"
+      },
+      {
+        "source": "node_3",
+        "destination": "node_7",
+        "condition": ""
+      },
+      {
+        "source": "node_7",
+        "destination": "node_4",
+        "condition": "No"
+      },
+      {
+        "source": "node_7",
+        "destination": "node_8",
+        "condition": "Yes"
+      },
+      {
+        "source": "node_8",
+        "destination": "node_9",
+        "condition": ""
+      },
+      {
+        "source": "node_9",
+        "destination": "node_10",
+        "condition": "No"
+      },
+      {
+        "source": "node_4",
+        "destination": "node_11",
+        "condition": ""
+      },
+      {
+        "source": "node_11",
+        "destination": "node_12",
+        "condition": "Yes"
+      },
+      {
+        "source": "node_9",
+        "destination": "node_12",
+        "condition": "Yes"
+      },
+      {
+        "source": "node_2",
+        "destination": "node_6",
+        "condition": "Correct Speed"
+      },
+      {
+        "source": "node_2",
+        "destination": "node_3",
+        "condition": "by > 30%"
+      },
+      {
+        "source": "node_11",
+        "destination": "node_8",
+        "condition": "No"
+      }
+    ]
+  },
+  "8": {
+    "nodes": [
+      {
+        "id": "node_1",
+        "type": "Start/End",
+        "text": "Start"
+      },
+      {
+        "id": "node_2",
+        "type": "Decision",
+        "text": "Is the Green Light On?"
+      },
+      {
+        "id": "node_3",
+        "type": "Process",
+        "text": "Check Wiring and fuses then retest"
+      },
+      {
+        "id": "node_4",
+        "type": "Decision",
+        "text": "With the path to the reflector clear is the yellow light on?"
+      },
+      {
+        "id": "node_5",
+        "type": "Process",
+        "text": "Check the reflector and the sensor"
+      },
+      {
+        "id": "node_6",
+        "type": "Decision",
+        "text": "Does the yellow light go off when a package is present?"
+      },
+      {
+        "id": "node_7",
+        "type": "Process",
+        "text": "Verify and correct alignment of sensor to reflector"
+      },
+      {
+        "id": "node_8",
+        "type": "Decision",
+        "text": "Does SIM X4 \u2013 Input A 1 change state with the sensor?"
+      },
+      {
+        "id": "node_9",
+        "type": "Process",
+        "text": "Teach sensitivity. Press Teach-in button >2s. Both LED indicators illuminate constantly."
+      },
+      {
+        "id": "node_10",
+        "type": "Process",
+        "text": "Test again. If it still not working correctly, replace the sensor"
+      },
+      {
+        "id": "node_11",
+        "type": "Process",
+        "text": "Verify SIM programming / functionality. Replace if needed"
+      },
+      {
+        "id": "node_12",
+        "type": "Process",
+        "text": "Troubleshoot and repair wiring"
+      }
+    ],
+    "edges": [
+      {
+        "source": "node_1",
+        "destination": "node_2",
+        "condition": ""
+      },
+      {
+        "source": "node_2",
+        "destination": "node_4",
+        "condition": "Yes"
+      },
+      {
+        "source": "node_4",
+        "destination": "node_6",
+        "condition": "Yes"
+      },
+      {
+        "source": "node_2",
+        "destination": "node_3",
+        "condition": "No"
+      },
+      {
+        "source": "node_4",
+        "destination": "node_5",
+        "condition": "No / Blinking"
+      },
+      {
+        "source": "node_6",
+        "destination": "node_7",
+        "condition": "No"
+      },
+      {
+        "source": "node_6",
+        "destination": "node_8",
+        "condition": "Yes"
+      },
+      {
+        "source": "node_8",
+        "destination": "node_11",
+        "condition": "Yes"
+      },
+      {
+        "source": "node_8",
+        "destination": "node_12",
+        "condition": "No"
+      },
+      {
+        "source": "node_5",
+        "destination": "node_7",
+        "condition": ""
+      },
+      {
+        "source": "node_7",
+        "destination": "node_9",
+        "condition": ""
+      },
+      {
+        "source": "node_9",
+        "destination": "node_10",
+        "condition": ""
+      }
+    ]
+  }
+}
