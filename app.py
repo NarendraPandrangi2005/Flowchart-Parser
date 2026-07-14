@@ -356,17 +356,11 @@ HTML_TEMPLATE = """
             </div>
             
             <div class="sidebar-section" style="margin-top: 15px;">
-                <label for="flowchart-select">Select Flowchart</label>
-                <select id="flowchart-select" class="styled-select">
-                    <option value="1">Page 1: Top Light Power Supply</option>
-                    <option value="2">Page 2: Circuit Breaker F111-135</option>
-                    <option value="3">Page 3: Rear Connection Panel</option>
-                    <option value="4">Page 4: CAN Act LED</option>
-                    <option value="5">Page 5: Power LED X2</option>
-                    <option value="6">Page 6: Encoder Diagnostics</option>
-                    <option value="7">Page 7: Encoder Troubleshooting</option>
-                    <option value="8">Page 8: Trigger Photoeye Troubleshooting</option>
-                </select>
+                <label>Active Mode</label>
+                <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 12px; padding: 12px 16px; font-size: 0.9rem; color: #cbd5e1; display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 8px; height: 8px; background: #00f2fe; border-radius: 50%;"></div>
+                    Global Search (All Pages)
+                </div>
             </div>
             
             <div class="sidebar-section">
@@ -385,8 +379,8 @@ HTML_TEMPLATE = """
             <!-- Header -->
             <div class="chat-header">
                 <div class="chat-title-container">
-                    <div class="chat-title" id="active-flowchart-title">Page 1: Top Light Power Supply</div>
-                    <div class="chat-subtitle" id="active-flowchart-desc">Decision graph and AI troubleshooting assistant loaded.</div>
+                    <div class="chat-title" id="active-flowchart-title">Global Troubleshooting Assistant</div>
+                    <div class="chat-subtitle" id="active-flowchart-desc">Search and trace troubleshooting steps across all flowchart pages.</div>
                 </div>
                 <div class="status-badge">
                     <div class="status-dot"></div>
@@ -400,7 +394,7 @@ HTML_TEMPLATE = """
                     <div class="message-content">
                         Hello! I am your AI Flowchart troubleshooting assistant.
                         <br><br>
-                        Please select a flowchart from the sidebar, verify your Groq API Key, and enter your query (or select one of the suggested prompts below) to trace the corrective actions!
+                        Verify your Groq API Key, and enter your query or select one of the suggested prompts below. I will search across all flowchart pages to trace the corrective actions!
                     </div>
                 </div>
             </div>
@@ -425,7 +419,6 @@ HTML_TEMPLATE = """
     </div>
 
     <script>
-        const flowchartSelect = document.getElementById("flowchart-select");
         const apiKeyInput = document.getElementById("api-key-input");
         const saveKeyBtn = document.getElementById("save-key-btn");
         const messagesList = document.getElementById("messages-list");
@@ -452,63 +445,19 @@ HTML_TEMPLATE = """
             }
         });
 
-        // Quick Suggestion Prompts configuration for each page
-        const SUGGESTIONS = {
-            "1": [
-                "Switch Circuit Breaker to ON [CB14]",
-                "What if CB14 stays ON?",
-                "The CB14 Circuit Breaker keeps turning OFF"
-            ],
-            "2": [
-                "Fuses F121-125 stay ON",
-                "Fuses open wiring",
-                "Does the switch stay ON?"
-            ],
-            "3": [
-                "Is the Service Light flashing?",
-                "Camera Service Light is Solid RED",
-                "Replace Camera"
-            ],
-            "4": [
-                "CAN Act LED is flashing green",
-                "CAN Act LED is solid orange",
-                "What is the next step if CAN Act LED is OFF?"
-            ],
-            "5": [
-                "Device Ready LED is flashing red",
-                "Device Ready LED is solid green",
-                "Troubleshoot Power Supply connection"
-            ],
-            "6": [
-                "Start the encoder check",
-                "Clean encoder wheels",
-                "Examine encoder cable"
-            ],
-            "7": [
-                "Is the encoder cable damaged?",
-                "Speed is off by > 30%",
-                "Recheck encoder contact wheel alignment"
-            ],
-            "8": [
-                "Is the Green Light On?",
-                "Trigger photoeye green light is off",
-                "The yellow light does not go off"
-            ]
-        };
+        // Quick Suggestion Prompts configuration for Global Search
+        const SUGGESTIONS = [
+            "Switch Circuit Breaker to ON [CB14]",
+            "What if CB14 stays ON?",
+            "Is the Service Light flashing?",
+            "Device Ready LED is flashing red",
+            "Is the encoder cable damaged?",
+            "Trigger photoeye green light is off"
+        ];
 
-        // Format select change titles
-        flowchartSelect.addEventListener("change", () => {
-            const val = flowchartSelect.value;
-            const text = flowchartSelect.options[flowchartSelect.selectedIndex].text;
-            activeFlowchartTitle.textContent = text;
-            activeFlowchartDesc.textContent = `Flowchart Page ${val} logical nodes and connections loaded.`;
-            updateSuggestions(val);
-        });
-
-        function updateSuggestions(page) {
+        function updateSuggestions() {
             suggestionsList.innerHTML = "";
-            const prompts = SUGGESTIONS[page] || [];
-            prompts.forEach(p => {
+            SUGGESTIONS.forEach(p => {
                 const chip = document.createElement("div");
                 chip.className = "suggestion-chip";
                 chip.textContent = p;
@@ -521,7 +470,7 @@ HTML_TEMPLATE = """
         }
 
         // Initialize suggestions
-        updateSuggestions("1");
+        updateSuggestions();
 
         // Format Markdown Simple Parser
         function formatMarkdown(text) {
@@ -582,7 +531,6 @@ HTML_TEMPLATE = """
         async function sendChat() {
             const message = userChatInput.value.trim();
             const apiKey = apiKeyInput.value.trim();
-            const page = flowchartSelect.value;
             
             if (!message) return;
             
@@ -606,7 +554,7 @@ HTML_TEMPLATE = """
                     },
                     body: JSON.stringify({
                         message: message,
-                        page: page,
+                        page: null, // Always search globally
                         api_key: apiKey
                     })
                 });
@@ -685,7 +633,7 @@ def chat_endpoint():
             graph_path=simplified_graph_path,
             paragraphs_path=paragraphs_path,
             vector_store=vector_store,
-            flowchart_id=page_num,
+            flowchart_id=None,  # Always search globally across all pages
             n_results=3
         )
         

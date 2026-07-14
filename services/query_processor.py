@@ -29,11 +29,14 @@ def find_referenced_nodes(query_text, nodes):
         matched_abbr = False
         for abbr in brackets:
             abbr_clean = abbr.lower().strip()
-            # If the user mentioned this bracketed term in their query, mark it as referenced
-            if abbr_clean and abbr_clean in q_lower:
-                referenced.append(node)
-                matched_abbr = True
-                break
+            # If the user mentioned this bracketed term in their query, mark it as referenced.
+            # We use word boundary \b to prevent matching partial strings (e.g. 'cb1' matching 'cb10')
+            if abbr_clean:
+                pattern = r'\b' + re.escape(abbr_clean) + r'\b'
+                if re.search(pattern, q_lower):
+                    referenced.append(node)
+                    matched_abbr = True
+                    break
         if matched_abbr:
             continue
             
@@ -41,9 +44,11 @@ def find_referenced_nodes(query_text, nodes):
         # Remove the bracketed terms from the node text to do a clean string comparison
         clean_node_text = re.sub(r'\[.*?\]', '', node.get("text", "")).strip().lower()
         clean_node_text = clean_node_text.replace("?", "").strip()
-        # Ensure we only match meaningful, longer phrases (length > 4) to avoid matching short words like "yes" or "no"
-        if len(clean_node_text) > 4 and clean_node_text in q_lower:
-            referenced.append(node)
+        # Ensure we only match meaningful, longer phrases (length > 4) using word boundaries
+        if len(clean_node_text) > 4:
+            pattern = r'\b' + re.escape(clean_node_text) + r'\b'
+            if re.search(pattern, q_lower):
+                referenced.append(node)
             
     return referenced
 
@@ -74,34 +79,42 @@ def process_query_pipeline(query_text, graph_path, paragraphs_path, vector_store
     # Retrieve nodes relevant to the active flowchart page
     active_nodes = []
     if flowchart_id:
-        active_nodes = graph_data.get(str(flowchart_id), {}).get("nodes", [])
+        for node in graph_data.get(str(flowchart_id), {}).get("nodes", []):
+            node_copy = dict(node)
+            node_copy["flowchart_id"] = str(flowchart_id)
+            active_nodes.append(node_copy)
     else:
         # If no page filter is active, merge nodes from all pages in the document
         for page_num, page_data in graph_data.items():
-            active_nodes.extend(page_data.get("nodes", []))
+            for node in page_data.get("nodes", []):
+                node_copy = dict(node)
+                node_copy["flowchart_id"] = str(page_num)
+                active_nodes.append(node_copy)
             
     # --- STAGE 2: PRIORITY GRAPH PATH RETRIEVAL ---
     # Detect if the query references specific flowchart components (like CB1)
     referenced_nodes = find_referenced_nodes(query_text, active_nodes)
-    referenced_node_ids = {node["id"] for node in referenced_nodes}
     
     graph_context_chunks = []
     graph_paths = []
     
     # If the user mentioned a node, we grab all troubleshooting paragraphs that pass through it!
-    if referenced_node_ids:
-        print(f"Detected direct flowchart node references in query: {[n['text'] for n in referenced_nodes]}")
+    if referenced_nodes:
+        # Create scoped page/node matching keys to prevent crossing page boundaries
+        referenced_keys = {(str(n["flowchart_id"]), str(n["id"])) for n in referenced_nodes}
+        print(f"Detected direct flowchart node references in query: {[(n.get('flowchart_id'), n.get('text')) for n in referenced_nodes]}")
         for p in paragraphs_data:
             # Apply file filter
             if manual_name and p["manual_name"] != manual_name:
                 continue
             # Apply page filter
-            if flowchart_id and str(p["flowchart_id"]) != str(flowchart_id):
+            p_flowchart_id = str(p["flowchart_id"])
+            if flowchart_id and p_flowchart_id != str(flowchart_id):
                 continue
                 
-            # Check if this paragraph's decision path contains any of the referenced node IDs
-            path_node_ids = {step["node_id"] for step in p["decision_path"]}
-            if referenced_node_ids.intersection(path_node_ids):
+            # Check if this paragraph's decision path contains any of the referenced node IDs on the same page
+            path_keys = {(p_flowchart_id, str(step["node_id"])) for step in p["decision_path"]}
+            if referenced_keys.intersection(path_keys):
                 graph_context_chunks.append(p["text"])
                 graph_paths.append(p["decision_path"])
                 
@@ -145,15 +158,16 @@ def process_query_pipeline(query_text, graph_path, paragraphs_path, vector_store
         if c not in final_chunks:
             final_chunks.append(c)
             
+    # Slice to top n_results BEFORE calculating citations and prompt context
+    final_sliced_chunks = final_chunks[:n_results]
+            
     # --- STAGE 5: CITATION BUILDER ---
     # Find all flowchart pages referenced in this retrieval to cite them
     pages_referenced = set()
     if flowchart_id:
         pages_referenced.add(str(flowchart_id))
-    for meta in semantic_metadatas:
-        pages_referenced.add(str(meta.get("flowchart_id", "")))
     for p in paragraphs_data:
-        if p["text"] in final_chunks:
+        if p["text"] in final_sliced_chunks:
             pages_referenced.add(str(p["flowchart_id"]))
             
     # Clean and sort page citations numerically
@@ -161,7 +175,7 @@ def process_query_pipeline(query_text, graph_path, paragraphs_path, vector_store
     citations = f"\n\n**Sources:** Page {', '.join(pages_referenced)} Flowchart"
     
     # Prepare the formatted context string
-    context_str = "\n".join([f"- {c}" for c in final_chunks[:n_results]])
+    context_str = "\n".join([f"- {c}" for c in final_sliced_chunks])
     
     # Build final system instructions and prompt
     prompt = (
@@ -172,7 +186,7 @@ def process_query_pipeline(query_text, graph_path, paragraphs_path, vector_store
     
     return {
         "prompt": prompt,
-        "context_chunks": final_chunks[:n_results],
+        "context_chunks": final_sliced_chunks,
         "citations": citations,
         "graph_prioritized": len(graph_context_chunks) > 0,
         "referenced_nodes": [n["text"] for n in referenced_nodes]
