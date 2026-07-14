@@ -41,7 +41,7 @@
       {
         "source": "node_1",
         "destination": "node_4",
-        "condition": ""
+        "condition": "ON"
       },
       {
         "source": "node_5",
@@ -85,7 +85,7 @@
       {
         "id": "node_3",
         "type": "Decision",
-        "text": "Power Supply LED Color"
+        "text": ""
       },
       {
         "id": "node_4",
@@ -125,7 +125,7 @@
       {
         "id": "node_11",
         "type": "Process",
-        "text": "Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down."
+        "text": "Check Ventilation and Fans Let power supply cool down."
       },
       {
         "id": "node_12",
@@ -145,7 +145,7 @@
       {
         "id": "node_15",
         "type": "Process",
-        "text": "Switch Circuit OFF Breaker to ON"
+        "text": "Switch Circuit Breaker to ON"
       },
       {
         "id": "node_16",
@@ -155,7 +155,7 @@
       {
         "id": "node_17",
         "type": "Process",
-        "text": "Troubleshoot Troubleshoot Power Short-circuited Supply/Short- wiring. Repair as circuited wiring. needed Repair as needed"
+        "text": "Troubleshoot Short-circuited wiring. Repair as needed"
       },
       {
         "id": "node_18",
@@ -167,7 +167,7 @@
       {
         "source": "node_2",
         "destination": "node_3",
-        "condition": ""
+        "condition": "ON"
       },
       {
         "source": "node_1",
@@ -177,7 +177,7 @@
       {
         "source": "node_4",
         "destination": "node_5",
-        "condition": ""
+        "condition": "ON"
       },
       {
         "source": "node_7",
@@ -192,7 +192,7 @@
       {
         "source": "node_10",
         "destination": "node_11",
-        "condition": ""
+        "condition": "YES"
       },
       {
         "source": "node_5",
@@ -232,12 +232,12 @@
       {
         "source": "node_2",
         "destination": "node_4",
-        "condition": ""
+        "condition": "OFF"
       },
       {
         "source": "node_4",
         "destination": "node_7",
-        "condition": ""
+        "condition": "OFF"
       },
       {
         "source": "node_3",
@@ -247,17 +247,17 @@
       {
         "source": "node_9",
         "destination": "node_14",
-        "condition": ""
+        "condition": "ON"
       },
       {
         "source": "node_9",
         "destination": "node_15",
-        "condition": ""
+        "condition": "OFF"
       },
       {
         "source": "node_16",
         "destination": "node_18",
-        "condition": ""
+        "condition": "YES"
       },
       {
         "source": "node_6",
@@ -331,7 +331,7 @@
       {
         "id": "node_13",
         "type": "Decision",
-        "text": "Do images get stored?"
+        "text": ""
       },
       {
         "id": "node_14",
@@ -346,7 +346,7 @@
       {
         "id": "node_16",
         "type": "Start/End",
-        "text": "Camera appears to be working. END"
+        "text": ""
       }
     ],
     "edges": [
@@ -373,7 +373,7 @@
       {
         "source": "node_3",
         "destination": "node_4",
-        "condition": ""
+        "condition": "No"
       },
       {
         "source": "node_4",
@@ -393,7 +393,7 @@
       {
         "source": "node_6",
         "destination": "node_10",
-        "condition": ""
+        "condition": "No"
       },
       {
         "source": "node_5",
@@ -423,7 +423,7 @@
       {
         "source": "node_13",
         "destination": "node_15",
-        "condition": ""
+        "condition": "No"
       }
     ]
   },
@@ -745,7 +745,7 @@
       {
         "source": "node_18",
         "destination": "node_20",
-        "condition": ""
+        "condition": "Yes"
       }
     ]
   },
@@ -804,7 +804,7 @@
       {
         "id": "node_11",
         "type": "Process",
-        "text": "Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down."
+        "text": "Check Ventilation and Fans Let power supply cool down."
       },
       {
         "id": "node_12",
@@ -834,7 +834,7 @@
       {
         "id": "node_17",
         "type": "Process",
-        "text": "Troubleshoot Troubleshoot Power Relay/Short- Supply/Short- circuited wiring. circuited wiring. Repair as needed Repair as needed"
+        "text": "Troubleshoot Relay/Short- circuited wiring. Repair as needed"
       },
       {
         "id": "node_18",
@@ -851,7 +851,7 @@
       {
         "source": "node_2",
         "destination": "node_3",
-        "condition": ""
+        "condition": "ON"
       },
       {
         "source": "node_1",
@@ -861,7 +861,7 @@
       {
         "source": "node_4",
         "destination": "node_5",
-        "condition": ""
+        "condition": "ON"
       },
       {
         "source": "node_4",
@@ -886,7 +886,7 @@
       {
         "source": "node_10",
         "destination": "node_11",
-        "condition": ""
+        "condition": "YES"
       },
       {
         "source": "node_6",
@@ -921,7 +921,7 @@
       {
         "source": "node_9",
         "destination": "node_14",
-        "condition": ""
+        "condition": "ON"
       },
       {
         "source": "node_9",
@@ -936,7 +936,7 @@
       {
         "source": "node_16",
         "destination": "node_18",
-        "condition": ""
+        "condition": "YES"
       },
       {
         "source": "node_16",
@@ -951,7 +951,7 @@
       {
         "source": "node_18",
         "destination": "node_19",
-        "condition": ""
+        "condition": "YES"
       },
       {
         "source": "node_17",
@@ -1005,7 +1005,7 @@
       {
         "id": "node_9",
         "type": "Decision",
-        "text": "Working Correctly?"
+        "text": ""
       },
       {
         "id": "node_10",
@@ -1020,7 +1020,7 @@
       {
         "id": "node_12",
         "type": "Start/End",
-        "text": "Resume Operation"
+        "text": ""
       }
     ],
     "edges": [

@@ -105,7 +105,7 @@
         "from_text": "Top Illuminator Circuit Breaker Switch [CB14]",
         "to": "node_4",
         "to_text": "Troubleshoot Power Supply [PWS100]/open wiring. Repair as needed",
-        "label": ""
+        "label": "ON"
       },
       {
         "from": "node_5",
@@ -180,7 +180,7 @@
         "id": "node_3",
         "node_id": "node_3",
         "type": "decision_box",
-        "text": "Power Supply LED Color",
+        "text": "",
         "metadata": {
           "page": 2,
           "bbox": [
@@ -300,7 +300,7 @@
         "id": "node_11",
         "node_id": "node_11",
         "type": "process_box",
-        "text": "Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down.",
+        "text": "Check Ventilation and Fans Let power supply cool down.",
         "metadata": {
           "page": 2,
           "bbox": [
@@ -360,7 +360,7 @@
         "id": "node_15",
         "node_id": "node_15",
         "type": "process_box",
-        "text": "Switch Circuit OFF Breaker to ON",
+        "text": "Switch Circuit Breaker to ON",
         "metadata": {
           "page": 2,
           "bbox": [
@@ -390,7 +390,7 @@
         "id": "node_17",
         "node_id": "node_17",
         "type": "process_box",
-        "text": "Troubleshoot Troubleshoot Power Short-circuited Supply/Short- wiring. Repair as circuited wiring. needed Repair as needed",
+        "text": "Troubleshoot Short-circuited wiring. Repair as needed",
         "metadata": {
           "page": 2,
           "bbox": [
@@ -422,8 +422,8 @@
         "from": "node_2",
         "from_text": "Power Supply LED [G1,G2,G3]",
         "to": "node_3",
-        "to_text": "Power Supply LED Color",
-        "label": ""
+        "to_text": "",
+        "label": "ON"
       },
       {
         "from": "node_1",
@@ -437,7 +437,7 @@
         "from_text": "Circuit Breaker/Main Switch [F11,F12,13]",
         "to": "node_5",
         "to_text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed",
-        "label": ""
+        "label": "ON"
       },
       {
         "from": "node_7",
@@ -448,7 +448,7 @@
       },
       {
         "from": "node_3",
-        "from_text": "Power Supply LED Color",
+        "from_text": "",
         "to": "node_10",
         "to_text": "Is the LED flashing?",
         "label": "RED"
@@ -457,8 +457,8 @@
         "from": "node_10",
         "from_text": "Is the LED flashing?",
         "to": "node_11",
-        "to_text": "Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down.",
-        "label": ""
+        "to_text": "Check Ventilation and Fans Let power supply cool down.",
+        "label": "YES"
       },
       {
         "from": "node_5",
@@ -490,7 +490,7 @@
       },
       {
         "from": "node_15",
-        "from_text": "Switch Circuit OFF Breaker to ON",
+        "from_text": "Switch Circuit Breaker to ON",
         "to": "node_16",
         "to_text": "Does  it stay ON?",
         "label": ""
@@ -499,12 +499,12 @@
         "from": "node_16",
         "from_text": "Does  it stay ON?",
         "to": "node_17",
-        "to_text": "Troubleshoot Troubleshoot Power Short-circuited Supply/Short- wiring. Repair as circuited wiring. needed Repair as needed",
+        "to_text": "Troubleshoot Short-circuited wiring. Repair as needed",
         "label": "NO"
       },
       {
         "from": "node_17",
-        "from_text": "Troubleshoot Troubleshoot Power Short-circuited Supply/Short- wiring. Repair as circuited wiring. needed Repair as needed",
+        "from_text": "Troubleshoot Short-circuited wiring. Repair as needed",
         "to": "node_12",
         "to_text": "Repeat Functionality Test",
         "label": ""
@@ -514,18 +514,18 @@
         "from_text": "Power Supply LED [G1,G2,G3]",
         "to": "node_4",
         "to_text": "Circuit Breaker/Main Switch [F11,F12,13]",
-        "label": ""
+        "label": "OFF"
       },
       {
         "from": "node_4",
         "from_text": "Circuit Breaker/Main Switch [F11,F12,13]",
         "to": "node_7",
         "to_text": "Switch Circuit Breaker/Main Switch [F11,F12,F13] to ON",
-        "label": ""
+        "label": "OFF"
       },
       {
         "from": "node_3",
-        "from_text": "Power Supply LED Color",
+        "from_text": "",
         "to": "node_9",
         "to_text": "Circuit Breaker L[F111,F113,F115], R[F121,F123,F125], B[F131,F133,F135]",
         "label": ""
@@ -535,21 +535,21 @@
         "from_text": "Circuit Breaker L[F111,F113,F115], R[F121,F123,F125], B[F131,F133,F135]",
         "to": "node_14",
         "to_text": "Troubleshoot open wiring. Repair as needed",
-        "label": ""
+        "label": "ON"
       },
       {
         "from": "node_9",
         "from_text": "Circuit Breaker L[F111,F113,F115], R[F121,F123,F125], B[F131,F133,F135]",
         "to": "node_15",
-        "to_text": "Switch Circuit OFF Breaker to ON",
-        "label": ""
+        "to_text": "Switch Circuit Breaker to ON",
+        "label": "OFF"
       },
       {
         "from": "node_16",
         "from_text": "Does  it stay ON?",
         "to": "node_18",
         "to_text": "Troubleshoot open wiring to Camera/Illumilator. Repair as needed",
-        "label": ""
+        "label": "YES"
       },
       {
         "from": "node_6",
@@ -746,7 +746,7 @@
         "id": "node_13",
         "node_id": "node_13",
         "type": "decision_box",
-        "text": "Do images get stored?",
+        "text": "",
         "metadata": {
           "page": 3,
           "bbox": [
@@ -791,7 +791,7 @@
         "id": "node_16",
         "node_id": "node_16",
         "type": "start_end_terminal",
-        "text": "Camera appears to be working. END",
+        "text": "",
         "metadata": {
           "page": 3,
           "bbox": [
@@ -837,7 +837,7 @@
         "from_text": "Is service light illuminated?",
         "to": "node_4",
         "to_text": "Power cycle and watch illuminator during power up.",
-        "label": ""
+        "label": "No"
       },
       {
         "from": "node_4",
@@ -865,7 +865,7 @@
         "from_text": "Does light come on when system is triggered?",
         "to": "node_10",
         "to_text": "Verify/Correct CAN wiring and retest",
-        "label": ""
+        "label": "No"
       },
       {
         "from": "node_5",
@@ -892,22 +892,22 @@
         "from": "node_12",
         "from_text": "Does Result light flash when valid barcode facing camera? No",
         "to": "node_13",
-        "to_text": "Do images get stored?",
+        "to_text": "",
         "label": "Yes"
       },
       {
         "from": "node_13",
-        "from_text": "Do images get stored?",
+        "from_text": "",
         "to": "node_16",
-        "to_text": "Camera appears to be working. END",
+        "to_text": "",
         "label": "Yes"
       },
       {
         "from": "node_13",
-        "from_text": "Do images get stored?",
+        "from_text": "",
         "to": "node_15",
         "to_text": "Verify Network connections",
-        "label": ""
+        "label": "No"
       }
     ]
   },
@@ -1601,7 +1601,7 @@
         "from_text": "Cameras light up when package enters tunnel",
         "to": "node_20",
         "to_text": "Repeat System Functionality Test",
-        "label": ""
+        "label": "Yes"
       }
     ]
   },
@@ -1761,7 +1761,7 @@
         "id": "node_11",
         "node_id": "node_11",
         "type": "process_box",
-        "text": "Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down.",
+        "text": "Check Ventilation and Fans Let power supply cool down.",
         "metadata": {
           "page": 6,
           "bbox": [
@@ -1851,7 +1851,7 @@
         "id": "node_17",
         "node_id": "node_17",
         "type": "process_box",
-        "text": "Troubleshoot Troubleshoot Power Relay/Short- Supply/Short- circuited wiring. circuited wiring. Repair as needed Repair as needed",
+        "text": "Troubleshoot Relay/Short- circuited wiring. Repair as needed",
         "metadata": {
           "page": 6,
           "bbox": [
@@ -1899,7 +1899,7 @@
         "from_text": "Power Supply LED",
         "to": "node_3",
         "to_text": "Power Supply LED Color",
-        "label": ""
+        "label": "ON"
       },
       {
         "from": "node_1",
@@ -1913,7 +1913,7 @@
         "from_text": "Circuit Breaker/Main Switch [CB1]",
         "to": "node_5",
         "to_text": "Troubleshoot 110 VAC supply circuit (Check outlet to the SICK cabinet). Repair as needed",
-        "label": ""
+        "label": "ON"
       },
       {
         "from": "node_4",
@@ -1947,8 +1947,8 @@
         "from": "node_10",
         "from_text": "Is the LED flashing?",
         "to": "node_11",
-        "to_text": "Switch Circuit Check Ventilation Breaker/Main and Fans Let Switch [CB1] to power supply cool ON down.",
-        "label": ""
+        "to_text": "Check Ventilation and Fans Let power supply cool down.",
+        "label": "YES"
       },
       {
         "from": "node_6",
@@ -1997,7 +1997,7 @@
         "from_text": "Circuit Breaker/ Camera Switch [CB10]",
         "to": "node_14",
         "to_text": "Troubleshoot Relay [CR100]. Repair as needed",
-        "label": ""
+        "label": "ON"
       },
       {
         "from": "node_9",
@@ -2018,13 +2018,13 @@
         "from_text": "Does [CB10] stay ON?",
         "to": "node_18",
         "to_text": "Fuse [FU122] Intact?",
-        "label": ""
+        "label": "YES"
       },
       {
         "from": "node_16",
         "from_text": "Does [CB10] stay ON?",
         "to": "node_17",
-        "to_text": "Troubleshoot Troubleshoot Power Relay/Short- Supply/Short- circuited wiring. circuited wiring. Repair as needed Repair as needed",
+        "to_text": "Troubleshoot Relay/Short- circuited wiring. Repair as needed",
         "label": "NO"
       },
       {
@@ -2039,11 +2039,11 @@
         "from_text": "Fuse [FU122] Intact?",
         "to": "node_19",
         "to_text": "Troubleshoot open wiring to SIM2000. Repair as needed",
-        "label": ""
+        "label": "YES"
       },
       {
         "from": "node_17",
-        "from_text": "Troubleshoot Troubleshoot Power Relay/Short- Supply/Short- circuited wiring. circuited wiring. Repair as needed Repair as needed",
+        "from_text": "Troubleshoot Relay/Short- circuited wiring. Repair as needed",
         "to": "node_12",
         "to_text": "Repeat Functionality Test",
         "label": ""
@@ -2176,7 +2176,7 @@
         "id": "node_9",
         "node_id": "node_9",
         "type": "decision_box",
-        "text": "Working Correctly?",
+        "text": "",
         "metadata": {
           "page": 7,
           "bbox": [
@@ -2221,7 +2221,7 @@
         "id": "node_12",
         "node_id": "node_12",
         "type": "start_end_terminal",
-        "text": "Resume Operation",
+        "text": "",
         "metadata": {
           "page": 7,
           "bbox": [
@@ -2273,12 +2273,12 @@
         "from": "node_8",
         "from_text": "Replace Cable and test again",
         "to": "node_9",
-        "to_text": "Working Correctly?",
+        "to_text": "",
         "label": ""
       },
       {
         "from": "node_9",
-        "from_text": "Working Correctly?",
+        "from_text": "",
         "to": "node_10",
         "to_text": "If cable and Encoder both replaced and the speed is still not correct, replace the SIM2000",
         "label": "No"
@@ -2294,14 +2294,14 @@
         "from": "node_11",
         "from_text": "Working correctly?",
         "to": "node_12",
-        "to_text": "Resume Operation",
+        "to_text": "",
         "label": "Yes"
       },
       {
         "from": "node_9",
-        "from_text": "Working Correctly?",
+        "from_text": "",
         "to": "node_12",
-        "to_text": "Resume Operation",
+        "to_text": "",
         "label": "Yes"
       },
       {

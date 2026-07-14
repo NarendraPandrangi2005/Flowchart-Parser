@@ -171,7 +171,7 @@ def classify_shape_raw(path):
         
     return "other"
 
-def serialize_drawing(path, text_dict=None):
+def serialize_drawing(path, text_dict=None, mapped_span_indices=None):
     """
     Translates a PyMuPDF drawing path dictionary to a clean, JSON-serializable dictionary.
     This hardcodes the translation of PyMuPDF drawing commands (type: 're', 'l', 'c', 'qu') 
@@ -192,7 +192,7 @@ def serialize_drawing(path, text_dict=None):
     if text_dict and classification in ["process_box", "decision_box", "start_end_terminal"] and "rect" in path:
         rect = path["rect"]
         rect_tuple = (rect.x0, rect.y0, rect.x1, rect.y1)
-        serialized["text"] = extract_text_in_rect(rect_tuple, text_dict)
+        serialized["text"] = extract_text_in_rect(rect_tuple, text_dict, mapped_span_indices)
     else:
         serialized["text"] = ""
     
@@ -262,13 +262,34 @@ def make_serializable(obj):
         except:
             return None
 
-def extract_text_in_rect(rect, text_dict):
+def bboxes_overlap(box1, box2, threshold=0.35):
+    """Checks if two bounding boxes [x0, y0, x1, y1] overlap significantly."""
+    x_left = max(box1[0], box2[0])
+    y_top = max(box1[1], box2[1])
+    x_right = min(box1[2], box2[2])
+    y_bottom = min(box1[3], box2[3])
+    
+    if x_right <= x_left or y_bottom <= y_top:
+        return False
+        
+    intersection_area = (x_right - x_left) * (y_bottom - y_top)
+    area1 = (box1[2] - box1[0]) * (box1[3] - box1[1])
+    area2 = (box2[2] - box2[0]) * (box2[3] - box2[1])
+    
+    min_area = min(area1, area2)
+    if min_area <= 0:
+        return False
+        
+    return (intersection_area / min_area) > threshold
+
+def extract_text_in_rect(rect, text_dict, mapped_span_indices=None):
     """
     Finds and joins all text spans in text_dict whose bounding box centers
     fall inside the given rect coordinates [x0, y0, x1, y1].
+    Filters out overlapping/duplicate text spans, keeping the ones drawn later.
     """
     sx0, sy0, sx1, sy1 = rect
-    matched_texts = []
+    matched_spans = []
     
     for block in text_dict.get("blocks", []):
         if block.get("type") == 0:  # Text block
@@ -288,11 +309,32 @@ def extract_text_in_rect(rect, text_dict):
                     
                     # Check if center falls inside the shape rect (with a 2-point tolerance)
                     if (sx0 - 2 <= cx <= sx1 + 2) and (sy0 - 2 <= cy <= sy1 + 2):
-                        # Keep track of text and coordinates for reading order sorting (top-down, left-right)
-                        matched_texts.append((cy, cx, text))
+                        matched_spans.append({
+                            "cy": cy,
+                            "cx": cx,
+                            "text": text,
+                            "bbox": bbox,
+                            "stream_index": span.get("stream_index", 0)
+                        })
                         
-    matched_texts.sort()
-    return " ".join(t[2] for t in matched_texts)
+    # Filter out overlapping duplicate spans (keep later stream_index)
+    filtered_spans = []
+    for i, span1 in enumerate(matched_spans):
+        keep = True
+        for j, span2 in enumerate(matched_spans):
+            if i == j:
+                continue
+            if bboxes_overlap(span1["bbox"], span2["bbox"]):
+                if span2["stream_index"] > span1["stream_index"]:
+                    keep = False
+                    break
+        if keep:
+            filtered_spans.append(span1)
+            if mapped_span_indices is not None:
+                mapped_span_indices.add(span1["stream_index"])
+                
+    filtered_spans.sort(key=lambda s: (s["cy"], s["cx"]))
+    return " ".join(s["text"] for s in filtered_spans)
 
 def point_to_rect_distance(px, py, rect):
     """Calculates the shortest distance between a point (px, py) and a rectangle rect [x0, y0, x1, y1]."""
@@ -548,6 +590,46 @@ def parse_pdf(pdf_path: str):
         # 1. Extract Text
         raw_text_dict = page.get_text("dict")
         text_dict = make_serializable(raw_text_dict)
+        
+        # Filter out overlapping duplicate text blocks (ghost blocks)
+        blocks = text_dict.get("blocks", [])
+        filtered_blocks = []
+        for i, block1 in enumerate(blocks):
+            if block1.get("type") != 0: # Non-text block (e.g. image)
+                filtered_blocks.append(block1)
+                continue
+                
+            bbox1 = block1.get("bbox")
+            if not bbox1:
+                filtered_blocks.append(block1)
+                continue
+                
+            keep = True
+            for j, block2 in enumerate(blocks):
+                if i == j or block2.get("type") != 0:
+                    continue
+                bbox2 = block2.get("bbox")
+                if not bbox2:
+                    continue
+                
+                # If block2 is drawn later (j > i) and overlaps block1, discard block1
+                if j > i and bboxes_overlap(bbox1, bbox2, threshold=0.45):
+                    keep = False
+                    break
+            if keep:
+                filtered_blocks.append(block1)
+                
+        text_dict["blocks"] = filtered_blocks
+        
+        # Annotate each span with its sequential index in the stream
+        stream_index = 0
+        for block in text_dict.get("blocks", []):
+            if block.get("type") == 0:
+                for line in block.get("lines", []):
+                    for span in line.get("spans", []):
+                        span["stream_index"] = stream_index
+                        stream_index += 1
+                        
         all_pages_text[str(page_num)] = text_dict
         
         # 2. Extract image bounding boxes
@@ -574,7 +656,8 @@ def parse_pdf(pdf_path: str):
                 
             filtered_drawings.append(d)
             
-        serialized_drawings = [serialize_drawing(d, text_dict) for d in filtered_drawings]
+        mapped_span_indices = set()
+        serialized_drawings = [serialize_drawing(d, text_dict, mapped_span_indices) for d in filtered_drawings]
         
         # --- 4. Flowchart Relationship Detection (Nodes & Edges) ---
         # Identify nodes (Start/End bubbles, decision diamonds, process rectangles)
@@ -599,13 +682,8 @@ def parse_pdf(pdf_path: str):
                         txt = span.get("text", "").strip()
                         if not txt:
                             continue
-                        # If this label is part of any node text, it is not a branch label
-                        is_mapped = False
-                        for node in nodes:
-                            if txt in node["text"]:
-                                is_mapped = True
-                                break
-                        if not is_mapped:
+                        # If this label was not mapped to any node rectangle
+                        if span.get("stream_index") not in mapped_span_indices:
                             bbox = span.get("bbox")
                             if bbox:
                                 cx = (bbox[0] + bbox[2]) / 2.0
