@@ -416,14 +416,9 @@ HTML_TEMPLATE = """
                     <div class="message-content">
                         Hello! I am your AI Flowchart troubleshooting assistant.
                         <br><br>
-                        Enter your query or select one of the suggested prompts below. I will search across all flowchart pages to trace the corrective actions!
+                        Enter your query below. I will search across all flowchart pages to trace the corrective actions!
                     </div>
                 </div>
-            </div>
-            
-            <!-- Suggestions -->
-            <div class="suggestions-container" id="suggestions-list">
-                <!-- suggestions populated by JS -->
             </div>
             
             <!-- Input -->
@@ -446,34 +441,6 @@ HTML_TEMPLATE = """
         const sendChatBtn = document.getElementById("send-chat-btn");
         const activeFlowchartTitle = document.getElementById("active-flowchart-title");
         const activeFlowchartDesc = document.getElementById("active-flowchart-desc");
-        const suggestionsList = document.getElementById("suggestions-list");
-
-        // Quick Suggestion Prompts configuration for Global Search
-        const SUGGESTIONS = [
-            "Switch Circuit Breaker to ON [CB14]",
-            "What if CB14 stays ON?",
-            "Is the Service Light flashing?",
-            "Device Ready LED is flashing red",
-            "Is the encoder cable damaged?",
-            "Trigger photoeye green light is off"
-        ];
-
-        function updateSuggestions() {
-            suggestionsList.innerHTML = "";
-            SUGGESTIONS.forEach(p => {
-                const chip = document.createElement("div");
-                chip.className = "suggestion-chip";
-                chip.textContent = p;
-                chip.addEventListener("click", () => {
-                    userChatInput.value = p;
-                    userChatInput.focus();
-                });
-                suggestionsList.appendChild(chip);
-            });
-        }
-
-        // Initialize suggestions
-        updateSuggestions();
 
         // Format Markdown using marked.js with custom Mermaid support
         function formatMarkdown(text) {
@@ -501,14 +468,7 @@ HTML_TEMPLATE = """
                         .replace(/&lt;/g, '<')
                         .replace(/&gt;/g, '>')
                         .replace(/&amp;/g, '&');
-                    return `
-                        <div class="mermaid-wrapper" style="margin: 16px 0;">
-                            <div style="font-size: 0.8rem; color: #9ca3af; margin-bottom: 4px; font-weight: 600; text-transform: uppercase;">Flowchart Diagram</div>
-                            <pre class="mermaid">${rawCode}</pre>
-                            <div style="font-size: 0.8rem; color: #9ca3af; margin-top: 16px; margin-bottom: 4px; font-weight: 600; text-transform: uppercase;">Mermaid Source Code</div>
-                            <pre style="background: rgba(0, 0, 0, 0.3); padding: 12px; border-radius: 8px; overflow-x: auto; border: 1px solid rgba(255, 255, 255, 0.05); font-family: monospace; font-size: 0.85rem; color: #e2e8f0; user-select: all;"><code class="language-mermaid">${codeText}</code></pre>
-                        </div>
-                    `;
+                    return `<pre class="mermaid">${rawCode}</pre>`;
                 }
                 
                 return `<pre><code>${codeText}</code></pre>`;
