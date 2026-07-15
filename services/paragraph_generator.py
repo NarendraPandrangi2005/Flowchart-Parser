@@ -1,5 +1,7 @@
 import json
 import os
+import re
+from concurrent.futures import ThreadPoolExecutor
 import networkx as nx
 
 def build_nx_graph(page_data):
@@ -17,141 +19,56 @@ def build_nx_graph(page_data):
         G.add_edge(edge["source"], edge["destination"], condition=edge.get("condition", ""))
     return G
 
-def path_to_paragraph(path, G, flowchart_id):
+def path_to_paragraph(path, G, flowchart_id, vllm_client):
     """
-    LEARNER TIP:
-    Converts a sequence of graph nodes and edges (a path) into a natural language paragraph.
-    This uses custom NLP string transformations to translate choices (YES/NO/ON/OFF)
-    into flowing conditional sentences (e.g. 'If it does not check CB14...').
+    Translates a sequence of graph nodes and edges (a path) into a natural language paragraph
+    using a locally hosted vLLM model (e.g. Qwen).
     """
-    sentences = []
-    skip_next = False
-    
-    for i in range(len(path)):
-        if skip_next:
-            skip_next = False
-            continue
-            
-        node_id = path[i]
+    steps_desc = []
+    for idx, node_id in enumerate(path):
         node_data = G.nodes[node_id]
-        current_text = node_data.get("text", "").strip()
-        current_type = node_data.get("type", "")
+        text = node_data.get("text", "").strip()
+        text = " ".join(text.split())
         
-        # Clean current text (normalize whitespace)
-        current_text = " ".join(current_text.split())
-        if current_text.endswith("."):
-            current_text = current_text[:-1]
-            
-        # First node in path (Start terminal)
-        if i == 0:
-            sentences.append(f"To start troubleshooting the flowchart for page {flowchart_id}, begin at the step '{current_text}'.")
-            continue
-            
-        # Transition clause from previous node to current node
-        prev_id = path[i - 1]
-        prev_data = G.nodes[prev_id]
-        edge_data = G.edges[prev_id, node_id]
-        cond = edge_data.get("condition", "").strip()
-        
-        prev_text = prev_data.get("text", "").strip()
-        prev_text = " ".join(prev_text.split())
-        if prev_text.endswith("?"):
-            prev_q = prev_text[:-1]
+        if idx == 0:
+            steps_desc.append(f"- Start at the step: '{text}'")
         else:
-            prev_q = prev_text
-            
-        # Remove brackets if they enclose instrument references (e.g., [CB14] -> CB14)
-        prev_q = prev_q.replace("[", "").replace("]", "")
-        
-        # --- NLP TRANSFORMATION RULES ---
-        # Translate raw edge conditions into gramatically readable English
-        if cond:
-            cond_lower = cond.lower()
-            if cond_lower == "no":
-                if prev_q.lower().startswith("does "):
-                    rest = prev_q[5:].strip()
-                    words = rest.split()
-                    if len(words) > 1:
-                        subject = words[0]
-                        verb_phrase = " ".join(words[1:])
-                        transition_clause = f"If {subject} does not {verb_phrase}"
-                    else:
-                        transition_clause = f"If it does not {rest}"
-                elif prev_q.lower().startswith("is "):
-                    rest = prev_q[3:].strip()
-                    transition_clause = f"If {rest} is not the case"
-                else:
-                    transition_clause = f"If the answer to '{prev_q}' is no"
-            elif cond_lower == "yes":
-                if prev_q.lower().startswith("does "):
-                    rest = prev_q[5:].strip()
-                    words = rest.split()
-                    if len(words) > 1:
-                        # Simple rule to pluralize verb inside 'YES' transitions
-                        subject = words[0]
-                        verb = words[1]
-                        if verb.endswith("y"):
-                            if len(verb) > 1 and verb[-2] not in "aeiou":
-                                verb_plural = verb[:-1] + "ies"
-                            else:
-                                verb_plural = verb + "s"
-                        elif verb.endswith("s") or verb.endswith("sh") or verb.endswith("ch"):
-                            verb_plural = verb + "es"
-                        else:
-                            verb_plural = verb + "s"
-                        verb_phrase = verb_plural + " " + " ".join(words[2:]) if len(words) > 2 else verb_plural
-                        transition_clause = f"If {subject} {verb_phrase}"
-                    else:
-                        transition_clause = f"If it does {rest}"
-                elif prev_q.lower().startswith("is "):
-                    rest = prev_q[3:].strip()
-                    transition_clause = f"If {rest}"
-                else:
-                    transition_clause = f"If the answer to '{prev_q}' is yes"
-            elif cond_lower in ["on", "off"]:
-                transition_clause = f"If the setting for '{prev_q}' is {cond.upper()}"
+            prev_id = path[idx - 1]
+            edge_data = G.edges[prev_id, node_id]
+            cond = edge_data.get("condition", "").strip()
+            if cond:
+                steps_desc.append(f"- If the choice/condition is '{cond}', proceed to: '{text}'")
             else:
-                transition_clause = f"If the condition is '{cond}' for '{prev_q}'"
-        else:
-            transition_clause = f"From '{prev_q}'"
-            
-        # --- COMBINING CONSECUTIVE STEPS ---
-        # Look ahead one step. If the current step is 'Check X' and the next step is 'Replace/Repair X',
-        # combine them into one fluent sentence: 'Check X. If faulty, replace/repair it.'
-        combined = False
-        if i < len(path) - 1:
-            next_id = path[i + 1]
-            next_data = G.nodes[next_id]
-            next_text = next_data.get("text", "").strip()
-            next_text = " ".join(next_text.split())
-            if next_text.endswith("."):
-                next_text = next_text[:-1]
+                steps_desc.append(f"- Proceed to: '{text}'")
                 
-            if current_text.lower().startswith("check ") and (next_text.lower().startswith("replace") or next_text.lower().startswith("repair") or next_text.lower().startswith("troubleshoot")):
-                target_obj = current_text[6:].strip()
-                verb_phrase = next_text.lower()
-                
-                # Make pronouns clean
-                if "fuse" in verb_phrase and "replace" in verb_phrase:
-                    verb_phrase = "replace it"
-                elif "wire" in verb_phrase and "repair" in verb_phrase:
-                    verb_phrase = "repair it"
-                    
-                sentence = f"{transition_clause}, check {target_obj}. If {target_obj} is faulty, {verb_phrase} before continuing with the troubleshooting process."
-                sentences.append(sentence)
-                combined = True
-                skip_next = True # Skip the next node because we merged it into this sentence
-                
-        if not combined:
-            sentences.append(f"{transition_clause}, proceed to '{current_text}'.")
-            
-    # Combine sentences and add a final period if not present
-    paragraph = " ".join(sentences)
-    if not paragraph.endswith("."):
-        paragraph += "."
-    return paragraph
+    steps_text = "\n".join(steps_desc)
+    
+    prompt = (
+        f"You are an expert technical writer. Convert the following sequence of troubleshooting steps from a flowchart path into a single, cohesive, grammatically correct paragraph.\n\n"
+        f"Troubleshooting steps:\n"
+        f"{steps_text}\n\n"
+        f"Guidelines:\n"
+        f"1. Write a single, continuous, fluent paragraph. Do not use bullet points, numbered lists, or line breaks.\n"
+        f"2. Be precise and clear. Translate conditions (like YES/NO/ON/OFF) into smooth natural English transitions.\n"
+        f"3. Maintain the exact logical flow. Do not add or assume any steps not explicitly listed.\n"
+        f"4. Keep the paragraph professional and concise.\n"
+        f"5. Start directly with the text. Do NOT include any introductory or concluding comments (e.g. do not say 'Here is the paragraph' or 'This describes').\n"
+        f"6. IMPORTANT: Do NOT output any <think> tags or reasoning steps. Output ONLY the final paragraph."
+    )
+    
+    paragraph = vllm_client.query(
+        prompt=prompt,
+        system_instruction="You are a precise technical writer that converts flowchart paths into descriptive troubleshooting paragraphs. Output only the final paragraph without thinking/reasoning.",
+        temperature=0.1,
+        max_tokens=1024
+    )
+    if paragraph:
+        # Strip any <think>...</think> tags if returned by the model
+        paragraph = re.sub(r'<think>.*?</think>', '', paragraph, flags=re.DOTALL).strip()
+        return paragraph
+    raise ValueError("Empty response from local vLLM server")
 
-def generate_paragraphs_from_graph(simplified_graph, manual_name="sample.pdf"):
+def generate_paragraphs_from_graph(simplified_graph, manual_name="sample.pdf", vllm_client=None):
     """
     LEARNER TIP:
     Traverses the simplified graph to extract paths and generate paragraphs.
@@ -160,23 +77,23 @@ def generate_paragraphs_from_graph(simplified_graph, manual_name="sample.pdf"):
     3. Finds all simple paths from each start to each end node using NetworkX.
     4. Converts each path to a prose paragraph.
     """
-    generated_paragraphs = []
-    paragraph_id_counter = 1
+    if vllm_client is None:
+        from services.vllm_client import VllmClient
+        vllm_client = VllmClient()
+        print(f"Initialized local vLLM client using model: {vllm_client.model} at URL: {vllm_client.api_url}")
+
+    all_paths_to_process = []
     
     for page_num, data in simplified_graph.items():
         nodes = data.get("nodes", [])
-        edges = data.get("edges", [])
-        
         if not nodes:
             continue
             
         G = build_nx_graph(data)
         
         # --- IDENTIFY START TERMINALS ---
-        # Nodes with an in-degree of 0 have no incoming arrows.
         starts = [n for n, d in G.in_degree() if d == 0]
         if not starts:
-            # Fallback check if there's a loop structure: search for nodes containing 'start' in text
             for node_id in G.nodes:
                 node_data = G.nodes[node_id]
                 text = str(node_data.get("text", "")).lower()
@@ -184,64 +101,89 @@ def generate_paragraphs_from_graph(simplified_graph, manual_name="sample.pdf"):
                 if "start" in text or "start" in type_:
                     starts.append(node_id)
         if not starts and G.nodes:
-            # Fallback to the first node in the list
             starts = [list(G.nodes.keys())[0]]
             
         # --- IDENTIFY SINK TERMINALS (END NODES) ---
-        # Nodes with an out-degree of 0 have no outgoing arrows.
         sinks = [n for n, d in G.out_degree() if d == 0]
         if not sinks:
             sinks = list(G.nodes.keys())
             
-        # --- PATH FINDING AND PARAGRAPH GENERATION ---
+        # --- PATH FINDING ---
         for start in starts:
             for sink in sinks:
                 if start == sink:
                     continue
                 try:
-                    # Find all unique non-looping routes from start to sink in Directed Graph
                     paths = list(nx.all_simple_paths(G, source=start, target=sink))
                     for path in paths:
-                        paragraph_text = path_to_paragraph(path, G, page_num)
-                        
-                        # Construct a list representing each individual step in the decision path
-                        decision_path_steps = []
-                        for idx, node_id in enumerate(path):
-                            node_data = G.nodes[node_id]
-                            step = {
-                                "node_id": node_id,
-                                "text": node_data.get("text", "").strip(),
-                                "type": node_data.get("type", "")
-                            }
-                            if idx < len(path) - 1:
-                                next_id = path[idx + 1]
-                                # Add the condition text (e.g. 'YES') on the arrow to the next step
-                                step["transition"] = G.edges[node_id, next_id].get("condition", "")
-                            decision_path_steps.append(step)
-                            
-                        # Save the generated paragraph and path metadata
-                        generated_paragraphs.append({
-                            "paragraph_id": f"p_{flowchart_id_to_str(page_num)}_{paragraph_id_counter}",
-                            "manual_name": manual_name,
-                            "flowchart_id": page_num,
-                            "start_node": start,
-                            "end_node": sink,
-                            "decision_path": decision_path_steps,
-                            "text": paragraph_text
-                        })
-                        paragraph_id_counter += 1
+                        all_paths_to_process.append((path, G, page_num))
                 except nx.NetworkXNoPath:
-                    continue # Skip if there is no connected path between these two nodes
+                    continue
                 except Exception as e:
-                    print(f"Error traversing path from {start} to {sink} on page {page_num}: {e}")
-                    
+                    print(f"Error finding paths from {start} to {sink} on page {page_num}: {e}")
+
+    # Process all paths concurrently using ThreadPoolExecutor to take advantage of vLLM batching
+    def process_single_path(item):
+        path, G, page_num = item
+        try:
+            text = path_to_paragraph(path, G, page_num, vllm_client)
+            return {"path": path, "G": G, "page_num": page_num, "text": text, "error": None}
+        except Exception as e:
+            return {"path": path, "G": G, "page_num": page_num, "text": None, "error": e}
+
+    print(f"Sending {len(all_paths_to_process)} paths to local vLLM for paragraph generation concurrently...")
+    
+    # 15 concurrent workers leverages vLLM's internal continuous batching on local GPU
+    with ThreadPoolExecutor(max_workers=15) as executor:
+        results = list(executor.map(process_single_path, all_paths_to_process))
+
+    generated_paragraphs = []
+    paragraph_id_counter = 1
+    
+    for res in results:
+        path = res["path"]
+        G = res["G"]
+        page_num = res["page_num"]
+        paragraph_text = res["text"]
+        error = res["error"]
+        
+        if error:
+            print(f"Failed to generate paragraph for a path on page {page_num}: {error}")
+            continue
+            
+        # Construct decision path steps metadata
+        decision_path_steps = []
+        for idx, node_id in enumerate(path):
+            node_data = G.nodes[node_id]
+            step = {
+                "node_id": node_id,
+                "text": node_data.get("text", "").strip(),
+                "type": node_data.get("type", "")
+            }
+            if idx < len(path) - 1:
+                next_id = path[idx + 1]
+                step["transition"] = G.edges[node_id, next_id].get("condition", "")
+            decision_path_steps.append(step)
+            
+        # Save paragraph
+        generated_paragraphs.append({
+            "paragraph_id": f"p_{flowchart_id_to_str(page_num)}_{paragraph_id_counter}",
+            "manual_name": manual_name,
+            "flowchart_id": page_num,
+            "start_node": path[0],
+            "end_node": path[-1],
+            "decision_path": decision_path_steps,
+            "text": paragraph_text
+        })
+        paragraph_id_counter += 1
+        
     return generated_paragraphs
 
 def flowchart_id_to_str(page):
     # Formats page IDs safely for JSON key names
     return str(page).replace(" ", "_")
 
-def generate_paragraphs_file(input_graph_path, output_filepath, manual_name="sample.pdf"):
+def generate_paragraphs_file(input_graph_path, output_filepath, manual_name="sample.pdf", vllm_client=None):
     """
     LEARNER TIP:
     Reads the simplified graph from disk, generates paths, and writes the
@@ -253,10 +195,9 @@ def generate_paragraphs_file(input_graph_path, output_filepath, manual_name="sam
     with open(input_graph_path, "r", encoding="utf-8") as f:
         simplified_graph = json.load(f)
         
-    paragraphs = generate_paragraphs_from_graph(simplified_graph, manual_name)
+    paragraphs = generate_paragraphs_from_graph(simplified_graph, manual_name, vllm_client)
     
     with open(output_filepath, "w", encoding="utf-8") as f:
         json.dump(paragraphs, f, indent=2)
         
     return paragraphs
-

@@ -623,7 +623,7 @@ def chat_endpoint():
     try:
         from services.vector_store import VectorStoreManager
         from services.query_processor import process_query_pipeline
-        from services.groq_client import GroqClient
+        from services.vllm_client import VllmClient
         
         vector_store = VectorStoreManager()
         
@@ -651,16 +651,17 @@ def chat_endpoint():
         traceback.print_exc()
         return jsonify({"success": False, "error": f"Failed to retrieve context/process query: {e}"}), 500
         
-    # Request completion from Groq API service
+    # Request completion from local vLLM service
     try:
-        groq_client = GroqClient(api_key=api_key)
-        content = groq_client.query(prompt)
+        vllm_client = VllmClient()
+        content = vllm_client.query(prompt)
         full_response = content + citations
         return jsonify({"success": True, "response": full_response})
     except Exception as e:
         import traceback
         traceback.print_exc()
         return jsonify({"success": False, "error": str(e)}), 500
+
 
 @app.route("/process", methods=["GET", "POST"])
 def process_endpoint():

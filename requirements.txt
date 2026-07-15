@@ -5,3 +5,4 @@ networkx
 chromadb
 sentence-transformers
 numpy
+openai

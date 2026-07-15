@@ -564,7 +564,7 @@ def is_drawing_inside_image(drawing_rect, image_bboxes):
                 
     return False
 
-def parse_pdf(pdf_path: str):
+def parse_pdf(pdf_path: str, vllm_url=None, vllm_model=None):
     """
     Parses both text (get_text('dict')) and shapes (get_drawings()) from the PDF.
     Saves text.json and shapes.json.
@@ -911,13 +911,23 @@ def parse_pdf(pdf_path: str):
         from services.semantic_chunker import chunk_paragraphs, SemanticChunker
         from services.vector_store import VectorStoreManager
         
+        # Initialize local vLLM client (exclusively used for paragraph generation)
+        from services.vllm_client import VllmClient
+        vllm_client = VllmClient(api_url=vllm_url, model=vllm_model)
+        print(f"Using local vLLM server to generate paragraphs: Model={vllm_client.model}, URL={vllm_client.api_url}")
+                
         print(f"1. Simplifying graph from {decision_graph_json_path}...")
         simplified_graph = simplify_graph_file(decision_graph_json_path, simplified_graph_json_path)
         print(f"   Saved simplified graph to: {simplified_graph_json_path}")
         
         print(f"2. Generating troubleshooting paragraphs...")
         pdf_filename = os.path.basename(pdf_path)
-        paragraphs = generate_paragraphs_file(simplified_graph_json_path, paragraphs_json_path, manual_name=pdf_filename)
+        paragraphs = generate_paragraphs_file(
+            simplified_graph_json_path, 
+            paragraphs_json_path, 
+            manual_name=pdf_filename,
+            vllm_client=vllm_client
+        )
         print(f"   Generated {len(paragraphs)} troubleshooting paragraphs. Saved to: {paragraphs_json_path}")
         
         print(f"3. Running semantic chunking...")
@@ -946,5 +956,17 @@ def parse_pdf(pdf_path: str):
     return all_pages_text, all_pages_shapes
 
 if __name__ == "__main__":
-    # Test execution
-    parse_pdf("data/sample.pdf")
+    import argparse
+    parser = argparse.ArgumentParser(description="Parse PDF flowcharts and generate troubleshooting RAG pipeline data using local vLLM.")
+    parser.add_argument("--pdf", type=str, default="data/sample.pdf", help="Path to the flowchart PDF file.")
+    parser.add_argument("--vllm-url", type=str, default=None, help="vLLM server URL (overrides environment variable).")
+    parser.add_argument("--vllm-model", type=str, default=None, help="vLLM model name (overrides environment variable).")
+    args = parser.parse_args()
+    
+    parse_pdf(
+        pdf_path=args.pdf,
+        vllm_url=args.vllm_url,
+        vllm_model=args.vllm_model
+    )
+
+

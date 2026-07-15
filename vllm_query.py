@@ -5,7 +5,6 @@ import urllib.error
 
 def load_graph():
     """
-    LEARNER TIP:
     Reads and loads the simplified decision graph nodes and edges from the JSON file.
     If the file is missing, it alerts the user to run the parsing pipeline first.
     """
@@ -18,29 +17,17 @@ def load_graph():
 
 def main():
     """
-    LEARNER TIP:
-    Standalone command line interface (CLI) to query the flowchart troubleshooting assistant.
+    Standalone command line interface (CLI) to query the flowchart troubleshooting assistant via local vLLM.
     Steps:
       1. Loads the flowchart logical graph.
-      2. Validates your Groq API Key.
-      3. Prompts you to pick which flowchart/page you want to search.
-      4. Captures your problem description/query.
-      5. Runs the retrieval pipeline to extract relevant flowchart branches.
-      6. Queries the Groq LLM model and prints the final guided solution.
+      2. Prompts you to pick which flowchart/page you want to search.
+      3. Captures your problem description/query.
+      4. Runs the retrieval pipeline to extract relevant flowchart branches.
+      5. Queries the local vLLM server and prints the final guided solution.
     """
     graph = load_graph()
     if not graph:
         return
-
-    # --- API KEY AUTHENTICATION ---
-    # Retrieve the API key from system environment variables
-    api_key = os.environ.get("GROQ_API_KEY", "").strip()
-    if not api_key:
-        # Prompt the user to input the key manually if not found in environmental variables
-        api_key = input("Enter your Groq API Key: ").strip()
-        if not api_key:
-            print("Groq API Key is required. Exiting.")
-            return
 
     # --- FLOWCHART SELECTION ---
     print("\nAvailable Flowcharts:")
@@ -72,7 +59,7 @@ def main():
     try:
         from services.vector_store import VectorStoreManager
         from services.query_processor import process_query_pipeline
-        from services.groq_client import GroqClient
+        from services.vllm_client import VllmClient
         
         # Initialize vector store manager
         vector_store = VectorStoreManager()
@@ -108,19 +95,18 @@ def main():
         print(f"  {idx + 1}. {chunk}")
 
     # --- LLM SYNTHESIS & INFERENCE CALL ---
-    print("\nQuerying Groq API... Please wait...")
     try:
-        groq_client = GroqClient(api_key=api_key)
-        response_text = groq_client.query(prompt)
+        vllm_client = VllmClient()
+        print(f"\nQuerying local vLLM (Model: {vllm_client.model}) at {vllm_client.api_url}... Please wait...")
+        response_text = vllm_client.query(prompt)
         if response_text:
             print("\n=======================================================")
-            print("   GROQ AI TROUBLESHOOTING RESPONSE")
+            print("   LOCAL VLLM AI TROUBLESHOOTING RESPONSE")
             print("=======================================================\n")
             print(response_text + citations)
             print("\n=======================================================\n")
     except Exception as e:
-        print(f"Error querying Groq LLM: {e}")
+        print(f"Error querying local vLLM LLM: {e}")
 
 if __name__ == "__main__":
     main()
-
