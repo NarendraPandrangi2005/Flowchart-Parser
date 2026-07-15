@@ -8,7 +8,7 @@ class SemanticChunker:
     It groups adjacent sentences together as long as their embedding vectors are close.
     If the embedding model fails to load, it falls back to recursive character splitting.
     """
-    def __init__(self, model_name="all-MiniLM-L6-v2", similarity_threshold_percentile=75, max_chunk_size=600):
+    def __init__(self, model_name="BAAI/bge-base-en-v1.5", similarity_threshold_percentile=75, max_chunk_size=600):
         self.model_name = model_name
         self.similarity_threshold_percentile = similarity_threshold_percentile
         self.max_chunk_size = max_chunk_size

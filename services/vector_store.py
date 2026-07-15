@@ -11,7 +11,7 @@ class VectorStoreManager:
     mathematical vector representations (embeddings) to enable semantic search queries.
     """
     
-    def __init__(self, db_path=None, model_name="all-MiniLM-L6-v2"):
+    def __init__(self, db_path=None, model_name="BAAI/bge-base-en-v1.5"):
         if db_path is None:
             # Set the database folder path to 'chroma_db' inside the workspace root folder
             db_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "chroma_db")

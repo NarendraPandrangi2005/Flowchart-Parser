@@ -137,9 +137,7 @@ def generate_paragraphs_from_graph(simplified_graph, manual_name="sample.pdf", v
     with ThreadPoolExecutor(max_workers=15) as executor:
         results = list(executor.map(process_single_path, all_paths_to_process))
 
-    generated_paragraphs = []
-    paragraph_id_counter = 1
-    
+    results_by_page = {}
     for res in results:
         path = res["path"]
         G = res["G"]
@@ -151,31 +149,83 @@ def generate_paragraphs_from_graph(simplified_graph, manual_name="sample.pdf", v
             print(f"Failed to generate paragraph for a path on page {page_num}: {error}")
             continue
             
-        # Construct decision path steps metadata
-        decision_path_steps = []
-        for idx, node_id in enumerate(path):
-            node_data = G.nodes[node_id]
-            step = {
-                "node_id": node_id,
-                "text": node_data.get("text", "").strip(),
-                "type": node_data.get("type", "")
+        if page_num not in results_by_page:
+            results_by_page[page_num] = {
+                "paths": [],
+                "texts": [],
+                "G": G
             }
-            if idx < len(path) - 1:
-                next_id = path[idx + 1]
-                step["transition"] = G.edges[node_id, next_id].get("condition", "")
-            decision_path_steps.append(step)
-            
-        # Save paragraph
+        results_by_page[page_num]["paths"].append(path)
+        results_by_page[page_num]["texts"].append(paragraph_text)
+
+    generated_paragraphs = []
+    
+    print("\nMerging path paragraphs page by page using local vLLM...")
+    for page_num, page_data in results_by_page.items():
+        texts = page_data["texts"]
+        paths = page_data["paths"]
+        G = page_data["G"]
+        
+        if len(texts) == 1:
+            merged_text = texts[0]
+        else:
+            combined_paths_text = "\n\n".join(texts)
+            merge_prompt = (
+                f"You are an expert technical writer. You are given multiple individual decision path paragraphs "
+                f"for the same troubleshooting flowchart page. Merge them into a single, cohesive, grammatically correct "
+                f"troubleshooting paragraph that covers all options, decisions, and outcomes in a logical sequence.\n\n"
+                f"Individual path paragraphs:\n"
+                f"{combined_paths_text}\n\n"
+                f"Guidelines:\n"
+                f"1. Write a single, continuous, fluent paragraph. Do not use bullet points, numbered lists, or line breaks.\n"
+                f"2. Be precise and clear. Combine different decision branches using smooth logical transitions (e.g., 'If..., then... Otherwise, if...').\n"
+                f"3. Maintain the exact logical flow. Do not add or assume any steps not explicitly listed.\n"
+                f"4. Keep the paragraph professional and concise.\n"
+                f"5. Start directly with the text. Do NOT include any introductory or concluding comments.\n"
+                f"6. IMPORTANT: Do NOT output any <think> tags or reasoning steps. Output ONLY the final merged paragraph."
+            )
+            try:
+                merged_text = vllm_client.query(
+                    prompt=merge_prompt,
+                    system_instruction="You are a precise technical writer that merges multiple flowchart path paragraphs into a single cohesive troubleshooting paragraph. Output only the final paragraph without thinking/reasoning.",
+                    temperature=0.1,
+                    max_tokens=2048
+                )
+                if merged_text:
+                    merged_text = re.sub(r'<think>.*?</think>', '', merged_text, flags=re.DOTALL).strip()
+                else:
+                    merged_text = " ".join(texts)
+            except Exception as e:
+                print(f"Error merging paragraphs for page {page_num}: {e}. Falling back to concatenation.")
+                merged_text = " ".join(texts)
+                
+        # Collect unique steps from all paths on this page
+        seen_nodes = set()
+        decision_path_steps = []
+        for path in paths:
+            for idx, node_id in enumerate(path):
+                if node_id not in seen_nodes:
+                    seen_nodes.add(node_id)
+                    node_data = G.nodes[node_id]
+                    step = {
+                        "node_id": node_id,
+                        "text": node_data.get("text", "").strip(),
+                        "type": node_data.get("type", "")
+                    }
+                    if idx < len(path) - 1:
+                        next_id = path[idx + 1]
+                        if G.has_edge(node_id, next_id):
+                            step["transition"] = G.edges[node_id, next_id].get("condition", "")
+                    decision_path_steps.append(step)
+
+        # Save single page paragraph
         generated_paragraphs.append({
-            "paragraph_id": f"p_{flowchart_id_to_str(page_num)}_{paragraph_id_counter}",
+            "paragraph_id": f"p_{flowchart_id_to_str(page_num)}",
             "manual_name": manual_name,
             "flowchart_id": page_num,
-            "start_node": path[0],
-            "end_node": path[-1],
             "decision_path": decision_path_steps,
-            "text": paragraph_text
+            "text": merged_text
         })
-        paragraph_id_counter += 1
         
     return generated_paragraphs
 

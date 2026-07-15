@@ -18,6 +18,20 @@ HTML_TEMPLATE = """
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flowchart Troubleshooting Assistant</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'dark',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
     <style>
         * {
             margin: 0;
@@ -344,6 +358,20 @@ HTML_TEMPLATE = """
             color: #60a5fa;
             font-weight: 600;
         }
+        .mermaid {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px 0;
+            overflow-x: auto;
+            display: flex;
+            justify-content: center;
+        }
+        .mermaid svg {
+            max-width: 100% !important;
+            height: auto !important;
+        }
     </style>
 </head>
 <body>
@@ -363,14 +391,8 @@ HTML_TEMPLATE = """
                 </div>
             </div>
             
-            <div class="sidebar-section">
-                <label for="api-key-input">Groq API Key</label>
-                <input type="password" id="api-key-input" class="styled-input" placeholder="gsk_...">
-                <button id="save-key-btn" class="save-btn">Save API Key</button>
-            </div>
-            
             <div style="margin-top: auto; font-size: 0.75rem; color: #6b7280; text-align: center;">
-                Powered by PyMuPDF & Groq Llama 3.1
+                Powered by PyMuPDF & local vLLM
             </div>
         </div>
         
@@ -394,7 +416,7 @@ HTML_TEMPLATE = """
                     <div class="message-content">
                         Hello! I am your AI Flowchart troubleshooting assistant.
                         <br><br>
-                        Verify your Groq API Key, and enter your query or select one of the suggested prompts below. I will search across all flowchart pages to trace the corrective actions!
+                        Enter your query or select one of the suggested prompts below. I will search across all flowchart pages to trace the corrective actions!
                     </div>
                 </div>
             </div>
@@ -419,31 +441,12 @@ HTML_TEMPLATE = """
     </div>
 
     <script>
-        const apiKeyInput = document.getElementById("api-key-input");
-        const saveKeyBtn = document.getElementById("save-key-btn");
         const messagesList = document.getElementById("messages-list");
         const userChatInput = document.getElementById("user-chat-input");
         const sendChatBtn = document.getElementById("send-chat-btn");
         const activeFlowchartTitle = document.getElementById("active-flowchart-title");
         const activeFlowchartDesc = document.getElementById("active-flowchart-desc");
         const suggestionsList = document.getElementById("suggestions-list");
-
-        // Load saved API key from localStorage
-        const savedKey = localStorage.getItem("groq_api_key");
-        if (savedKey) {
-            apiKeyInput.value = savedKey;
-        }
-
-        saveKeyBtn.addEventListener("click", () => {
-            const key = apiKeyInput.value.trim();
-            if (key) {
-                localStorage.setItem("groq_api_key", key);
-                alert("API Key saved securely in your browser storage!");
-            } else {
-                localStorage.removeItem("groq_api_key");
-                alert("API Key cleared.");
-            }
-        });
 
         // Quick Suggestion Prompts configuration for Global Search
         const SUGGESTIONS = [
@@ -472,27 +475,48 @@ HTML_TEMPLATE = """
         // Initialize suggestions
         updateSuggestions();
 
-        // Format Markdown Simple Parser
+        // Format Markdown using marked.js with custom Mermaid support
         function formatMarkdown(text) {
-            // Escape HTML characters
-            let formatted = text
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;");
+            if (typeof marked === 'undefined') {
+                return text.replace(/\\n/g, "<br>");
+            }
+            
+            const renderer = new marked.Renderer();
+            
+            // Custom renderer for code block to handle mermaid
+            renderer.code = function(codeOrObj, lang, escaped) {
+                let codeText = "";
+                let language = "";
+                if (codeOrObj && typeof codeOrObj === 'object') {
+                    codeText = codeOrObj.text || "";
+                    language = codeOrObj.lang || "";
+                } else {
+                    codeText = codeOrObj || "";
+                    language = lang || "";
+                }
                 
-            // Replace bold **text**
-            formatted = formatted.replace(/\\*\\*(.*?)\\*\\*/g, "<strong>$1</strong>");
+                if (language === 'mermaid') {
+                    // Unescape HTML entities so mermaid receives raw <, >, and & characters
+                    const rawCode = codeText
+                        .replace(/&lt;/g, '<')
+                        .replace(/&gt;/g, '>')
+                        .replace(/&amp;/g, '&');
+                    return `
+                        <div class="mermaid-wrapper" style="margin: 16px 0;">
+                            <div style="font-size: 0.8rem; color: #9ca3af; margin-bottom: 4px; font-weight: 600; text-transform: uppercase;">Flowchart Diagram</div>
+                            <pre class="mermaid">${rawCode}</pre>
+                            <div style="font-size: 0.8rem; color: #9ca3af; margin-top: 16px; margin-bottom: 4px; font-weight: 600; text-transform: uppercase;">Mermaid Source Code</div>
+                            <pre style="background: rgba(0, 0, 0, 0.3); padding: 12px; border-radius: 8px; overflow-x: auto; border: 1px solid rgba(255, 255, 255, 0.05); font-family: monospace; font-size: 0.85rem; color: #e2e8f0; user-select: all;"><code class="language-mermaid">${codeText}</code></pre>
+                        </div>
+                    `;
+                }
+                
+                return `<pre><code>${codeText}</code></pre>`;
+            };
             
-            // Replace bullet list items (handle both - and *)
-            formatted = formatted.replace(/^-\\s+(.*?)$/gm, "<li>$1</li>");
-            formatted = formatted.replace(/^\\*\\s+(.*?)$/gm, "<li>$1</li>");
+            marked.use({ renderer });
             
-            // Wrap bullet lists
-            formatted = formatted.replace(/(<li>.*?<\\/li>)/s, "<ul>$1</ul>");
-            
-            // Replace newlines
-            formatted = formatted.replace(/\\n/g, "<br>");
-            return formatted;
+            return marked.parse(text);
         }
 
         function appendMessage(sender, content, isHtml = false) {
@@ -530,14 +554,8 @@ HTML_TEMPLATE = """
 
         async function sendChat() {
             const message = userChatInput.value.trim();
-            const apiKey = apiKeyInput.value.trim();
             
             if (!message) return;
-            
-            if (!apiKey) {
-                alert("Please enter and save your Groq API Key in the sidebar first!");
-                return;
-            }
             
             // Append User message
             appendMessage("user", message);
@@ -554,8 +572,7 @@ HTML_TEMPLATE = """
                     },
                     body: JSON.stringify({
                         message: message,
-                        page: null, // Always search globally
-                        api_key: apiKey
+                        page: null // Always search globally
                     })
                 });
                 
@@ -566,6 +583,15 @@ HTML_TEMPLATE = """
                 if (data.success) {
                     const reply = formatMarkdown(data.response);
                     appendMessage("assistant", reply, true);
+                    setTimeout(() => {
+                        try {
+                            if (typeof mermaid !== 'undefined') {
+                                mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+                            }
+                        } catch (err) {
+                            console.error("Mermaid init error:", err);
+                        }
+                    }, 50);
                 } else {
                     appendMessage("assistant", `Error: ${data.error || "Failed to query the AI assistant."}`);
                 }
@@ -600,12 +626,9 @@ def chat_endpoint():
     data = request.get_json() or {}
     message = data.get("message", "").strip()
     page_num = str(data.get("page", "1")).strip()
-    api_key = data.get("api_key", "").strip()
     
     if not message:
         return jsonify({"success": False, "error": "Message content is required."}), 400
-    if not api_key:
-        return jsonify({"success": False, "error": "Groq API Key is required."}), 400
         
     # Check if vector database exists, if not generate it
     graph_path = "decision_graph.json"

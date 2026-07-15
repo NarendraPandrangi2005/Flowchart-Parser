@@ -95,6 +95,10 @@ def process_query_pipeline(query_text, graph_path, paragraphs_path, vector_store
     # Detect if the query references specific flowchart components (like CB1)
     referenced_nodes = find_referenced_nodes(query_text, active_nodes)
     
+    if referenced_nodes:
+        # Lock flowchart_id to the matched page of the first referenced node
+        flowchart_id = str(referenced_nodes[0]["flowchart_id"])
+        
     graph_context_chunks = []
     graph_paths = []
     
@@ -126,6 +130,7 @@ def process_query_pipeline(query_text, graph_path, paragraphs_path, vector_store
     
     try:
         # Query the local database for semantically matching snippets
+        # If flowchart_id is locked, it filters to that flowchart page. Otherwise, searches globally.
         semantic_results = vector_store.query(
             query_text=query_text,
             manual_name=manual_name,
@@ -149,6 +154,35 @@ def process_query_pipeline(query_text, graph_path, paragraphs_path, vector_store
             n_results=n_results
         )
         
+    # --- STAGE 3.5: PAGE LOCK & FILTERING (Ensure exactly 1 flowchart is used) ---
+    if not flowchart_id:
+        if semantic_metadatas:
+            # We queried from ChromaDB
+            flowchart_id = str(semantic_metadatas[0].get("flowchart_id"))
+            # Filter the semantic results to only keep those from this flowchart_id
+            filtered_chunks = []
+            for idx, chunk in enumerate(semantic_chunks):
+                if str(semantic_metadatas[idx].get("flowchart_id")) == flowchart_id:
+                    filtered_chunks.append(chunk)
+            semantic_chunks = filtered_chunks
+        elif semantic_chunks:
+            # Fallback search was used (no metadata structure, just strings)
+            # Find the flowchart_id of the top text by scanning paragraphs_data
+            top_text = semantic_chunks[0]
+            for p in paragraphs_data:
+                if p["text"] == top_text:
+                    flowchart_id = str(p["flowchart_id"])
+                    break
+            if flowchart_id:
+                # Filter the fallback results to only keep those from this flowchart_id
+                filtered_chunks = []
+                for chunk in semantic_chunks:
+                    for p in paragraphs_data:
+                        if p["text"] == chunk and str(p["flowchart_id"]) == flowchart_id:
+                            filtered_chunks.append(chunk)
+                            break
+                semantic_chunks = filtered_chunks
+
     # --- STAGE 4: COMBINE AND DEDUPLICATE CONTEXTS ---
     # Start our context list with the highly-accurate graph-prioritized chunks
     final_chunks = list(graph_context_chunks)
