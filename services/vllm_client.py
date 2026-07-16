@@ -6,19 +6,100 @@ def sanitize_mermaid_code(text):
     """
     Finds all ```mermaid ... ``` code blocks in the text and ensures they start with a valid
     Mermaid declaration (like 'flowchart TD' or 'graph TD'). If not, prepends 'flowchart TD'.
+    Also sanitizes individual flowchart lines to guarantee valid syntax.
     """
+    def sanitize_node_id(node_id):
+        cleaned = node_id.strip()
+        cleaned = re.sub(r'[^a-zA-Z0-9_]', '_', cleaned)
+        cleaned = re.sub(r'_+', '_', cleaned)
+        cleaned = cleaned.strip('_')
+        return cleaned
+
+    def sanitize_label(label):
+        label = label.strip()
+        if not label:
+            return '""'
+        # Check if already quoted
+        if len(label) >= 2 and label[0] == '"' and label[-1] == '"':
+            label = label[1:-1]
+        label = label.replace('\\"', '"')
+        label = label.replace('"', '\\"')
+        return f'"{label}"'
+
+    def sanitize_mermaid_line(line):
+        indent_match = re.match(r'^(\s*)', line)
+        indent = indent_match.group(1) if indent_match else ''
+        content = line.strip()
+        if not content:
+            return line
+            
+        if content.lower().startswith(('flowchart', 'graph', '%%', 'subgraph', 'end', 'style', 'classdef', 'class', 'click', 'linkstyle')):
+            return line
+            
+        # Pre-process "-- label -->" to "-->|label|"
+        content = re.sub(r'\s*--\s*(.*?)\s*-->\s*', r' -->|\1| ', content)
+        
+        connector_pattern = r'(\s*(?:==>|-->|-.->|--x|-x|--o|-o|---)\s*(?:\|[^\|]*\|)?\s*)'
+        parts = re.split(connector_pattern, content)
+        
+        sanitized_parts = []
+        for idx, part in enumerate(parts):
+            if idx % 2 == 0:
+                part_str = part.strip()
+                if not part_str:
+                    sanitized_parts.append("")
+                    continue
+                    
+                node_match = re.match(r'^([^\{\[\(\>]+)([\{\[\(\>]+)(.*)([\}\]\)]+)$', part_str)
+                if node_match:
+                    node_id = node_match.group(1)
+                    opening = node_match.group(2)
+                    label = node_match.group(3)
+                    closing = node_match.group(4)
+                    
+                    sanitized_id = sanitize_node_id(node_id)
+                    sanitized_label = sanitize_label(label)
+                    sanitized_parts.append(f"{sanitized_id}{opening}{sanitized_label}{closing}")
+                else:
+                    sanitized_parts.append(sanitize_node_id(part_str))
+            else:
+                connector = part
+                label_match = re.search(r'\|([^\|]+)\|', connector)
+                if label_match:
+                    label_text = label_match.group(1)
+                    sanitized_lbl = sanitize_label(label_text)
+                    arrow_type = re.search(r'(==>|-->|-.->|--x|-x|--o|-o|---)', connector).group(1)
+                    connector = f" {arrow_type}|{sanitized_lbl}| "
+                sanitized_parts.append(connector)
+                
+        return indent + "".join(sanitized_parts)
+
     def replace_block(match):
         code = match.group(1)
-        trimmed = code.strip()
+        lines = code.split("\n")
+        
+        # Check if first word is valid mermaid keyword
+        trimmed_lines = [line.strip() for line in lines if line.strip()]
+        first_line = trimmed_lines[0] if trimmed_lines else ""
+        first_word = first_line.split()[0].lower() if first_line.split() else ""
+        
         valid_keywords = ("flowchart", "graph", "sequencediagram", "statediagram", "classdiagram", "erdiagram", "gantt", "pie", "gitgraph", "journey")
-        first_word = trimmed.split()[0].lower() if trimmed.split() else ""
-        # Check if first word starts with any of the valid keywords
         starts_with_valid = any(first_word.startswith(kw) for kw in valid_keywords)
+        is_flowchart = (not starts_with_valid) or first_word.startswith(('flowchart', 'graph'))
+        
+        sanitized_lines = []
+        for line in lines:
+            if is_flowchart:
+                sanitized_lines.append(sanitize_mermaid_line(line))
+            else:
+                sanitized_lines.append(line)
+            
         if not starts_with_valid:
-            return f"```mermaid\nflowchart TD\n    {trimmed}\n```"
-        return match.group(0)
+            # Insert flowchart TD at the start
+            return f"```mermaid\nflowchart TD\n" + "\n".join(sanitized_lines) + "\n```"
+            
+        return f"```mermaid\n" + "\n".join(sanitized_lines) + "\n```"
 
-    # Match blocks starting with ```mermaid and ending with ```
     pattern = r"```mermaid\s*\n(.*?)\n\s*```"
     return re.sub(pattern, replace_block, text, flags=re.DOTALL | re.IGNORECASE)
 
@@ -57,10 +138,10 @@ class VllmClient:
             "3. Do NOT invent or assume steps that are not explicitly present in the retrieved graph context.\n"
             "4. Match conditions (Yes/No, ON/OFF, Green/Red Light, etc.) precisely based on the user's state.\n"
             "5. Keep your response professional, precise, and structured exactly as described.\n"
-            "6. CRITICAL MERMAID SYNTAX RULE: If any node label or transition/edge label contains special characters "
-            "(especially '<', '>', parentheses '()', brackets '[]', or quotes), you MUST wrap the label text in double quotes. "
-            "For example, write: A[\"Check Speed (10.66.225.88:8080)\"] or B{\"Is Speed < 30%?\"} or B -->|\"< 30%\"| C. "
-            "Never leave '<' or '>' unquoted inside node/edge labels as it breaks the parser."
+            "6. CRITICAL MERMAID SYNTAX RULES:\n"
+            "   - Node IDs must be single-word alphanumeric names with no spaces or special characters (e.g., use 'start_node' or 'node_1', NEVER 'start node' or 'node-1').\n"
+            "   - ALWAYS wrap ALL node labels and transition/edge labels in double quotes. For example: node_1[\"Start Action\"] or node_2{\"Is Voltage < 220V?\"} or node_1 -->|\"Yes\"| node_2.\n"
+            "   - Never leave '<', '>', '(', ')', '[', ']', or other special characters unquoted inside node or edge labels."
         )
 
     def query(self, prompt, system_instruction=None, temperature=None, max_tokens=None):

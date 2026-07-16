@@ -6,8 +6,13 @@ from flask import Flask, request, jsonify, render_template_string
 from flask_cors import CORS
 from parser import parse_pdf
 
+from services.vector_store import VectorStoreManager
+
 app = Flask(__name__)
 CORS(app)  # Enable CORS for convenience
+
+# Initialize global VectorStoreManager instance to load embeddings model once
+vector_store = VectorStoreManager()
 
 # Beautiful HTML dashboard template served at root endpoint
 HTML_TEMPLATE = """
@@ -604,11 +609,8 @@ def chat_endpoint():
             
     # Process query through flowchart-aware retrieval service
     try:
-        from services.vector_store import VectorStoreManager
         from services.query_processor import process_query_pipeline
         from services.vllm_client import VllmClient
-        
-        vector_store = VectorStoreManager()
         
         # Run query processor pipeline (combines semantic search + graph node priority matching)
         processed = process_query_pipeline(
